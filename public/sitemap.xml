@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <!-- الصفحة الرئيسية - تحويل -->
+    <url>
+        <loc>https://jwc.sa/</loc>
+        <lastmod>2024-06-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- الصفحات العربية -->
+    <url>
+        <loc>https://jwc.sa/ar</loc>
+        <lastmod>2024-06-15</lastmod>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://jwc.sa/ar"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://jwc.sa/en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://jwc.sa/ar"/>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <url>
+        <loc>https://jwc.sa/ar/service-details</loc>
+        <lastmod>2024-06-15</lastmod>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://jwc.sa/ar/service-details"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://jwc.sa/en/service-details"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://jwc.sa/ar/service-details"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://jwc.sa/ar/portfolio-details</loc>
+        <lastmod>2024-06-15</lastmod>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://jwc.sa/ar/portfolio-details"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://jwc.sa/en/portfolio-details"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://jwc.sa/ar/portfolio-details"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- الصفحات الإنجليزية -->
+    <url>
+        <loc>https://jwc.sa/en</loc>
+        <lastmod>2024-06-15</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://jwc.sa/en"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://jwc.sa/ar"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://jwc.sa/ar"/>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://jwc.sa/en/service-details</loc>
+        <lastmod>2024-06-15</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://jwc.sa/en/service-details"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://jwc.sa/ar/service-details"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://jwc.sa/ar/service-details"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://jwc.sa/en/portfolio-details</loc>
+        <lastmod>2024-06-15</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://jwc.sa/en/portfolio-details"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://jwc.sa/ar/portfolio-details"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://jwc.sa/ar/portfolio-details"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- الروابط القديمة (للتحويل) -->
+    <url>
+        <loc>https://jwc.sa/service-details</loc>
+        <lastmod>2024-06-15</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.1</priority>
+    </url>
+
+    <url>
+        <loc>https://jwc.sa/portfolio-details</loc>
+        <lastmod>2024-06-15</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.1</priority>
+    </url>
+</urlset>

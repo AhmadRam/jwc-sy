@@ -1,0 +1,485 @@
+@extends('layout')
+
+@section('page_title')
+    {{ __('app.page_title') }}
+@endsection
+
+@section('meta_description')
+    {{ __('app.meta_description') }}
+@endsection
+
+@section('meta_keywords')
+    {{ __('app.meta_keywords') }}
+@endsection
+
+@section('content')
+    <main class="main">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero section dark-background">
+
+            <div class="container">
+                <div class="row gy-4 align-items-center">
+                    <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-in">
+                        <h1 class="mb-4">{{ __('app.hero_title') }}</h1>
+                        <p class="mb-4">{{ __('app.hero_description') }}</p>
+                        <div class="d-flex">
+                            <a href="#about" class="btn-get-started">{{ __('app.discover_more') }}</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2 hero-img text-center" data-aos="zoom-out" data-aos-delay="100">
+                        <img src="assets/img/hero-img.png" class="img-fluid animated" alt="JWC Strategic Communication">
+                    </div>
+                </div>
+            </div>
+
+        </section><!-- /Hero Section -->
+
+
+
+        <!-- About Section -->
+        <section id="about" class="about section">
+
+            <div class="container">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-6 position-relative order-lg-last" data-aos="fade-up" data-aos-delay="200">
+                        <img src="assets/img/about.jpg" class="img-fluid" alt="JWC About">
+                        <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+                    </div>
+
+                    <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+                        <h3>{{ __('app.about_us') }}</h3>
+                        <p>
+                            {{ __('app.about_description') }}
+                        </p>
+                        <ul>
+                            <li>
+                                <i class="bi bi-diagram-3"></i>
+                                <div>
+                                    <h5>{{ __('app.extensive_expertise') }}</h5>
+                                    <p>{{ __('app.expertise_description') }}</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="bi bi-fullscreen-exit"></i>
+                                <div>
+                                    <h5>{{ __('app.customized_solutions') }}</h5>
+                                    <p>{{ __('app.solutions_description') }}</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="bi bi-broadcast"></i>
+                                <div>
+                                    <h5>{{ __('app.tangible_results') }}</h5>
+                                    <p>{{ __('app.results_description') }}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section><!-- /About Section -->
+
+        <!-- Featured Services Section -->
+        <section id="featured-services" class="featured-services section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>{{ __('app.core_services') }}</h2>
+                <p>{{ __('app.services_description') }}</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-5">
+
+                    <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="service-item">
+                            <div class="img">
+                                <img src="{{ asset('assets/img/services-1.jpg') }}" class="img-fluid" alt="{{ __('app.strategic_communication') }}">
+                            </div>
+                            <div class="details">
+                                <div class="icon">
+                                    <i class="bi bi-diagram-3"></i>
+                                </div>
+                                <h3>{{ __('app.strategic_communication') }}</h3>
+                                <p>{{ __('app.strategic_description') }}</p>
+                            </div>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="service-item">
+                            <div class="img">
+                                <img src="{{ asset('assets/img/services-2.jpg') }}" class="img-fluid" alt="{{ __('app.communication_strategies') }}">
+                            </div>
+                            <div class="details">
+                                <div class="icon">
+                                    <i class="bi bi-broadcast"></i>
+                                </div>
+                                <h3>{{ __('app.communication_strategies') }}</h3>
+                                <p>{{ __('app.strategies_description') }}</p>
+                            </div>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="service-item">
+                            <div class="img">
+                                <img src="{{ asset('assets/img/services-3.jpg') }}" class="img-fluid" alt="{{ __('app.public_relations') }}">
+                            </div>
+                            <div class="details">
+                                <div class="icon">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                                <h3>{{ __('app.public_relations') }}</h3>
+                                <p>{{ __('app.relations_description') }}</p>
+                            </div>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="service-item">
+                            <div class="img">
+                                <img src="{{ asset('assets/img/services-4.jpg') }}" class="img-fluid" alt="{{ __('app.reputation_management') }}">
+                            </div>
+                            <div class="details">
+                                <div class="icon">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+                                <h3>{{ __('app.reputation_management') }}</h3>
+                                <p>{{ __('app.reputation_description') }}</p>
+                            </div>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="600">
+                        <div class="service-item">
+                            <div class="img">
+                                <img src="{{ asset('assets/img/services-5.jpg') }}" class="img-fluid" alt="{{ __('app.advocacy') }}">
+                            </div>
+                            <div class="details">
+                                <div class="icon">
+                                    <i class="bi bi-megaphone"></i>
+                                </div>
+                                <h3>{{ __('app.advocacy') }}</h3>
+                                <p>{{ __('app.advocacy_description') }}</p>
+                            </div>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="700">
+                        <div class="service-item">
+                            <div class="img">
+                                <img src="{{ asset('assets/img/services-6.jpg') }}" class="img-fluid" alt="{{ __('app.image_building') }}">
+                            </div>
+                            <div class="details">
+                                <div class="icon">
+                                    <i class="bi bi-lightbulb"></i>
+                                </div>
+                                <h3>{{ __('app.image_building') }}</h3>
+                                <p>{{ __('app.image_description') }}</p>
+                            </div>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /Featured Services Section -->
+
+        <!-- Features Section -->
+        <section id="features" class="features section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>{{ __('app.why_choose_us') }}</h2>
+                <p>{{ __('app.features_description') }}</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row gy-4 align-items-center features-item">
+                    <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+                        <img src="{{ asset('assets/img/features-1.svg') }}" class="img-fluid" alt="{{ __('app.strategic_communication') }}">
+                    </div>
+                    <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
+                        <h3>{{ __('app.strategic_communication') }}</h3>
+                        <p class="fst-italic">
+                            {{ __('app.strategic_framework_description') }}
+                        </p>
+                        <ul>
+                            <li><i class="bi bi-check"></i><span>{{ __('app.advocacy_point') }}</span></li>
+                            <li><i class="bi bi-check"></i> <span>{{ __('app.image_building_point') }}</span></li>
+                            <li><i class="bi bi-check"></i> <span>{{ __('app.communication_engagement_point') }}</span></li>
+                        </ul>
+                    </div>
+                </div><!-- Features Item -->
+
+                <div class="row gy-4 align-items-center features-item">
+                    <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+                        <img src="{{ asset('assets/img/features-2.svg') }}" class="img-fluid" alt="{{ __('app.communication_strategies') }}">
+                    </div>
+                    <div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
+                        <h3>{{ __('app.communication_strategies') }}</h3>
+                        <p class="fst-italic">
+                            {{ __('app.strategies_framework_description') }}
+                        </p>
+                        <p>
+                            {{ __('app.strategies_detailed_description') }}
+                        </p>
+                    </div>
+                </div><!-- Features Item -->
+
+                <div class="row gy-4 align-items-center features-item">
+                    <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out">
+                        <img src="{{ asset('assets/img/features-3.svg') }}" class="img-fluid" alt="{{ __('app.public_relations') }}">
+                    </div>
+                    <div class="col-md-7" data-aos="fade-up">
+                        <h3>{{ __('app.public_relations') }}</h3>
+                        <p>{{ __('app.pr_detailed_description') }}</p>
+                        <ul>
+                            <li><i class="bi bi-check"></i> <span>{{ __('app.media_relations_point') }}</span></li>
+                            <li><i class="bi bi-check"></i><span>{{ __('app.media_centers_point') }}</span></li>
+                            <li><i class="bi bi-check"></i> <span>{{ __('app.internal_comms_point') }}</span></li>
+                        </ul>
+                    </div>
+                </div><!-- Features Item -->
+
+                <div class="row gy-4 align-items-center features-item">
+                    <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out">
+                        <img src="{{ asset('assets/img/features-4.svg') }}" class="img-fluid" alt="{{ __('app.reputation_management') }}">
+                    </div>
+                    <div class="col-md-7 order-2 order-md-1" data-aos="fade-up">
+                        <h3>{{ __('app.reputation_management') }}</h3>
+                        <p class="fst-italic">
+                            {{ __('app.reputation_framework_description') }}
+                        </p>
+                        <p>
+                            {{ __('app.reputation_services_description') }}
+                        </p>
+                    </div>
+                </div><!-- Features Item -->
+
+            </div>
+
+        </section><!-- /Features Section -->
+
+        <!-- Clients Section -->
+        <section id="clients" class="clients section light-background">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>{{ __('app.clients') }}</h2>
+                <p>{{ __('app.clients_description') }}</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="swiper init-swiper">
+                    <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 2,
+                  "spaceBetween": 40
+                },
+                "480": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 60
+                },
+                "640": {
+                  "slidesPerView": 4,
+                  "spaceBetween": 80
+                },
+                "992": {
+                  "slidesPerView": 6,
+                  "spaceBetween": 120
+                }
+              }
+            }
+          </script>
+                    <div class="swiper-wrapper align-items-center">
+                        <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid"
+                                alt="Client 1"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid"
+                                alt="Client 2"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid"
+                                alt="Client 3"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid"
+                                alt="Client 4"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid"
+                                alt="Client 5"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid"
+                                alt="Client 6"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid"
+                                alt="Client 7"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid"
+                                alt="Client 8"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-9.png" class="img-fluid"
+                                alt="Client 9"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-10.png" class="img-fluid"
+                                alt="Client 10"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-11.png" class="img-fluid"
+                                alt="Client 11"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-12.png" class="img-fluid"
+                                alt="Client 12"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-13.png" class="img-fluid"
+                                alt="Client 13"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-14.png" class="img-fluid"
+                                alt="Client 14"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-15.png" class="img-fluid"
+                                alt="Client 15"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-16.png" class="img-fluid"
+                                alt="Client 16"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-17.png" class="img-fluid"
+                                alt="Client 17"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-18.png" class="img-fluid"
+                                alt="Client 18"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-19.png" class="img-fluid"
+                                alt="Client 19"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-20.png" class="img-fluid"
+                                alt="Client 20"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-21.png" class="img-fluid"
+                                alt="Client 21"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-22.png" class="img-fluid"
+                                alt="Client 22"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-23.png" class="img-fluid"
+                                alt="Client 23"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-24.png" class="img-fluid"
+                                alt="Client 24"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-25.png" class="img-fluid"
+                                alt="Client 25"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-26.png" class="img-fluid"
+                                alt="Client 26"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-27.png" class="img-fluid"
+                                alt="Client 27"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-28.png" class="img-fluid"
+                                alt="Client 28"></div>
+                        <div class="swiper-slide"><img src="assets/img/clients/client-29.png" class="img-fluid"
+                                alt="Client 29"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section><!-- /Clients Section -->
+
+        <!-- Divider Section -->
+        <div class="section-divider">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div class="divider-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /Divider Section -->
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section light-background">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>{{ __('app.contact') }}</h2>
+                <p>{{ __('app.contact_description') }}</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-4">
+                    <div class="col-lg-6 ">
+                        <div class="row gy-4">
+
+                            <div class="col-lg-12">
+                                <div class="info-item d-flex flex-column justify-content-center align-items-center"
+                                    data-aos="fade-up" data-aos-delay="200">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <h3>{{ __('app.address_title') }}</h3>
+                                    <p class="mt-2 px-3">{{ __('app.address') }}</p>
+                                </div>
+                            </div><!-- End Info Item -->
+
+                            <div class="col-md-6">
+                                <div class="info-item d-flex flex-column justify-content-center align-items-center"
+                                    data-aos="fade-up" data-aos-delay="300">
+                                    <i class="bi bi-telephone"></i>
+                                    <h3>{{ __('app.call_us_title') }}</h3>
+                                    <p class="mt-2 px-3" style="{{ app()->getLocale() == 'ar' ? 'direction: ltr;' : '' }}">+966 506 123 777</p>
+                                </div>
+                            </div><!-- End Info Item -->
+
+                            <div class="col-md-6">
+                                <div class="info-item d-flex flex-column justify-content-center align-items-center"
+                                    data-aos="fade-up" data-aos-delay="400">
+                                    <i class="bi bi-envelope"></i>
+                                    <h3>{{ __('app.email_title') }}</h3>
+                                    <p class="mt-2 px-3">info@jwc.sa</p>
+                                </div>
+                            </div><!-- End Info Item -->
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <form id="contactForm" action="{{ route('contact.send') }}" method="post" class="php-email-form" data-aos="fade-up"
+                            data-aos-delay="500">
+                            @csrf
+                            <div class="row gy-4">
+
+                                <div class="col-md-6">
+                                    <input type="text" name="name" class="form-control" placeholder="{{ __('app.name_placeholder') }}"
+                                        required="">
+                                </div>
+
+                                <div class="col-md-6 ">
+                                    <input type="email" class="form-control" name="email" placeholder="{{ __('app.email_placeholder') }}"
+                                        required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" name="subject" placeholder="{{ __('app.subject_placeholder') }}"
+                                        required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <textarea class="form-control" name="message" rows="4" placeholder="{{ __('app.message_placeholder') }}" required=""></textarea>
+                                </div>
+
+                                <div class="col-md-12 text-center">
+                                    <div class="loading">{{ __('app.loading_text') }}</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">{{ __('app.message_sent') }}</div>
+
+                                    <button type="submit">{{ __('app.send_button') }}</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div><!-- End Contact Form -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /Contact Section -->
+
+    </main>
+@endsection

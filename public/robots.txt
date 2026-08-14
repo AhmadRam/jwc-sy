@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+
+# Allow all bots to access the site
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: Slurp
+Allow: /
+User-agent: DuckDuckBot
+Allow: /
+User-agent: Baiduspider
+Allow: /
+User-agent: Yandex
+Allow: /
+
+# Disallow access to specific folders
+Disallow: /vendor/
+Disallow: /storage/
+Disallow: /bootstrap/
+Disallow: /config/
+Disallow: /database/
+Disallow: /resources/views/errors/
+
+# Sitemap location
+Sitemap: https://jwc.sa/sitemap.xml
+
+# Preferred language versions
+# Arabic version is the default (x-default)
+# English version is available at /en
