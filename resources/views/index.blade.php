@@ -129,8 +129,19 @@
                 <button class="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full bg-white/5 text-white border border-white/10 hover:bg-white/10 font-bold transition-all" data-tab="pillar-3">{{ __('app.pillar_3_title') }}</button>
             </div>
 
+            <style>
+                @keyframes tabFadeIn {
+                    from { opacity: 0; transform: translateY(15px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                .tab-animate {
+                    animation: tabFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+                }
+            </style>
+
             <!-- Tabs Content -->
-            <div class="tab-content" id="pillar-1">
+            <div id="services-content-wrapper" class="scroll-mt-28">
+                <div class="tab-content" id="pillar-1">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     @foreach(__('app.pillar_1_services') as $title => $desc)
                     @if($loop->last && $loop->count % 2 !== 0)
@@ -218,6 +229,7 @@
                     @endif
                     @endforeach
                 </div>
+            </div>
             </div>
         </div>
     </section>
@@ -555,14 +567,30 @@
                     b.classList.remove('bg-secondary', 'text-dark');
                     b.classList.add('bg-white/5', 'text-white', 'border', 'border-white/10', 'hover:bg-white/10');
                 });
-                tabContents.forEach(c => c.classList.add('hidden'));
+                
+                tabContents.forEach(c => {
+                    c.classList.add('hidden');
+                    c.classList.remove('tab-animate');
+                });
 
                 // Add active class to clicked
                 btn.classList.remove('bg-white/5', 'text-white', 'border', 'border-white/10', 'hover:bg-white/10');
                 btn.classList.add('bg-secondary', 'text-dark');
                 
-                // Show content
-                document.getElementById(btn.dataset.tab).classList.remove('hidden');
+                // Show content with animation
+                const activeTab = document.getElementById(btn.dataset.tab);
+                if (activeTab) {
+                    activeTab.classList.remove('hidden');
+                    activeTab.classList.add('tab-animate');
+                }
+
+                // Smooth scroll to content on mobile (width < 768px)
+                if (window.innerWidth < 768) {
+                    const contentWrapper = document.getElementById('services-content-wrapper');
+                    if (contentWrapper) {
+                        contentWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
             });
         });
 
