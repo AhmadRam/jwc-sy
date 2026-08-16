@@ -21,6 +21,7 @@
     
     <!-- Map CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
 
     <!-- Vite Assets (Tailwind CSS & JS) -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
