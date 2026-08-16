@@ -144,13 +144,13 @@
                             <span class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary shrink-0">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             </span>
-                            <span class="text-white/80 text-sm"><strong>{{ app()->getLocale() == 'ar' ? 'العنوان الرئيسي: ' : 'Main Address: ' }}</strong>{{ __('app.address') }}</span>
+                            <span class="text-white/80 text-sm">{{ __('app.address3') }}</span>
                         </li>
                         <li class="flex items-start justify-center md:justify-start gap-3">
                             <span class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary shrink-0">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             </span>
-                            <span class="text-white/80 text-sm">{{ __('app.address3') }}</span>
+                            <span class="text-white/80 text-sm">{{ __('app.address') }}</span>
                         </li>
                         <li class="flex items-start justify-center md:justify-start gap-3">
                             <span class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary shrink-0">
