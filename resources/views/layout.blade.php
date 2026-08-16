@@ -21,7 +21,6 @@
     
     <!-- Map CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
 
     <!-- Vite Assets (Tailwind CSS & JS) -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -40,13 +39,13 @@
         <div class="container mx-auto px-6 flex justify-between items-center">
             <!-- Logo -->
             <a href="{{ app()->getLocale() == 'ar' ? route('index') : route('index_en') }}" class="relative z-50 group">
-                <img src="{{ vasset('assets/img/logo.png') }}" alt="JWC Logo" class="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_10px_rgba(191,148,72,0.3)]">
+                <img src="{{ vasset('assets/img/logo.png') }}" alt="JWC Logo" class="h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_10px_rgba(191,148,72,0.3)]">
             </a>
 
             <!-- Desktop Menu -->
             <div class="hidden lg:flex items-center bg-white/5 backdrop-blur-md rounded-full px-4 py-3 border border-white/10 shadow-xl max-w-[60%] lg:max-w-[70%] overflow-x-auto" style="scrollbar-width: none; -ms-overflow-style: none;">
                 <style>div::-webkit-scrollbar { display: none; }</style>
-                <ul class="flex gap-3 xl:gap-5 items-center m-0 p-0 list-none text-[11px] xl:text-sm whitespace-nowrap w-full justify-between">
+                <ul class="flex gap-4 xl:gap-6 items-center m-0 p-0 list-none text-sm xl:text-base whitespace-nowrap w-full justify-between">
                     <li><a href="/{{ app()->getLocale() }}#hero" class="text-white/80 hover:text-white transition-all font-medium relative group py-2">{{ __('app.home') }}<span class="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary transition-all duration-300 group-hover:w-full"></span></a></li>
                     <li><a href="/{{ app()->getLocale() }}#about" class="text-white/80 hover:text-white transition-all font-medium relative group py-2">{{ __('app.about') }}<span class="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary transition-all duration-300 group-hover:w-full"></span></a></li>
                     <li><a href="/{{ app()->getLocale() }}#services" class="text-white/80 hover:text-white transition-all font-medium relative group py-2">{{ __('app.services') }}<span class="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary transition-all duration-300 group-hover:w-full"></span></a></li>
@@ -97,6 +96,10 @@
                     <ul class="space-y-4 text-gray-400 text-sm">
                         <li class="flex items-center justify-center md:justify-start gap-3">
                             <span class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">📞</span>
+                            <a href="tel:+96300000000" class="hover:text-secondary transition-colors" dir="ltr">+963 XX XXX XXXX</a>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start gap-3">
+                            <span class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">📞</span>
                             <a href="tel:+966506123777" class="hover:text-secondary transition-colors" dir="ltr">+966 506 123 777</a>
                         </li>
                         <li class="flex items-center justify-center md:justify-start gap-3">
@@ -112,15 +115,15 @@
                     <ul class="flex flex-col gap-4 m-0 p-0 list-none">
                         <li class="flex items-start justify-center md:justify-start gap-3">
                             <span class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary shrink-0">📍</span>
+                            <span class="text-white/80 text-sm">{{ __('app.address3') }}</span>
+                        </li>
+                        <li class="flex items-start justify-center md:justify-start gap-3">
+                            <span class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary shrink-0">📍</span>
                             <span class="text-white/80 text-sm">{{ __('app.address') }}</span>
                         </li>
                         <li class="flex items-start justify-center md:justify-start gap-3">
                             <span class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary shrink-0">📍</span>
                             <span class="text-white/80 text-sm">{{ __('app.address2') }}</span>
-                        </li>
-                        <li class="flex items-start justify-center md:justify-start gap-3">
-                            <span class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary shrink-0">📍</span>
-                            <span class="text-white/80 text-sm">{{ __('app.address3') }}</span>
                         </li>
                     </ul>
                 </div>

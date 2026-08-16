@@ -14,9 +14,9 @@
                     {{ __('app.hero_title') }}
                 </div>
                 
-                <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
+                <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold leading-normal">
                     {{ __('app.hero_subtitle_1') }} <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-yellow-200">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-yellow-200 inline-block py-2">
                         {{ __('app.hero_subtitle_2') }}
                     </span>
                 </h1>
@@ -125,15 +125,15 @@
             <!-- Tabs Navigation -->
             <div class="flex flex-wrap justify-center gap-4 mb-12" id="services-tabs">
                 <button class="px-6 py-3 rounded-full bg-secondary text-dark font-bold transition-all" data-tab="pillar-1">{{ __('app.pillar_1_title') }}</button>
-                <button class="px-6 py-3 rounded-full bg-white/5 text-white border border-white/10 hover:bg-white/10 transition-all" data-tab="pillar-2">{{ __('app.pillar_2_title') }}</button>
-                <button class="px-6 py-3 rounded-full bg-white/5 text-white border border-white/10 hover:bg-white/10 transition-all" data-tab="pillar-3">{{ __('app.pillar_3_title') }}</button>
+                <button class="px-6 py-3 rounded-full bg-white/5 text-white border border-white/10 hover:bg-white/10 font-bold transition-all" data-tab="pillar-2">{{ __('app.pillar_2_title') }}</button>
+                <button class="px-6 py-3 rounded-full bg-white/5 text-white border border-white/10 hover:bg-white/10 font-bold transition-all" data-tab="pillar-3">{{ __('app.pillar_3_title') }}</button>
             </div>
 
             <!-- Tabs Content -->
             <div class="tab-content" id="pillar-1">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     @foreach(__('app.pillar_1_services') as $title => $desc)
-                    <div class="glass-card p-6 glass-card-hover flex gap-4">
+                    <div class="glass-card p-6 glass-card-hover flex gap-4 {{ $loop->last && $loop->count % 2 !== 0 ? 'md:col-span-2 md:w-[calc(50%-0.75rem)] md:mx-auto w-full' : '' }}">
                         <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
@@ -149,7 +149,7 @@
             <div class="tab-content hidden" id="pillar-2">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     @foreach(__('app.pillar_2_services') as $title => $desc)
-                    <div class="glass-card p-6 glass-card-hover flex gap-4">
+                    <div class="glass-card p-6 glass-card-hover flex gap-4 {{ $loop->last && $loop->count % 2 !== 0 ? 'md:col-span-2 md:w-[calc(50%-0.75rem)] md:mx-auto w-full' : '' }}">
                         <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                         </div>
@@ -165,7 +165,7 @@
             <div class="tab-content hidden" id="pillar-3">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     @foreach(__('app.pillar_3_services') as $title => $desc)
-                    <div class="glass-card p-6 glass-card-hover flex gap-4">
+                    <div class="glass-card p-6 glass-card-hover flex gap-4 {{ $loop->last && $loop->count % 2 !== 0 ? 'md:col-span-2 md:w-[calc(50%-0.75rem)] md:mx-auto w-full' : '' }}">
                         <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
@@ -187,9 +187,9 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">{{ __('app.why_us_title') }}</h2>
                 <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
+            <div class="flex flex-wrap justify-center gap-6">
                 @for($i=1; $i<=5; $i++)
-                <div class="glass-card p-8 group glass-card-hover text-center">
+                <div class="glass-card p-8 group glass-card-hover text-center w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333333%-1rem)]">
                     <div class="w-16 h-16 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-2xl font-bold mx-auto mb-4 group-hover:bg-secondary group-hover:text-dark transition-all">{{ $i }}</div>
                     <h4 class="text-xl font-bold text-white mb-3">{{ __('app.why_'.$i.'_title') }}</h4>
                     <p class="text-gray-400 text-sm">{{ __('app.why_'.$i.'_desc') }}</p>
@@ -299,6 +299,7 @@
                         ['code' => 'tr', 'name' => 'country_turkey'],
                         ['code' => 'sy', 'name' => 'country_syria'],
                     ];
+                    $syriaFlag = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'><rect width='600' height='600' fill='%23000'/><rect width='600' height='400' fill='%23fff'/><rect width='600' height='200' fill='%23007a3d'/><g fill='%23ce1126'><path d='M 150,230 L 165,275 L 210,275 L 175,305 L 190,350 L 150,320 L 110,350 L 125,305 L 90,275 L 135,275 Z' /><path d='M 300,230 L 315,275 L 360,275 L 325,305 L 340,350 L 300,320 L 260,350 L 275,305 L 240,275 L 285,275 Z' /><path d='M 450,230 L 465,275 L 510,275 L 475,305 L 490,350 L 450,320 L 410,350 L 425,305 L 390,275 L 435,275 Z' /></g></svg>";
                 @endphp
                 
                 <!-- Row 1 (5 Flags) -->
@@ -306,7 +307,7 @@
                     @foreach(array_slice($countries, 0, 5) as $country)
                     <div class="flag-item flex flex-col items-center justify-center gap-2 cursor-pointer transition-transform duration-300 w-[60px] sm:w-[70px] md:w-[90px]" data-country="{{ $country['code'] }}">
                         <div class="w-[40px] h-[40px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden shadow-lg shadow-black/50 border border-white/10 shrink-0 relative">
-                            <span class="fi fi-{{ $country['code'] }} fis absolute inset-0 w-full h-full block" style="background-size: cover !important; background-position: center !important; font-size: 0 !important; line-height: 0 !important;"></span>
+                            <img src="{{ $country['code'] == 'sy' ? $syriaFlag : 'https://flagcdn.com/w160/'.$country['code'].'.png' }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                         </div>
                         <span class="text-xs md:text-sm font-medium text-gray-300 text-center">{{ __('app.'.$country['name']) }}</span>
                     </div>
@@ -318,7 +319,7 @@
                     @foreach(array_slice($countries, 5, 4) as $country)
                     <div class="flag-item flex flex-col items-center justify-center gap-2 cursor-pointer transition-transform duration-300 w-[60px] sm:w-[70px] md:w-[90px]" data-country="{{ $country['code'] }}">
                         <div class="w-[40px] h-[40px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden shadow-lg shadow-black/50 border border-white/10 shrink-0 relative">
-                            <span class="fi fi-{{ $country['code'] }} fis absolute inset-0 w-full h-full block" style="background-size: cover !important; background-position: center !important; font-size: 0 !important; line-height: 0 !important;"></span>
+                            <img src="{{ $country['code'] == 'sy' ? $syriaFlag : 'https://flagcdn.com/w160/'.$country['code'].'.png' }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                         </div>
                         <span class="text-xs md:text-sm font-medium text-gray-300 text-center">{{ __('app.'.$country['name']) }}</span>
                     </div>
@@ -336,9 +337,6 @@
                 }
                 .pin-bouncing {
                     animation: bouncePin 1s infinite ease-in-out;
-                }
-                .fi.fi-sy, .fi.fi-sy.fis {
-                    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect width="600" height="600" fill="%23000"/><rect width="600" height="400" fill="%23fff"/><rect width="600" height="200" fill="%23007a3d"/><g fill="%23ce1126"><path d="M 150,230 L 165,275 L 210,275 L 175,305 L 190,350 L 150,320 L 110,350 L 125,305 L 90,275 L 135,275 Z" /><path d="M 300,230 L 315,275 L 360,275 L 325,305 L 340,350 L 300,320 L 260,350 L 275,305 L 240,275 L 285,275 Z" /><path d="M 450,230 L 465,275 L 510,275 L 475,305 L 490,350 L 450,320 L 410,350 L 425,305 L 390,275 L 435,275 Z" /></g></svg>') !important;
                 }
                 .jvm-tooltip {
                     display: none !important;
@@ -408,6 +406,13 @@
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary text-xl shrink-0">📍</div>
                             <div>
+                                <h4 class="text-white font-bold">{{ app()->getLocale() == 'ar' ? 'دمشق' : 'Damascus' }}</h4>
+                                <p class="text-gray-400 text-sm">{{ __('app.address3') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary text-xl shrink-0">📍</div>
+                            <div>
                                 <h4 class="text-white font-bold">{{ app()->getLocale() == 'ar' ? 'الرياض' : 'Riyadh' }}</h4>
                                 <p class="text-gray-400 text-sm">{{ __('app.address') }}</p>
                             </div>
@@ -420,16 +425,10 @@
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary text-xl shrink-0">📍</div>
-                            <div>
-                                <h4 class="text-white font-bold">{{ app()->getLocale() == 'ar' ? 'دمشق' : 'Damascus' }}</h4>
-                                <p class="text-gray-400 text-sm">{{ __('app.address3') }}</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary text-xl">📞</div>
                             <div>
                                 <h4 class="text-white font-bold">{{ app()->getLocale() == 'ar' ? 'الهاتف' : 'Phone' }}</h4>
+                                <p class="text-gray-400 text-sm" dir="ltr">+963 XX XXX XXXX</p>
                                 <p class="text-gray-400 text-sm" dir="ltr">+966 506 123 777</p>
                             </div>
                         </div>
