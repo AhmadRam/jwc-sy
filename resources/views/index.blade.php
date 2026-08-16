@@ -229,9 +229,9 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">{{ __('app.why_us_title') }}</h2>
                 <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
             </div>
-            <div class="flex flex-wrap justify-center gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
                 @for($i=1; $i<=5; $i++)
-                <div class="glass-card p-8 group glass-card-hover text-center w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333333%-1rem)]">
+                <div class="glass-card p-8 group glass-card-hover text-center w-full md:col-span-1 lg:col-span-2 {{ $i == 4 ? 'lg:col-start-2' : '' }} {{ $i == 5 ? 'md:col-span-2 lg:col-span-2 md:w-1/2 lg:w-full md:mx-auto lg:mx-0' : '' }}">
                     <div class="w-16 h-16 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-2xl font-bold mx-auto mb-4 group-hover:bg-secondary group-hover:text-dark transition-all">{{ $i }}</div>
                     <h4 class="text-xl font-bold text-white mb-3">{{ __('app.why_'.$i.'_title') }}</h4>
                     <p class="text-gray-400 text-sm">{{ __('app.why_'.$i.'_desc') }}</p>
