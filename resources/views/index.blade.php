@@ -249,22 +249,22 @@
 
             <!-- Service Details Modal -->
             <div id="service-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in-modal" onclick="handleBackdropClick(event)">
-                <div class="relative w-full max-w-2xl glass-card p-8 md:p-10 border border-white/10 shadow-2xl rounded-2xl flex flex-col max-h-[85vh] animate-scale-up-modal">
+                <div class="relative w-full max-w-2xl glass-card p-6 md:p-10 border border-white/10 shadow-2xl rounded-2xl flex flex-col max-h-[85vh] md:max-h-[80vh] animate-scale-up-modal">
                     <!-- Close Button -->
-                    <button onclick="closeServiceModal()" class="absolute top-4 end-4 text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10">
+                    <button onclick="closeServiceModal()" class="absolute top-3 end-3 md:top-4 md:end-4 text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
                     
                     <!-- Modal Header -->
-                    <div class="mb-6 text-start pe-12">
-                        <h4 id="modal-title" class="text-2xl md:text-3xl font-bold text-secondary mb-0"></h4>
-                        <div class="w-16 h-1 bg-secondary mt-3"></div>
+                    <div class="mb-4 md:mb-6 text-start pe-10 md:pe-12">
+                        <h4 id="modal-title" class="text-xl md:text-3xl font-bold text-secondary mb-0"></h4>
+                        <div class="w-16 h-1 bg-secondary mt-2 md:mt-3"></div>
                     </div>
                     
                     <!-- Modal Body (Scrollable) -->
-                    <div id="modal-body" class="overflow-y-auto pr-2 text-gray-300 text-base md:text-lg leading-relaxed text-start space-y-4">
+                    <div id="modal-body" class="flex-1 min-h-0 overflow-y-auto pe-2 text-gray-300 text-sm md:text-lg leading-relaxed text-start space-y-4">
                         <!-- Content will be injected here -->
                     </div>
                 </div>
