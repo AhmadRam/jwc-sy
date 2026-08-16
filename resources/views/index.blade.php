@@ -247,6 +247,7 @@
             </div>
             </div>
 
+            @push('modals')
             <!-- Service Details Modal -->
             <div id="service-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in-modal" onclick="handleBackdropClick(event)">
                 <div class="relative w-full max-w-2xl glass-card p-6 md:p-10 border border-white/10 shadow-2xl rounded-2xl flex flex-col max-h-[85vh] md:max-h-[80vh] animate-scale-up-modal">
@@ -269,6 +270,7 @@
                     </div>
                 </div>
             </div>
+            @endpush
         </div>
     </section>
 

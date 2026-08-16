@@ -154,6 +154,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
     <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
 
+    @stack('modals')
     @stack('scripts')
 </body>
 </html>
