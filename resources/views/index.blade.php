@@ -363,7 +363,7 @@
                 </style>
                 
                 <!-- Row 1 (5 Flags) -->
-                <div class="flex flex-wrap justify-center gap-4 md:gap-10">
+                <div class="flex flex-nowrap justify-center gap-2 sm:gap-4 md:gap-10">
                     @foreach(array_slice($countries, 0, 5) as $country)
                     <div class="flag-item flex flex-col items-center justify-center gap-2 cursor-pointer transition-transform duration-300 w-[60px] sm:w-[70px] md:w-[90px]" data-country="{{ $country['code'] }}">
                         <span class="fi fi-{{ $country['code'] }} fis rounded-full shadow-lg shadow-black/50 border border-white/10 shrink-0 flag-custom-size" style="background-size: cover; background-position: center;"></span>
@@ -373,7 +373,7 @@
                 </div>
 
                 <!-- Row 2 (4 Flags) -->
-                <div class="flex flex-wrap justify-center gap-4 md:gap-10">
+                <div class="flex flex-nowrap justify-center gap-2 sm:gap-4 md:gap-10 mt-6">
                     @foreach(array_slice($countries, 5, 4) as $country)
                     <div class="flag-item flex flex-col items-center justify-center gap-2 cursor-pointer transition-transform duration-300 w-[60px] sm:w-[70px] md:w-[90px]" data-country="{{ $country['code'] }}">
                         <span class="fi fi-{{ $country['code'] }} fis rounded-full shadow-lg shadow-black/50 border border-white/10 shrink-0 flag-custom-size" style="background-size: cover; background-position: center;"></span>
