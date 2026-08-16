@@ -409,10 +409,15 @@
             .client-img { 
                 filter: grayscale(100%) invert(1) opacity(60%); 
                 mix-blend-mode: screen;
+                background-color: transparent;
+                padding: 0.5rem;
+                border-radius: 0.5rem;
                 transition: all 0.3s ease; 
             }
             .client-img:hover { 
-                filter: grayscale(100%) invert(1) opacity(100%); 
+                filter: grayscale(0%) invert(0) opacity(100%); 
+                mix-blend-mode: normal;
+                background-color: rgba(255, 255, 255, 0.95);
                 transform: scale(1.1); 
             }
         </style>
