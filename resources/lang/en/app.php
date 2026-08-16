@@ -8,7 +8,7 @@ return [
     // Hero Section
     'hero_title' => 'JWC for Management Consulting and Strategic Communication',
     'hero_subtitle_1' => 'Strategic Solutions',
-    'hero_subtitle_2' => 'Sustainable Impact',
+    'hero_subtitle_2' => 'For Sustainable Impact',
     'hero_description' => 'Your strategic partner in recovery and rebuilding. We possess the expertise to turn ambition into a plan, and the plan into a tangible impact.',
     'discover_more' => 'Discover More',
     'services' => 'Our Services',
