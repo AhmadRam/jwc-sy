@@ -47,7 +47,7 @@
     <!-- Chairman Message -->
     <section class="py-16 relative border-t border-white/5 bg-gradient-to-b from-transparent to-primary/5">
         <div class="container mx-auto px-6 relative z-10">
-            <div class="glass-card p-8 md:p-12 relative overflow-hidden">
+            <div class="glass-card p-8 md:p-12 relative overflow-hidden text-start">
                 <div class="absolute -top-10 -right-10 text-9xl text-white/5 font-serif">"</div>
                 <h3 class="text-2xl md:text-3xl font-bold text-secondary mb-6">{{ __('app.chairman_message_title') }}</h3>
                 <p class="text-gray-300 text-lg leading-relaxed mb-4">{{ __('app.chairman_message') }}</p>
@@ -59,32 +59,32 @@
     <!-- About Section -->
     <section id="about" class="py-24 relative">
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="text-start max-w-3xl mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">{{ __('app.about_us') }}</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mb-8"></div>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent mb-8 inline-block"></div>
                 <p class="text-gray-400 text-lg leading-relaxed text-balance">
                     {{ __('app.about_description') }}
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                <div class="glass-card p-8 text-center group glass-card-hover border-t-4 border-t-secondary">
+                <div class="glass-card p-8 text-start group glass-card-hover border-t-4 border-t-secondary">
                     <h4 class="text-2xl font-bold text-white mb-4">{{ __('app.vision_title') }}</h4>
                     <p class="text-gray-400">{{ __('app.vision_desc') }}</p>
                 </div>
-                <div class="glass-card p-8 text-center group glass-card-hover border-t-4 border-t-secondary">
+                <div class="glass-card p-8 text-start group glass-card-hover border-t-4 border-t-secondary">
                     <h4 class="text-2xl font-bold text-white mb-4">{{ __('app.mission_title') }}</h4>
                     <p class="text-gray-400">{{ __('app.mission_desc') }}</p>
                 </div>
             </div>
 
             <!-- Our Compass (Values) -->
-            <div class="text-center mb-10">
+            <div class="text-start mb-10">
                 <h3 class="text-2xl font-bold text-white mb-6">{{ __('app.compass_title') }}</h3>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 @for($i=1; $i<=5; $i++)
-                <div class="glass-card p-6 text-center group glass-card-hover">
+                <div class="glass-card p-6 text-start group glass-card-hover">
                     <h5 class="text-lg font-bold text-secondary mb-3">{{ __('app.compass_'.$i.'_title') }}</h5>
                     <p class="text-gray-400 text-sm">{{ __('app.compass_'.$i.'_desc') }}</p>
                 </div>
