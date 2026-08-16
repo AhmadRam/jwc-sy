@@ -363,7 +363,7 @@
                 
                 <!-- Flags Container -->
                 <div class="text-center mb-8">
-                    <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">{{ __('app.international_presence_description') }}</p>
+                    <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">{{ app()->getLocale() == 'ar' ? 'تواجدنا في العديد من المناطق والدول حول العالم لتقديم خدمات الاستشارات التواصلية وتنفيذ حملات العلاقات العامة والاتصال' : 'Our presence in many regions and countries around the world to provide communication consulting services and execute PR and communication campaigns' }}</p>
                 </div>
                 <div class="flex flex-wrap justify-center gap-4">
                     @foreach($countries as $index => $country)
