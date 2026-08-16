@@ -6,7 +6,7 @@ return [
     'meta_keywords' => 'Administrative Consulting, Strategic Communication, Public Relations, Damascus, Syria, JWC, Financial Consulting, Planning, Reconstruction',
 
     // Hero Section
-    'hero_title' => 'JWC for Management Consulting and Strategic Communication',
+    'hero_title' => 'JWC for Management Consulting<br>and Strategic Communication',
     'hero_subtitle_1' => 'Strategic Solutions',
     'hero_subtitle_2' => 'For Sustainable Impact',
     'hero_description' => 'Your strategic partner in recovery and rebuilding. We possess the expertise to turn ambition into a plan, and the plan into a tangible impact.',
