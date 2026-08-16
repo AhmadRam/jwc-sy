@@ -409,12 +409,17 @@
             .client-img { 
                 filter: grayscale(100%) invert(1) opacity(60%); 
                 mix-blend-mode: screen;
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+                background-color: transparent;
                 transition: all 0.3s ease; 
             }
             .client-img:hover { 
-                filter: grayscale(0%) invert(0) opacity(100%) drop-shadow(0 0 1px #fff) drop-shadow(0 0 3px #fff); 
+                filter: grayscale(0%) invert(0) opacity(100%) drop-shadow(0 0 1px rgba(255,255,255,0.3)); 
                 mix-blend-mode: normal;
-                background: radial-gradient(ellipse at center, rgba(255,255,255,0.9) 10%, rgba(255,255,255,0) 75%);
+                background-color: rgba(255, 255, 255, 0.6);
+                backdrop-filter: blur(4px);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
                 transform: scale(1.1); 
             }
         </style>
