@@ -17,7 +17,8 @@
     <meta property="og:type" content="website">
 
     <!-- Favicons -->
-    <link href="{{ vasset('assets/img/logo.png') }}" rel="icon">
+    <link href="{{ vasset('assets/img/favicon.png') }}" rel="icon">
+    <link href="{{ vasset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
     
     <!-- Map CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css">
