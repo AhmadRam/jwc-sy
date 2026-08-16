@@ -410,7 +410,7 @@
             .client-img:hover { filter: grayscale(0%) opacity(100%); transform: scale(1.1); }
         </style>
         
-        <div class="flex flex-col gap-8 direction-ltr" dir="ltr">
+        <div class="flex flex-col gap-16 direction-ltr" dir="ltr">
             <!-- Row 1 -->
             <div class="marquee-track">
                 <div class="flex gap-16 pr-16 items-center">
