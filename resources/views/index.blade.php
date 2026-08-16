@@ -258,7 +258,7 @@
                     </button>
                     
                     <!-- Modal Header -->
-                    <div class="mb-6 text-start">
+                    <div class="mb-6 text-start pe-12">
                         <h4 id="modal-title" class="text-2xl md:text-3xl font-bold text-secondary mb-0"></h4>
                         <div class="w-16 h-1 bg-secondary mt-3"></div>
                     </div>
