@@ -516,50 +516,59 @@
                     <p class="text-gray-400 text-lg mb-8">{{ __('app.contact_description') }}</p>
                     
                     <div class="glass-card p-8 space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+                        <!-- Damascus Address -->
+                        <a href="https://maps.app.goo.gl/7X6bsdDjMtLcyUTX8" target="_blank" class="flex items-center gap-4 group hover:opacity-85 transition-opacity">
+                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0 group-hover:bg-secondary/20 transition-colors">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold">{{ app()->getLocale() == 'ar' ? 'دمشق' : 'Damascus' }}</h4>
-                                <p class="text-gray-400 text-sm">{{ __('app.address3') }}</p>
+                                <h4 class="text-white font-bold mb-0 group-hover:text-secondary transition-colors">{{ app()->getLocale() == 'ar' ? 'دمشق' : 'Damascus' }}</h4>
+                                <p class="text-gray-400 text-sm mb-0">{{ __('app.address3') }}</p>
                             </div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+                        </a>
+                        
+                        <!-- Riyadh Address -->
+                        <a href="https://maps.app.goo.gl/xHnvG29ScCekNrB49?g_st=iw" target="_blank" class="flex items-center gap-4 group hover:opacity-85 transition-opacity">
+                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0 group-hover:bg-secondary/20 transition-colors">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold">{{ app()->getLocale() == 'ar' ? 'الرياض' : 'Riyadh' }}</h4>
-                                <p class="text-gray-400 text-sm">{{ __('app.address') }}</p>
+                                <h4 class="text-white font-bold mb-0 group-hover:text-secondary transition-colors">{{ app()->getLocale() == 'ar' ? 'الرياض' : 'Riyadh' }}</h4>
+                                <p class="text-gray-400 text-sm mb-0">{{ __('app.address') }}</p>
                             </div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+                        </a>
+
+                        <!-- Dubai Address -->
+                        <a href="https://maps.app.goo.gl/8Dqt6aswsQbeySEt5?g_st=iw" target="_blank" class="flex items-center gap-4 group hover:opacity-85 transition-opacity">
+                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0 group-hover:bg-secondary/20 transition-colors">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold">{{ app()->getLocale() == 'ar' ? 'دبي' : 'Dubai' }}</h4>
-                                <p class="text-gray-400 text-sm">{{ __('app.address2') }}</p>
+                                <h4 class="text-white font-bold mb-0 group-hover:text-secondary transition-colors">{{ app()->getLocale() == 'ar' ? 'دبي' : 'Dubai' }}</h4>
+                                <p class="text-gray-400 text-sm mb-0">{{ __('app.address2') }}</p>
                             </div>
-                        </div>
+                        </a>
+
+                        <!-- Phone / WhatsApp -->
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold">{{ app()->getLocale() == 'ar' ? 'الهاتف' : 'Phone' }}</h4>
-                                <p class="text-gray-400 text-sm" dir="ltr">+963 943 777 056</p>
-                                <p class="text-gray-400 text-sm" dir="ltr">+966 506 123 777</p>
+                                <h4 class="text-white font-bold mb-1">{{ app()->getLocale() == 'ar' ? 'الهاتف (واتساب)' : 'Phone (WhatsApp)' }}</h4>
+                                <a href="https://wa.me/963943777056" target="_blank" class="block text-gray-400 hover:text-secondary text-sm transition-colors" dir="ltr">+963 943 777 056</a>
+                                <a href="https://wa.me/966506123777" target="_blank" class="block text-gray-400 hover:text-secondary text-sm transition-colors" dir="ltr">+966 506 123 777</a>
                             </div>
                         </div>
+
+                        <!-- Email -->
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold">{{ app()->getLocale() == 'ar' ? 'البريد الإلكتروني' : 'Email' }}</h4>
-                                <p class="text-gray-400 text-sm">info@jwc.sa</p>
+                                <h4 class="text-white font-bold mb-1">{{ app()->getLocale() == 'ar' ? 'البريد الإلكتروني' : 'Email' }}</h4>
+                                <a href="mailto:info@jwc.sa" class="block text-gray-400 hover:text-secondary text-sm transition-colors">info@jwc.sa</a>
                             </div>
                         </div>
                     </div>
