@@ -348,13 +348,25 @@
                     .fi.fi-sy, .fi.fi-sy.fis {
                         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect width="600" height="600" fill="%23000"/><rect width="600" height="400" fill="%23fff"/><rect width="600" height="200" fill="%23007a3d"/><g fill="%23ce1126"><path d="M 150,230 L 165,275 L 210,275 L 175,305 L 190,350 L 150,320 L 110,350 L 125,305 L 90,275 L 135,275 Z" /><path d="M 300,230 L 315,275 L 360,275 L 325,305 L 340,350 L 300,320 L 260,350 L 275,305 L 240,275 L 285,275 Z" /><path d="M 450,230 L 465,275 L 510,275 L 475,305 L 490,350 L 450,320 L 410,350 L 425,305 L 390,275 L 435,275 Z" /></g></svg>') !important;
                     }
+                    
+                    /* Force perfect circles for flags */
+                    .flag-custom-size {
+                        width: 60px !important;
+                        height: 60px !important;
+                    }
+                    @media (max-width: 768px) {
+                        .flag-custom-size {
+                            width: 40px !important;
+                            height: 40px !important;
+                        }
+                    }
                 </style>
                 
                 <!-- Row 1 (5 Flags) -->
                 <div class="flex flex-wrap justify-center gap-4 md:gap-10">
                     @foreach(array_slice($countries, 0, 5) as $country)
                     <div class="flag-item flex flex-col items-center justify-center gap-2 cursor-pointer transition-transform duration-300 w-[60px] sm:w-[70px] md:w-[90px]" data-country="{{ $country['code'] }}">
-                        <span class="fi fi-{{ $country['code'] }} fis rounded-full shadow-lg shadow-black/50 border border-white/10 shrink-0 w-[40px] h-[40px] md:w-[60px] md:h-[60px]" style="background-size: cover; background-position: center;"></span>
+                        <span class="fi fi-{{ $country['code'] }} fis rounded-full shadow-lg shadow-black/50 border border-white/10 shrink-0 flag-custom-size" style="background-size: cover; background-position: center;"></span>
                         <span class="text-xs md:text-sm font-medium text-gray-300 text-center">{{ __('app.'.$country['name']) }}</span>
                     </div>
                     @endforeach
@@ -364,7 +376,7 @@
                 <div class="flex flex-wrap justify-center gap-4 md:gap-10">
                     @foreach(array_slice($countries, 5, 4) as $country)
                     <div class="flag-item flex flex-col items-center justify-center gap-2 cursor-pointer transition-transform duration-300 w-[60px] sm:w-[70px] md:w-[90px]" data-country="{{ $country['code'] }}">
-                        <span class="fi fi-{{ $country['code'] }} fis rounded-full shadow-lg shadow-black/50 border border-white/10 shrink-0 w-[40px] h-[40px] md:w-[60px] md:h-[60px]" style="background-size: cover; background-position: center;"></span>
+                        <span class="fi fi-{{ $country['code'] }} fis rounded-full shadow-lg shadow-black/50 border border-white/10 shrink-0 flag-custom-size" style="background-size: cover; background-position: center;"></span>
                         <span class="text-xs md:text-sm font-medium text-gray-300 text-center">{{ __('app.'.$country['name']) }}</span>
                     </div>
                     @endforeach
