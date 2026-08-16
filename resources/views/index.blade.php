@@ -13,16 +13,12 @@
                     {{ __('app.hero_title') }}
                 </div>
                 
-                <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold leading-normal">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-normal">
                     {{ __('app.hero_subtitle_1') }} <br>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-yellow-200 inline-block py-2">
                         {{ __('app.hero_subtitle_2') }}
                     </span>
                 </h1>
-                
-                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                    {{ __('app.hero_description') }}
-                </p>
                 
                 <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
                     <a href="#about" class="px-8 py-3 rounded-full bg-secondary text-dark font-bold hover:bg-white hover:shadow-[0_0_20px_rgba(191,148,72,0.4)] transition-all duration-300">
