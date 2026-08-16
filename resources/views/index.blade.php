@@ -407,16 +407,13 @@
             .marquee-track:hover { animation-play-state: paused; }
             @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
             .client-img { 
-                background-color: rgba(255, 255, 255, 0.9);
-                padding: 0.5rem;
-                border-radius: 0.5rem;
-                filter: grayscale(100%) opacity(70%); 
+                filter: grayscale(100%) invert(1) opacity(60%); 
+                mix-blend-mode: screen;
                 transition: all 0.3s ease; 
             }
             .client-img:hover { 
-                filter: grayscale(0%) opacity(100%); 
+                filter: grayscale(100%) invert(1) opacity(100%); 
                 transform: scale(1.1); 
-                background-color: rgba(255, 255, 255, 1);
             }
         </style>
         
