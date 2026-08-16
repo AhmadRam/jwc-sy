@@ -52,7 +52,7 @@ return [
     'method_4_desc' => 'We measure results with agreed indicators and continuously develop methods.',
 
     // Numbers
-    'numbers_title' => 'JWC in Numbers',
+    'numbers_title' => 'JWC: Facts & Figures',
     'num_1_val' => '9',
     'num_1_text' => 'Countries - Global Presence',
     'num_2_val' => '3',

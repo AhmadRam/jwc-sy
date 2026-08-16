@@ -52,7 +52,7 @@ return [
     'method_4_desc' => 'نقيس النتائج بالمؤشرات ونطور طرق العمل باستمرار.',
 
     // Numbers
-    'numbers_title' => 'JWC في أرقام',
+    'numbers_title' => 'حقائق وأرقام عن JWC',
     'num_1_val' => '9',
     'num_1_text' => 'دول - حضور دولي واسع',
     'num_2_val' => '3',
