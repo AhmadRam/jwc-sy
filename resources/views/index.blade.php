@@ -312,10 +312,9 @@
     <!-- International Presence Section -->
     <section id="international_presence" class="py-24 relative border-t border-white/5 bg-black/20">
         <div class="container mx-auto px-6 relative z-10">
-            <div class="mb-12 text-center md:text-start">
+            <div class="mb-8 md:mb-12 text-center md:text-start">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">{{ __('app.international_presence') }}</h2>
-                <div class="w-24 h-1 bg-secondary mx-auto md:mx-0 mb-6"></div>
-                <p class="text-gray-400 text-lg">{{ __('app.international_presence_description') }}</p>
+                <div class="w-24 h-1 bg-secondary mx-auto md:mx-0"></div>
             </div>
 
             <div class="glass-card p-2 sm:p-4 md:p-10 mb-8 md:mb-12 relative overflow-hidden" id="interactive-map-wrapper">
@@ -351,8 +350,8 @@
                     
                     /* Force perfect circles for flags */
                     .flag-custom-size {
-                        width: 60px !important;
-                        height: 60px !important;
+                        width: 50px !important;
+                        height: 50px !important;
                     }
                     @media (max-width: 768px) {
                         .flag-custom-size {
@@ -363,15 +362,15 @@
                 </style>
                 
                 <!-- Flags Container -->
-                <div class="flex flex-wrap md:flex-nowrap justify-center gap-2 sm:gap-4 md:gap-4 lg:gap-10">
+                <div class="text-center mb-8">
+                    <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">{{ __('app.international_presence_description') }}</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4">
                     @foreach($countries as $index => $country)
-                    <div class="flag-item flex flex-col items-center justify-center gap-2 cursor-pointer transition-transform duration-300 w-[60px] sm:w-[70px] md:w-[90px]" data-country="{{ $country['code'] }}">
+                    <div class="flag-item flex flex-col items-center justify-center gap-2 cursor-pointer transition-transform duration-300 w-[50px] sm:w-[60px] md:w-[60px] lg:w-[70px]" data-country="{{ $country['code'] }}">
                         <span class="fi fi-{{ $country['code'] }} fis rounded-full shadow-lg shadow-black/50 border border-white/10 shrink-0 flag-custom-size" style="background-size: cover; background-position: center;"></span>
-                        <span class="text-xs md:text-sm font-medium text-gray-300 text-center">{{ __('app.'.$country['name']) }}</span>
+                        <span class="text-[10px] md:text-xs font-medium text-gray-300 text-center whitespace-nowrap">{{ __('app.'.$country['name']) }}</span>
                     </div>
-                    @if($index == 4)
-                        <div class="w-full block md:hidden mt-2"></div>
-                    @endif
                     @endforeach
                 </div>
             </div>
