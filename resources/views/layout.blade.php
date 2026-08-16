@@ -66,12 +66,31 @@
                 <a href="/{{ app()->getLocale() }}#contact" class="px-6 py-2 rounded-full bg-secondary text-dark text-sm font-bold hover:bg-white hover:shadow-[0_0_15px_rgba(191,148,72,0.5)] transition-all duration-300">{{ __('app.contact') }}</a>
             </div>
 
-            <!-- Mobile Menu Toggle (Simplified) -->
-            <button class="lg:hidden text-white z-50 p-2">
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="lg:hidden text-white z-50 p-2">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 hidden bg-dark/95 backdrop-blur-lg flex-col justify-center items-center">
+        <ul class="flex flex-col gap-6 items-center text-xl list-none p-0 m-0">
+            <li><a href="/{{ app()->getLocale() }}#hero" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ __('app.home') }}</a></li>
+            <li><a href="/{{ app()->getLocale() }}#about" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ __('app.about') }}</a></li>
+            <li><a href="/{{ app()->getLocale() }}#services" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ __('app.services') }}</a></li>
+            <li><a href="/{{ app()->getLocale() }}#why_us" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ __('app.nav_why') }}</a></li>
+            <li><a href="/{{ app()->getLocale() }}#methodology" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ __('app.nav_methodology') }}</a></li>
+            <li><a href="/{{ app()->getLocale() }}#sectors" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ __('app.nav_sectors') }}</a></li>
+            <li><a href="/{{ app()->getLocale() }}#international_presence" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ __('app.international_presence') }}</a></li>
+            <li><a href="/{{ app()->getLocale() }}#clients" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ __('app.clients') }}</a></li>
+            <li><a href="{{ app()->getLocale() == 'en' ? route('blog.index_en') : route('blog.index') }}" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ app()->getLocale() == 'en' ? 'Blog' : 'المدونة' }}</a></li>
+            <li class="mt-4 flex gap-4">
+                <a href="/{{ app()->getLocale() == 'ar' ? str_replace('ar', 'en', request()->path()) : str_replace('en', 'ar', request()->path()) }}" class="px-6 py-2 rounded-full bg-white/5 border border-white/10 text-white text-sm font-bold hover:bg-secondary/20 hover:border-secondary transition-all duration-300" onclick="toggleMobileMenu()">{{ __('app.language') }}</a>
+                <a href="/{{ app()->getLocale() }}#contact" class="px-6 py-2 rounded-full bg-secondary text-dark text-sm font-bold hover:bg-white hover:shadow-[0_0_15px_rgba(191,148,72,0.5)] transition-all duration-300" onclick="toggleMobileMenu()">{{ __('app.contact') }}</a>
+            </li>
+        </ul>
+    </div>
 
     <!-- Main Content -->
     <main class="min-h-screen">
@@ -156,5 +175,25 @@
 
     @stack('modals')
     @stack('scripts')
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const toggleBtn = document.getElementById('mobile-menu-toggle');
+            const isHidden = menu.classList.contains('hidden');
+            
+            if (isHidden) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+                document.body.classList.add('overflow-hidden');
+                toggleBtn.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+            } else {
+                menu.classList.remove('flex');
+                menu.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+                toggleBtn.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>`;
+            }
+        }
+    </script>
 </body>
 </html>
