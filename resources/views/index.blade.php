@@ -123,7 +123,7 @@
             </div>
 
             <!-- Tabs Navigation -->
-            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12" id="services-tabs">
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12 scroll-mt-24" id="services-tabs">
                 <button class="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full bg-secondary text-dark font-bold transition-all" data-tab="pillar-1">{{ __('app.pillar_1_title') }}</button>
                 <button class="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full bg-white/5 text-white border border-white/10 hover:bg-white/10 font-bold transition-all" data-tab="pillar-2">{{ __('app.pillar_2_title') }}</button>
                 <button class="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full bg-white/5 text-white border border-white/10 hover:bg-white/10 font-bold transition-all" data-tab="pillar-3">{{ __('app.pillar_3_title') }}</button>
@@ -584,11 +584,11 @@
                     activeTab.classList.add('tab-animate');
                 }
 
-                // Smooth scroll to content on mobile (width < 768px)
+                // Smooth scroll to tabs navigation on mobile (width < 768px)
                 if (window.innerWidth < 768) {
-                    const contentWrapper = document.getElementById('services-content-wrapper');
-                    if (contentWrapper) {
-                        contentWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const tabsContainer = document.getElementById('services-tabs');
+                    if (tabsContainer) {
+                        tabsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 }
             });
