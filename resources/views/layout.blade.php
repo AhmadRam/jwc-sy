@@ -104,7 +104,7 @@
                             <a href="tel:+966506123777" class="hover:text-secondary transition-colors" dir="ltr">+966 506 123 777</a>
                         </li>
                         <li class="flex items-center justify-center md:justify-start gap-3">
-                            <span class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">✉️</span>
+                            <span class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">📧</span>
                             <a href="mailto:info@jwc.sa" class="hover:text-secondary transition-colors">info@jwc.sa</a>
                         </li>
                     </ul>

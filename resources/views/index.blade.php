@@ -489,7 +489,7 @@
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary text-xl">✉️</div>
+                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary text-xl">📧</div>
                             <div>
                                 <h4 class="text-white font-bold">{{ app()->getLocale() == 'ar' ? 'البريد الإلكتروني' : 'Email' }}</h4>
                                 <p class="text-gray-400 text-sm">info@jwc.sa</p>
