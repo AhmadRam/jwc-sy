@@ -469,7 +469,7 @@
                             <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary text-xl">📞</div>
                             <div>
                                 <h4 class="text-white font-bold">{{ app()->getLocale() == 'ar' ? 'الهاتف' : 'Phone' }}</h4>
-                                <p class="text-gray-400 text-sm" dir="ltr">+963 XX XXX XXXX</p>
+                                <p class="text-gray-400 text-sm" dir="ltr">+963 943 777 056</p>
                                 <p class="text-gray-400 text-sm" dir="ltr">+966 506 123 777</p>
                             </div>
                         </div>

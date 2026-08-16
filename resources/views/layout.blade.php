@@ -96,7 +96,7 @@
                     <ul class="space-y-4 text-gray-400 text-sm">
                         <li class="flex items-center justify-center md:justify-start gap-3">
                             <span class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">📞</span>
-                            <a href="tel:+96300000000" class="hover:text-secondary transition-colors" dir="ltr">+963 XX XXX XXXX</a>
+                            <a href="tel:+963943777056" class="hover:text-secondary transition-colors" dir="ltr">+963 943 777 056</a>
                         </li>
                         <li class="flex items-center justify-center md:justify-start gap-3">
                             <span class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">📞</span>
