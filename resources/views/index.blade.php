@@ -362,23 +362,16 @@
                     }
                 </style>
                 
-                <!-- Row 1 (5 Flags) -->
-                <div class="flex flex-nowrap justify-center gap-2 sm:gap-4 md:gap-10">
-                    @foreach(array_slice($countries, 0, 5) as $country)
+                <!-- Flags Container -->
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-4 md:gap-10">
+                    @foreach($countries as $index => $country)
                     <div class="flag-item flex flex-col items-center justify-center gap-2 cursor-pointer transition-transform duration-300 w-[60px] sm:w-[70px] md:w-[90px]" data-country="{{ $country['code'] }}">
                         <span class="fi fi-{{ $country['code'] }} fis rounded-full shadow-lg shadow-black/50 border border-white/10 shrink-0 flag-custom-size" style="background-size: cover; background-position: center;"></span>
                         <span class="text-xs md:text-sm font-medium text-gray-300 text-center">{{ __('app.'.$country['name']) }}</span>
                     </div>
-                    @endforeach
-                </div>
-
-                <!-- Row 2 (4 Flags) -->
-                <div class="flex flex-nowrap justify-center gap-2 sm:gap-4 md:gap-10 mt-6">
-                    @foreach(array_slice($countries, 5, 4) as $country)
-                    <div class="flag-item flex flex-col items-center justify-center gap-2 cursor-pointer transition-transform duration-300 w-[60px] sm:w-[70px] md:w-[90px]" data-country="{{ $country['code'] }}">
-                        <span class="fi fi-{{ $country['code'] }} fis rounded-full shadow-lg shadow-black/50 border border-white/10 shrink-0 flag-custom-size" style="background-size: cover; background-position: center;"></span>
-                        <span class="text-xs md:text-sm font-medium text-gray-300 text-center">{{ __('app.'.$country['name']) }}</span>
-                    </div>
+                    @if($index == 4)
+                        <div class="w-full block md:hidden mt-2"></div>
+                    @endif
                     @endforeach
                 </div>
             </div>
