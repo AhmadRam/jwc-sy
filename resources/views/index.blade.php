@@ -54,10 +54,10 @@
     <!-- About Section -->
     <section id="about" class="py-24 relative">
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-start max-w-3xl mb-16">
+            <div class="text-start mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">{{ __('app.about_us') }}</h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent mb-8 inline-block"></div>
-                <p class="text-gray-400 text-lg leading-relaxed text-balance">
+                <p class="text-gray-400 text-lg leading-relaxed">
                     {{ __('app.about_description') }}
                 </p>
             </div>
