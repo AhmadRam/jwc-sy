@@ -412,8 +412,9 @@
                 transition: all 0.3s ease; 
             }
             .client-img:hover { 
-                filter: grayscale(0%) invert(0) opacity(100%) drop-shadow(0 0 2px rgba(255, 255, 255, 1)); 
+                filter: grayscale(0%) invert(0) opacity(100%) drop-shadow(0 0 1px #fff) drop-shadow(0 0 3px #fff); 
                 mix-blend-mode: normal;
+                background: radial-gradient(ellipse at center, rgba(255,255,255,0.9) 10%, rgba(255,255,255,0) 75%);
                 transform: scale(1.1); 
             }
         </style>
