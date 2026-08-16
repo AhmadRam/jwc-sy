@@ -362,10 +362,10 @@
                 </style>
                 
                 <!-- Flags Container -->
-                <div class="text-center mb-8">
-                    <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">{{ app()->getLocale() == 'ar' ? 'تواجدنا في العديد من المناطق والدول حول العالم لتقديم خدمات الاستشارات التواصلية وتنفيذ حملات العلاقات العامة والاتصال' : 'Our presence in many regions and countries around the world to provide communication consulting services and execute PR and communication campaigns' }}</p>
+                <div class="text-center mb-10">
+                    <p class="text-gray-300 text-lg md:text-xl max-w-5xl mx-auto">{{ app()->getLocale() == 'ar' ? 'تواجدنا في العديد من المناطق والدول حول العالم لتقديم خدمات الاستشارات التواصلية وتنفيذ حملات العلاقات العامة والاتصال' : 'Our presence in many regions and countries around the world to provide communication consulting services and execute PR and communication campaigns' }}</p>
                 </div>
-                <div class="flex flex-wrap justify-center gap-4">
+                <div class="flex flex-wrap justify-center gap-4 md:gap-8 lg:gap-10">
                     @foreach($countries as $index => $country)
                     <div class="flag-item flex flex-col items-center justify-center gap-2 cursor-pointer transition-transform duration-300 w-[50px] sm:w-[60px] md:w-[60px] lg:w-[70px]" data-country="{{ $country['code'] }}">
                         <span class="fi fi-{{ $country['code'] }} fis rounded-full shadow-lg shadow-black/50 border border-white/10 shrink-0 flag-custom-size" style="background-size: cover; background-position: center;"></span>
