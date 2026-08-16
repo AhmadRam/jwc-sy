@@ -251,7 +251,7 @@
             <div id="service-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in-modal" onclick="handleBackdropClick(event)">
                 <div class="relative w-full max-w-2xl glass-card p-8 md:p-10 border border-white/10 shadow-2xl rounded-2xl flex flex-col max-h-[85vh] animate-scale-up-modal">
                     <!-- Close Button -->
-                    <button onclick="closeServiceModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10">
+                    <button onclick="closeServiceModal()" class="absolute top-4 end-4 text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
