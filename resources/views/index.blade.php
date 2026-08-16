@@ -8,7 +8,7 @@
     <!-- Hero Section -->
     <section id="hero" class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
         <div class="container mx-auto px-6 relative z-10 text-center lg:text-start flex flex-col lg:flex-row items-center gap-12">
-            <div class="flex-1 space-y-8" data-aos="fade-up">
+            <div class="flex-1 space-y-8 order-2 lg:order-1" data-aos="fade-up">
                 <div class="text-lg md:text-2xl font-bold text-secondary tracking-wide">
                     {!! __('app.hero_title') !!}
                 </div>
@@ -30,10 +30,10 @@
                 </div>
             </div>
             
-            <div class="flex-1 relative hidden md:block">
+            <div class="flex-1 relative order-1 lg:order-2 w-full flex justify-center">
                 <!-- Abstract visual element replacing standard image -->
-                <div class="relative w-full max-w-lg mx-auto aspect-square rounded-full border border-white/5 flex items-center justify-center before:absolute before:inset-10 before:rounded-full before:border before:border-secondary/20 before:animate-[spin_20s_linear_infinite] after:absolute after:inset-20 after:rounded-full after:border after:border-white/10 after:animate-[spin_15s_linear_infinite_reverse]">
-                    <img src="{{ vasset('assets/img/logo.png') }}" class="w-48 h-48 object-contain drop-shadow-[0_0_30px_rgba(191,148,72,0.5)] z-10" alt="JWC">
+                <div class="relative w-full max-w-[260px] md:max-w-lg mx-auto aspect-square rounded-full border border-white/5 flex items-center justify-center before:absolute before:inset-6 md:before:inset-10 before:rounded-full before:border before:border-secondary/20 before:animate-[spin_20s_linear_infinite] after:absolute after:inset-12 md:after:inset-20 after:rounded-full after:border after:border-white/10 after:animate-[spin_15s_linear_infinite_reverse]">
+                    <img src="{{ vasset('assets/img/logo.png') }}" class="w-28 h-28 md:w-48 md:h-48 object-contain drop-shadow-[0_0_30px_rgba(191,148,72,0.5)] z-10" alt="JWC">
                 </div>
             </div>
         </div>
