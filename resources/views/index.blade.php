@@ -363,7 +363,7 @@
                 </style>
                 
                 <!-- Flags Container -->
-                <div class="flex flex-wrap justify-center gap-2 sm:gap-4 md:gap-10">
+                <div class="flex flex-wrap md:flex-nowrap justify-center gap-2 sm:gap-4 md:gap-4 lg:gap-10">
                     @foreach($countries as $index => $country)
                     <div class="flag-item flex flex-col items-center justify-center gap-2 cursor-pointer transition-transform duration-300 w-[60px] sm:w-[70px] md:w-[90px]" data-country="{{ $country['code'] }}">
                         <span class="fi fi-{{ $country['code'] }} fis rounded-full shadow-lg shadow-black/50 border border-white/10 shrink-0 flag-custom-size" style="background-size: cover; background-position: center;"></span>
