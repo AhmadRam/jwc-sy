@@ -123,10 +123,10 @@
             </div>
 
             <!-- Tabs Navigation -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12" id="services-tabs">
-                <button class="px-6 py-3 rounded-full bg-secondary text-dark font-bold transition-all" data-tab="pillar-1">{{ __('app.pillar_1_title') }}</button>
-                <button class="px-6 py-3 rounded-full bg-white/5 text-white border border-white/10 hover:bg-white/10 font-bold transition-all" data-tab="pillar-2">{{ __('app.pillar_2_title') }}</button>
-                <button class="px-6 py-3 rounded-full bg-white/5 text-white border border-white/10 hover:bg-white/10 font-bold transition-all" data-tab="pillar-3">{{ __('app.pillar_3_title') }}</button>
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12" id="services-tabs">
+                <button class="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full bg-secondary text-dark font-bold transition-all" data-tab="pillar-1">{{ __('app.pillar_1_title') }}</button>
+                <button class="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full bg-white/5 text-white border border-white/10 hover:bg-white/10 font-bold transition-all" data-tab="pillar-2">{{ __('app.pillar_2_title') }}</button>
+                <button class="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full bg-white/5 text-white border border-white/10 hover:bg-white/10 font-bold transition-all" data-tab="pillar-3">{{ __('app.pillar_3_title') }}</button>
             </div>
 
             <!-- Tabs Content -->
@@ -547,12 +547,12 @@
                 // Remove active classes
                 tabBtns.forEach(b => {
                     b.classList.remove('bg-secondary', 'text-dark');
-                    b.classList.add('bg-white/5', 'text-white', 'border-white/10');
+                    b.classList.add('bg-white/5', 'text-white', 'border', 'border-white/10', 'hover:bg-white/10');
                 });
                 tabContents.forEach(c => c.classList.add('hidden'));
 
                 // Add active class to clicked
-                btn.classList.remove('bg-white/5', 'text-white', 'border-white/10');
+                btn.classList.remove('bg-white/5', 'text-white', 'border', 'border-white/10', 'hover:bg-white/10');
                 btn.classList.add('bg-secondary', 'text-dark');
                 
                 // Show content
