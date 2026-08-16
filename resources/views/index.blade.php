@@ -33,7 +33,7 @@
             <div class="flex-1 relative hidden md:block">
                 <!-- Abstract visual element replacing standard image -->
                 <div class="relative w-full max-w-lg mx-auto aspect-square rounded-full border border-white/5 flex items-center justify-center before:absolute before:inset-10 before:rounded-full before:border before:border-secondary/20 before:animate-[spin_20s_linear_infinite] after:absolute after:inset-20 after:rounded-full after:border after:border-white/10 after:animate-[spin_15s_linear_infinite_reverse]">
-                    <img src="{{ vasset('assets/img/logo.png') }}" class="w-32 h-32 object-contain drop-shadow-[0_0_30px_rgba(191,148,72,0.5)] z-10" alt="JWC">
+                    <img src="{{ vasset('assets/img/logo.png') }}" class="w-48 h-48 object-contain drop-shadow-[0_0_30px_rgba(191,148,72,0.5)] z-10" alt="JWC">
                 </div>
             </div>
         </div>
