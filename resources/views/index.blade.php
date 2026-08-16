@@ -5,9 +5,8 @@
 @section('meta_keywords', __('app.meta_keywords'))
 
 @section('content')
-    <!-- Hero Section -->
-    <section id="hero" class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
-        <div class="container mx-auto px-6 relative z-10 text-center lg:text-start flex flex-col lg:flex-row items-center gap-12">
+    <section id="hero" class="relative min-h-screen flex items-center pt-20 pb-8 md:pt-24 md:pb-12 overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10 text-center lg:text-start flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             <div class="flex-1 space-y-8 order-2 lg:order-1" data-aos="fade-up">
                 <div class="text-lg md:text-2xl font-bold text-secondary tracking-wide">
                     {!! __('app.hero_title') !!}
