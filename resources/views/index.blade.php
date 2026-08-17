@@ -300,7 +300,7 @@
     </section>
 
     <!-- Journey Section -->
-    <section id="journey" class="py-24 relative border-t border-white/5 bg-gradient-to-t from-primary/5 to-transparent overflow-hidden">
+    <section id="journey" class="py-20 lg:py-24 relative border-t border-white/5 bg-gradient-to-t from-primary/5 to-transparent overflow-hidden">
         <style>
             .cloud-shape-1 {
                 border-radius: 65% 35% 65% 35% / 40% 60% 40% 60%;
@@ -318,7 +318,7 @@
             /* Gentle floating animation for clouds */
             @keyframes float-cloud {
                 0%, 100% { transform: translateY(0px) rotate(0deg); }
-                50% { transform: translateY(-8px) rotate(1deg); }
+                50% { transform: translateY(-7px) rotate(1deg); }
             }
             .cloud-float-1 { animation: float-cloud 5s ease-in-out infinite; }
             .cloud-float-2 { animation: float-cloud 6s ease-in-out infinite 1s; }
@@ -387,19 +387,20 @@
             }
         </style>
 
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">{{ __('app.journey_title') }}</h2>
-                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
-                <p class="text-gray-400 text-sm md:text-base max-w-xl mx-auto">
+        <div class="container mx-auto px-4 sm:px-6 relative z-10">
+            <div class="text-center mb-14 lg:mb-20" data-aos="fade-up">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">{{ __('app.journey_title') }}</h2>
+                <div class="w-20 sm:w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-gray-400 text-xs sm:text-sm md:text-base max-w-xl mx-auto leading-relaxed">
                     {{ app()->getLocale() == 'ar' ? 'رحلتنا مع شركائنا تبدأ بخطوات واضحة ومدروسة لضمان تحقيق أفضل النتائج وتلبية تطلعاتكم' : 'Our journey with our partners starts with clear and deliberate steps to ensure the best results.' }}
                 </p>
             </div>
             
-            <div class="flex flex-col gap-32 lg:block lg:h-[700px] relative w-full max-w-[1300px] mx-auto pt-10 pb-20">
+            <!-- Desktop Layout (>= 1024px: Winding Curve Roadmap) -->
+            <div class="hidden lg:block lg:h-[540px] xl:h-[620px] relative w-full max-w-[1240px] mx-auto pt-6 pb-12">
                 <!-- Desktop Winding Connectors Layer -->
-                <div class="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0 rtl:-scale-x-100">
-                    <svg class="w-full h-full text-secondary" viewBox="0 0 1000 600" fill="none" preserveAspectRatio="none">
+                <div class="absolute inset-0 w-full h-full pointer-events-none z-0 rtl:-scale-x-100 origin-center">
+                    <svg class="w-full h-full text-secondary" viewBox="0 0 1000 520" fill="none" preserveAspectRatio="none">
                         <!-- Custom Arrowhead Markers with orient auto and sequential fade -->
                         <defs>
                             <marker id="flow-arrow-1" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="8" markerHeight="8" orient="auto">
@@ -414,86 +415,110 @@
                         </defs>
 
                         <!-- Path 1 (Node 1 -> Node 2) -->
-                        <path d="M 170,160 C 220,180 250,310 340,365" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-1" marker-end="url(#flow-arrow-1)" />
+                        <path d="M 175,150 C 235,175 255,305 320,355" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-1" marker-end="url(#flow-arrow-1)" />
                         
                         <!-- Path 2 (Node 2 -> Node 3 - Loop-the-loop winding path!) -->
-                        <path d="M 430,335 C 500,320 530,190 480,200 C 440,210 470,320 565,195" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-2" marker-end="url(#flow-arrow-2)" />
+                        <path d="M 430,335 C 500,320 530,175 480,185 C 440,195 470,305 565,180" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-2" marker-end="url(#flow-arrow-2)" />
                         
                         <!-- Path 3 (Node 3 -> Node 4) -->
-                        <path d="M 690,180 C 740,200 770,320 860,380" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-3" marker-end="url(#flow-arrow-3)" />
+                        <path d="M 675,160 C 735,185 755,310 825,365" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-3" marker-end="url(#flow-arrow-3)" />
                     </svg>
                 </div>
 
                 @for($i=1; $i<=4; $i++)
-                <div class="relative flex flex-col items-center @if($i == 1) lg:absolute lg:start-[2%] lg:top-[5%] self-start ml-4 sm:ml-12 cloud-float-1 @elseif($i == 2) lg:absolute lg:start-[28%] lg:top-[50%] self-end mr-6 sm:mr-20 cloud-float-2 @elseif($i == 3) lg:absolute lg:start-[54%] lg:top-[8%] self-start ml-8 sm:ml-24 cloud-float-3 @elseif($i == 4) lg:absolute lg:start-[80%] lg:top-[52%] self-end mr-4 sm:mr-16 cloud-float-4 @endif" data-aos="zoom-in" data-aos-delay="{{ $i * 150 }}">
-                    
-                    <!-- Cloud Node -->
-                    <div class="w-56 h-52 sm:w-64 sm:h-60 lg:w-72 lg:h-64 glass-card flex flex-col items-center justify-center text-center p-6 sm:p-8 relative group hover:border-secondary transition-all duration-500 shadow-2xl shadow-black/50 bg-gradient-to-br from-white/10 to-white/5 hover:scale-105 z-10 cursor-pointer cloud-shape-{{ $i }}">
+                <div class="absolute @if($i == 1) start-0 top-[4%] cloud-float-1 @elseif($i == 2) start-[25%] top-[48%] cloud-float-2 @elseif($i == 3) start-[51%] top-[6%] cloud-float-3 @elseif($i == 4) end-0 top-[50%] cloud-float-4 @endif" data-aos="zoom-in" data-aos-delay="{{ $i * 150 }}">
+                    <!-- Desktop Cloud Node -->
+                    <div class="w-[220px] h-[205px] lg:w-[230px] lg:h-[215px] xl:w-[275px] xl:h-[250px] 2xl:w-[288px] 2xl:h-[256px] glass-card flex flex-col items-center justify-center text-center p-4 lg:p-5 xl:p-7 relative group hover:border-secondary transition-all duration-500 shadow-2xl shadow-black/50 bg-gradient-to-br from-white/10 to-white/5 hover:scale-105 z-10 cursor-pointer cloud-shape-{{ $i }}">
                         <!-- Step Badge -->
-                        <div class="absolute -top-3 bg-secondary text-dark text-xs sm:text-sm font-bold px-3.5 py-1 rounded-full shadow-lg uppercase tracking-wider">
+                        <div class="absolute -top-3 bg-secondary text-dark text-xs font-bold px-3.5 py-1 rounded-full shadow-lg uppercase tracking-wider">
                             {{ app()->getLocale() == 'ar' ? 'الخطوة' : 'Step' }} 0{{ $i }}
                         </div>
 
                         <!-- Icon Container -->
-                        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary mb-4 group-hover:bg-secondary group-hover:text-dark group-hover:scale-110 transition-all duration-300">
+                        <div class="w-12 h-12 lg:w-13 lg:h-13 xl:w-16 xl:h-16 rounded-full bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary mb-3 xl:mb-4 group-hover:bg-secondary group-hover:text-dark group-hover:scale-110 transition-all duration-300">
                             @if($i == 1)
                             <!-- Chat/Meeting Icon -->
-                            <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 xl:w-8 xl:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                             </svg>
                             @elseif($i == 2)
                             <!-- Proposal/Document Icon -->
-                            <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 xl:w-8 xl:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                             </svg>
                             @elseif($i == 3)
                             <!-- Handshake/Agreement Icon -->
-                            <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 xl:w-8 xl:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                             </svg>
                             @elseif($i == 4)
                             <!-- Report/Followup Icon -->
-                            <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 xl:w-8 xl:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                             </svg>
                             @endif
                         </div>
 
                         <!-- Title -->
-                        <h4 class="text-sm sm:text-base lg:text-lg font-bold text-white mb-0 group-hover:text-secondary transition-colors px-3 leading-relaxed max-w-[170px] sm:max-w-[200px] lg:max-w-[220px]">
+                        <h4 class="text-xs sm:text-sm xl:text-base font-bold text-white mb-0 group-hover:text-secondary transition-colors px-2 leading-relaxed max-w-[180px] xl:max-w-[220px]">
+                            {{ __('app.journey_'.$i) }}
+                        </h4>
+                    </div>
+                </div>
+                @endfor
+            </div>
+
+            <!-- Mobile & Tablet Layout (< 1024px: Vertical Flow with Animated Arrows) -->
+            <div class="lg:hidden max-w-md sm:max-w-lg mx-auto flex flex-col items-center gap-0 relative px-2">
+                @for($i=1; $i<=4; $i++)
+                <div class="w-full flex flex-col items-center" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
+                    <!-- Mobile Card -->
+                    <div class="w-full max-w-[290px] sm:max-w-xs h-auto min-h-[190px] glass-card flex flex-col items-center justify-center text-center p-6 relative group hover:border-secondary transition-all duration-300 shadow-xl bg-gradient-to-br from-white/10 to-white/5 cloud-shape-{{ $i }}">
+                        <!-- Step Badge -->
+                        <div class="absolute -top-3 bg-secondary text-dark text-xs sm:text-sm font-bold px-3.5 py-1 rounded-full shadow-lg uppercase tracking-wider">
+                            {{ app()->getLocale() == 'ar' ? 'الخطوة' : 'Step' }} 0{{ $i }}
+                        </div>
+
+                        <!-- Icon Container -->
+                        <div class="w-14 h-14 rounded-full bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary mb-4 group-hover:bg-secondary group-hover:text-dark transition-all duration-300">
+                            @if($i == 1)
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            @elseif($i == 2)
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            @elseif($i == 3)
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            @elseif($i == 4)
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            @endif
+                        </div>
+
+                        <!-- Title -->
+                        <h4 class="text-sm sm:text-base font-bold text-white mb-0 group-hover:text-secondary transition-colors px-3 leading-relaxed max-w-[220px]">
                             {{ __('app.journey_'.$i) }}
                         </h4>
                     </div>
 
-                    <!-- Mobile Connector -->
+                    <!-- Animated Downward Connector Arrow between steps -->
                     @if($i < 4)
-                        @if($i % 2 == 1)
-                        <!-- Down-Right / Down-Left -->
-                        <div class="lg:hidden absolute top-[80%] start-[30%] w-[110%] h-[150px] pointer-events-none z-0 rtl:-scale-x-100">
-                            <svg class="w-full h-full text-secondary" viewBox="0 0 100 150" fill="none" preserveAspectRatio="none">
-                                <defs>
-                                    <marker id="flow-arrow-m-{{ $i }}" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="8" markerHeight="8" orient="auto">
-                                        <path d="M 1 2 L 10 6 L 1 10 L 4 6 Z" fill="#bf9448" class="arrow-anim-{{ $i }}" />
-                                    </marker>
-                                </defs>
-                                <path d="M 10,10 C 40,-15 15,130 90,140" stroke="#bf9448" stroke-width="4" stroke-linecap="round" class="path-anim-{{ $i }}" marker-end="url(#flow-arrow-m-{{ $i }})" />
-                            </svg>
-                        </div>
-                        @else
-                        <!-- Down-Left / Down-Right -->
-                        <div class="lg:hidden absolute top-[80%] end-[30%] w-[110%] h-[150px] pointer-events-none z-0 rtl:-scale-x-100">
-                            <svg class="w-full h-full text-secondary" viewBox="0 0 100 150" fill="none" preserveAspectRatio="none">
-                                <defs>
-                                    <marker id="flow-arrow-m-{{ $i }}" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="8" markerHeight="8" orient="auto">
-                                        <path d="M 1 2 L 10 6 L 1 10 L 4 6 Z" fill="#bf9448" class="arrow-anim-{{ $i }}" />
-                                    </marker>
-                                </defs>
-                                <path d="M 90,10 C 60,-15 85,130 10,140" stroke="#bf9448" stroke-width="4" stroke-linecap="round" class="path-anim-{{ $i }}" marker-end="url(#flow-arrow-m-{{ $i }})" />
-                            </svg>
-                        </div>
-                        @endif
+                    <div class="flex flex-col items-center my-3.5 h-12 w-8 relative z-0">
+                        <svg class="w-full h-full text-secondary" viewBox="0 0 24 48" fill="none">
+                            <defs>
+                                <marker id="flow-arrow-m-{{ $i }}" viewBox="0 0 12 12" refX="6" refY="9" markerWidth="6" markerHeight="6" orient="auto">
+                                    <path d="M 1 2 L 6 10 L 11 2 L 6 5 Z" fill="#bf9448" class="arrow-anim-{{ $i }}" />
+                                </marker>
+                            </defs>
+                            <path d="M 12,0 L 12,38" stroke="#bf9448" stroke-width="3.5" stroke-dasharray="5 4" class="path-anim-{{ $i }}" marker-end="url(#flow-arrow-m-{{ $i }})" />
+                        </svg>
+                    </div>
                     @endif
-
                 </div>
                 @endfor
             </div>

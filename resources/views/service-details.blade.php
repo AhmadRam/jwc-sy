@@ -86,7 +86,7 @@
             <div class="grid grid-cols-12 gap-8 lg:gap-12 items-start">
                 
                 <!-- Quick Navigation Sidebar (Desktop Sticky) -->
-                <aside class="col-span-12 lg:col-span-4 xl:col-span-4 sticky top-28 space-y-6" data-aos="fade-up">
+                <aside class="col-span-12 lg:col-span-4 xl:col-span-4 lg:sticky lg:top-28 space-y-6" data-aos="fade-up">
                     <div class="glass-card p-6 border border-white/10 shadow-2xl rounded-2xl">
                         <!-- Quick Back Button in Sidebar -->
                         <div class="pb-4 mb-4 border-b border-white/10">

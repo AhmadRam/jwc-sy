@@ -30,64 +30,63 @@
 
 <body class="bg-dark text-white font-sans antialiased selection:bg-secondary/30 selection:text-white">
     <!-- Main Background Effects -->
-    <div class="fixed inset-0 z-[-1] pointer-events-none">
+    <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-primary/10 to-transparent"></div>
         <div class="absolute top-[-20%] right-[-10%] w-[80vw] h-[80vw] bg-primary/10 rounded-full blur-[120px] opacity-30"></div>
         <div class="absolute bottom-[0%] left-[-10%] w-[60vw] h-[60vw] bg-secondary/10 rounded-full blur-[100px] opacity-20"></div>
     </div>
 
     <!-- Header / Navbar -->
-    <nav class="fixed w-full z-50 top-0 left-0 right-0 transition-all duration-500 py-4 bg-dark/80 backdrop-blur-md border-b border-white/10">
-        <div class="container mx-auto px-6 flex justify-between items-center">
+    <nav class="fixed w-full z-50 top-0 left-0 right-0 transition-all duration-500 py-3 md:py-4 bg-dark/80 backdrop-blur-md border-b border-white/10">
+        <div class="container mx-auto px-4 sm:px-6 flex justify-between items-center">
             <!-- Logo -->
-            <a href="{{ app()->getLocale() == 'ar' ? route('index') : route('index_en') }}" class="relative z-50 group">
-                <img src="{{ vasset('assets/img/logo.png') }}" alt="JWC Logo" class="h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_10px_rgba(191,148,72,0.3)]">
+            <a href="{{ app()->getLocale() == 'ar' ? route('index') : route('index_en') }}" class="relative z-50 group shrink-0">
+                <img src="{{ vasset('assets/img/logo.png') }}" alt="JWC Logo" class="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_10px_rgba(191,148,72,0.3)]">
             </a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden lg:flex items-center bg-white/5 backdrop-blur-md rounded-full px-4 py-3 border border-white/10 shadow-xl max-w-[60%] lg:max-w-[70%] overflow-x-auto" style="scrollbar-width: none; -ms-overflow-style: none;">
-                <style>div::-webkit-scrollbar { display: none; }</style>
-                <ul class="flex gap-4 xl:gap-6 items-center m-0 p-0 list-none text-sm xl:text-base whitespace-nowrap w-full justify-between">
-                    <li><a href="/{{ app()->getLocale() }}#hero" class="text-white/80 hover:text-white transition-all font-medium relative group py-2">{{ __('app.home') }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
-                    <li><a href="/{{ app()->getLocale() }}#about" class="text-white/80 hover:text-white transition-all font-medium relative group py-2">{{ __('app.about') }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
-                    <li><a href="/{{ app()->getLocale() }}#services" class="text-white/80 hover:text-white transition-all font-medium relative group py-2">{{ __('app.services') }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
-                    <li><a href="/{{ app()->getLocale() }}#why_us" class="text-white/80 hover:text-white transition-all font-medium relative group py-2">{{ __('app.nav_why') }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
-                    <li><a href="/{{ app()->getLocale() }}#methodology" class="text-white/80 hover:text-white transition-all font-medium relative group py-2">{{ __('app.nav_methodology') }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
-                    <li><a href="/{{ app()->getLocale() }}#sectors" class="text-white/80 hover:text-white transition-all font-medium relative group py-2">{{ __('app.nav_sectors') }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
-                    <li><a href="/{{ app()->getLocale() }}#international_presence" class="text-white/80 hover:text-white transition-all font-medium relative group py-2">{{ __('app.international_presence') }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
-                    <li><a href="/{{ app()->getLocale() }}#clients" class="text-white/80 hover:text-white transition-all font-medium relative group py-2">{{ __('app.clients') }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
-                    <li><a href="{{ app()->getLocale() == 'en' ? route('blog.index_en') : route('blog.index') }}" class="text-white/80 hover:text-white transition-all font-medium relative group py-2 {{ request()->routeIs('blog.*') ? 'text-white font-bold' : '' }}">{{ app()->getLocale() == 'en' ? 'Blog' : 'المدونة' }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
+            <!-- Desktop Menu (visible on screens >= 1150px / xl) -->
+            <div class="hidden xl:flex items-center bg-white/5 backdrop-blur-md rounded-full px-3.5 py-2.5 border border-white/10 shadow-xl max-w-full">
+                <ul class="flex gap-3 2xl:gap-5 items-center m-0 p-0 list-none text-xs 2xl:text-sm whitespace-nowrap w-full justify-between">
+                    <li><a href="/{{ app()->getLocale() }}#hero" class="text-white/80 hover:text-white transition-all font-medium relative group py-1.5">{{ __('app.home') }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
+                    <li><a href="/{{ app()->getLocale() }}#about" class="text-white/80 hover:text-white transition-all font-medium relative group py-1.5">{{ __('app.about') }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
+                    <li><a href="/{{ app()->getLocale() }}#services" class="text-white/80 hover:text-white transition-all font-medium relative group py-1.5">{{ __('app.services') }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
+                    <li><a href="/{{ app()->getLocale() }}#why_us" class="text-white/80 hover:text-white transition-all font-medium relative group py-1.5">{{ __('app.nav_why') }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
+                    <li><a href="/{{ app()->getLocale() }}#methodology" class="text-white/80 hover:text-white transition-all font-medium relative group py-1.5">{{ __('app.nav_methodology') }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
+                    <li><a href="/{{ app()->getLocale() }}#sectors" class="text-white/80 hover:text-white transition-all font-medium relative group py-1.5">{{ __('app.nav_sectors') }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
+                    <li><a href="/{{ app()->getLocale() }}#international_presence" class="text-white/80 hover:text-white transition-all font-medium relative group py-1.5">{{ __('app.international_presence') }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
+                    <li><a href="/{{ app()->getLocale() }}#clients" class="text-white/80 hover:text-white transition-all font-medium relative group py-1.5">{{ __('app.clients') }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
+                    <li><a href="{{ app()->getLocale() == 'en' ? route('blog.index_en') : route('blog.index') }}" class="text-white/80 hover:text-white transition-all font-medium relative group py-1.5 {{ request()->routeIs('blog.*') ? 'text-white font-bold' : '' }}">{{ app()->getLocale() == 'en' ? 'Blog' : 'المدونة' }}<span class="absolute bottom-0 left-0 w-full h-[2px] bg-secondary transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 origin-right"></span></a></li>
                 </ul>
             </div>
 
             <!-- Actions -->
-            <div class="hidden lg:flex items-center gap-4 shrink-0">
-                <a href="/{{ app()->getLocale() == 'ar' ? str_replace('ar', 'en', request()->path()) : str_replace('en', 'ar', request()->path()) }}" class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white text-xs font-bold hover:bg-secondary/20 hover:border-secondary transition-all duration-300">{{ __('app.language') }}</a>
-                <a href="/{{ app()->getLocale() }}#contact" class="px-6 py-2 rounded-full bg-secondary text-dark text-sm font-bold hover:bg-white hover:shadow-[0_0_15px_rgba(191,148,72,0.5)] transition-all duration-300">{{ __('app.contact') }}</a>
+            <div class="hidden xl:flex items-center gap-3 shrink-0">
+                <a href="/{{ app()->getLocale() == 'ar' ? str_replace('ar', 'en', request()->path()) : str_replace('en', 'ar', request()->path()) }}" class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-white text-xs font-bold hover:bg-secondary/20 hover:border-secondary transition-all duration-300">{{ __('app.language') }}</a>
+                <a href="/{{ app()->getLocale() }}#contact" class="px-5 py-2 rounded-full bg-secondary text-dark text-xs xl:text-sm font-bold hover:bg-white hover:shadow-[0_0_15px_rgba(191,148,72,0.5)] transition-all duration-300">{{ __('app.contact') }}</a>
             </div>
 
-            <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="lg:hidden text-white z-50 p-2">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            <!-- Mobile & Tablet Menu Toggle -->
+            <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="xl:hidden text-white z-50 p-2 focus:outline-none" aria-label="Toggle navigation">
+                <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 hidden bg-dark/95 backdrop-blur-lg flex-col justify-center items-center">
-        <ul class="flex flex-col gap-6 items-center text-xl list-none p-0 m-0">
-            <li><a href="/{{ app()->getLocale() }}#hero" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ __('app.home') }}</a></li>
-            <li><a href="/{{ app()->getLocale() }}#about" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ __('app.about') }}</a></li>
-            <li><a href="/{{ app()->getLocale() }}#services" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ __('app.services') }}</a></li>
-            <li><a href="/{{ app()->getLocale() }}#why_us" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ __('app.nav_why') }}</a></li>
-            <li><a href="/{{ app()->getLocale() }}#methodology" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ __('app.nav_methodology') }}</a></li>
-            <li><a href="/{{ app()->getLocale() }}#sectors" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ __('app.nav_sectors') }}</a></li>
-            <li><a href="/{{ app()->getLocale() }}#international_presence" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ __('app.international_presence') }}</a></li>
-            <li><a href="/{{ app()->getLocale() }}#clients" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ __('app.clients') }}</a></li>
-            <li><a href="{{ app()->getLocale() == 'en' ? route('blog.index_en') : route('blog.index') }}" class="text-white hover:text-secondary transition-colors" onclick="toggleMobileMenu()">{{ app()->getLocale() == 'en' ? 'Blog' : 'المدونة' }}</a></li>
-            <li class="mt-4 flex gap-4">
-                <a href="/{{ app()->getLocale() == 'ar' ? str_replace('ar', 'en', request()->path()) : str_replace('en', 'ar', request()->path()) }}" class="px-6 py-2 rounded-full bg-white/5 border border-white/10 text-white text-sm font-bold hover:bg-secondary/20 hover:border-secondary transition-all duration-300" onclick="toggleMobileMenu()">{{ __('app.language') }}</a>
-                <a href="/{{ app()->getLocale() }}#contact" class="px-6 py-2 rounded-full bg-secondary text-dark text-sm font-bold hover:bg-white hover:shadow-[0_0_15px_rgba(191,148,72,0.5)] transition-all duration-300" onclick="toggleMobileMenu()">{{ __('app.contact') }}</a>
+    <!-- Mobile & Tablet Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 hidden bg-dark/98 backdrop-blur-xl flex-col justify-center items-center overflow-y-auto py-20 px-6">
+        <ul class="flex flex-col gap-5 sm:gap-6 items-center text-lg sm:text-xl list-none p-0 m-0 w-full max-w-sm text-center">
+            <li><a href="/{{ app()->getLocale() }}#hero" class="text-white/90 hover:text-secondary font-medium transition-colors py-1 block" onclick="toggleMobileMenu()">{{ __('app.home') }}</a></li>
+            <li><a href="/{{ app()->getLocale() }}#about" class="text-white/90 hover:text-secondary font-medium transition-colors py-1 block" onclick="toggleMobileMenu()">{{ __('app.about') }}</a></li>
+            <li><a href="/{{ app()->getLocale() }}#services" class="text-white/90 hover:text-secondary font-medium transition-colors py-1 block" onclick="toggleMobileMenu()">{{ __('app.services') }}</a></li>
+            <li><a href="/{{ app()->getLocale() }}#why_us" class="text-white/90 hover:text-secondary font-medium transition-colors py-1 block" onclick="toggleMobileMenu()">{{ __('app.nav_why') }}</a></li>
+            <li><a href="/{{ app()->getLocale() }}#methodology" class="text-white/90 hover:text-secondary font-medium transition-colors py-1 block" onclick="toggleMobileMenu()">{{ __('app.nav_methodology') }}</a></li>
+            <li><a href="/{{ app()->getLocale() }}#sectors" class="text-white/90 hover:text-secondary font-medium transition-colors py-1 block" onclick="toggleMobileMenu()">{{ __('app.nav_sectors') }}</a></li>
+            <li><a href="/{{ app()->getLocale() }}#international_presence" class="text-white/90 hover:text-secondary font-medium transition-colors py-1 block" onclick="toggleMobileMenu()">{{ __('app.international_presence') }}</a></li>
+            <li><a href="/{{ app()->getLocale() }}#clients" class="text-white/90 hover:text-secondary font-medium transition-colors py-1 block" onclick="toggleMobileMenu()">{{ __('app.clients') }}</a></li>
+            <li><a href="{{ app()->getLocale() == 'en' ? route('blog.index_en') : route('blog.index') }}" class="text-white/90 hover:text-secondary font-medium transition-colors py-1 block" onclick="toggleMobileMenu()">{{ app()->getLocale() == 'en' ? 'Blog' : 'المدونة' }}</a></li>
+            <li class="mt-4 pt-4 border-t border-white/10 w-full flex flex-col sm:flex-row gap-3 justify-center items-center">
+                <a href="/{{ app()->getLocale() == 'ar' ? str_replace('ar', 'en', request()->path()) : str_replace('en', 'ar', request()->path()) }}" class="w-full sm:w-auto px-6 py-2.5 rounded-full bg-white/5 border border-white/10 text-white text-sm font-bold hover:bg-secondary/20 hover:border-secondary transition-all duration-300 text-center" onclick="toggleMobileMenu()">{{ __('app.language') }}</a>
+                <a href="/{{ app()->getLocale() }}#contact" class="w-full sm:w-auto px-6 py-2.5 rounded-full bg-secondary text-dark text-sm font-bold hover:bg-white hover:shadow-[0_0_15px_rgba(191,148,72,0.5)] transition-all duration-300 text-center" onclick="toggleMobileMenu()">{{ __('app.contact') }}</a>
             </li>
         </ul>
     </div>
