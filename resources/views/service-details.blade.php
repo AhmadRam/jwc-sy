@@ -26,7 +26,7 @@
             <div class="absolute top-0 right-0 w-[50vw] h-full bg-gradient-to-l from-[#133c5c]/20 to-transparent transform -skew-x-12"></div>
         </div>
 
-        <div class="container mx-auto px-6 relative z-10 text-center">
+        <div class="container mx-auto px-6 relative z-10 text-center" data-aos="fade-up">
             <!-- Back to Home & Breadcrumbs Row -->
             <div class="flex flex-wrap items-center justify-center gap-3 md:gap-5 mb-6">
                 <a href="/{{ $locale }}#services" 
@@ -48,23 +48,23 @@
             </div>
 
             <!-- Pillar Badge -->
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/30 text-secondary text-xs md:text-sm font-bold mb-4">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/30 text-secondary text-xs md:text-sm font-bold mb-4" data-aos="fade-up" data-aos-delay="50">
                 <span>{{ $currentPillar['number'] }}</span>
                 <span>•</span>
                 <span>{{ __('services.all_pillars') }}</span>
             </div>
 
             <!-- Main Pillar Title -->
-            <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg" data-aos="fade-up" data-aos-delay="100">
                 {{ $currentPillar['title'] }}
             </h1>
 
-            <p class="text-base md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-10">
+            <p class="text-base md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-10" data-aos="fade-up" data-aos-delay="150">
                 {{ $currentPillar['desc'] }}
             </p>
 
             <!-- Pillars Switcher Tabs -->
-            <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+            <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
                 @foreach($pillarsConfig as $slug => $pConfig)
                     @php
                         $isActive = $slug === $currentPillarSlug;
@@ -86,7 +86,7 @@
             <div class="grid grid-cols-12 gap-8 lg:gap-12 items-start">
                 
                 <!-- Quick Navigation Sidebar (Desktop Sticky) -->
-                <aside class="col-span-12 lg:col-span-4 xl:col-span-4 sticky top-28 space-y-6">
+                <aside class="col-span-12 lg:col-span-4 xl:col-span-4 sticky top-28 space-y-6" data-aos="fade-up">
                     <div class="glass-card p-6 border border-white/10 shadow-2xl rounded-2xl">
                         <!-- Quick Back Button in Sidebar -->
                         <div class="pb-4 mb-4 border-b border-white/10">
@@ -158,7 +158,7 @@
                             $isAssoc = $hasPoints && (array_keys($item['points']) !== range(0, count($item['points']) - 1));
                         @endphp
                         
-                        <article id="{{ $item['id'] }}" class="service-target-card glass-card p-6 md:p-10 border border-white/10 rounded-3xl relative overflow-hidden transition-all duration-500 scroll-mt-28 group hover:border-secondary/40 hover:shadow-2xl hover:shadow-secondary/10">
+                        <article id="{{ $item['id'] }}" class="service-target-card glass-card p-6 md:p-10 border border-white/10 rounded-3xl relative overflow-hidden transition-all duration-500 scroll-mt-28 group hover:border-secondary/40 hover:shadow-2xl hover:shadow-secondary/10" data-aos="fade-up" data-aos-delay="{{ min($index * 60, 200) }}">
                             <!-- Subtle Ambient Background Light -->
                             <div class="absolute -right-20 -top-20 w-48 h-48 bg-secondary/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-secondary/20 transition-all"></div>
                             
@@ -263,7 +263,7 @@
 
     <!-- Bottom Full-Width CTA Section -->
     <section class="py-16 relative z-10">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-6" data-aos="zoom-in">
             <div class="glass-card p-8 md:p-14 border border-secondary/30 rounded-3xl text-center bg-gradient-to-r from-secondary/10 via-primary/20 to-secondary/10 relative overflow-hidden shadow-2xl">
                 <!-- Background decoration -->
                 <div class="absolute -left-10 -top-10 w-48 h-48 bg-secondary/20 rounded-full blur-[90px] pointer-events-none"></div>

@@ -9,7 +9,7 @@
         <div class="absolute top-0 right-0 w-[60vw] h-full bg-gradient-to-l from-[#133c5c] to-transparent transform -skew-x-12 translate-x-32"></div>
         <div class="absolute bottom-0 left-0 w-[50vw] h-[60vh] bg-gradient-to-t from-[#133c5c] to-transparent transform skew-y-12 -translate-x-32"></div>
     </div>
-    <div class="container mx-auto px-6 relative z-10">
+    <div class="container mx-auto px-6 relative z-10" data-aos="fade-up">
         <div class="max-w-4xl mx-auto text-center">
             @php
                 $route = app()->getLocale() == 'en' ? 'blog.index_en' : 'blog.index';
@@ -35,7 +35,7 @@
 <section class="py-12 lg:py-20 relative z-10 -mt-28 lg:-mt-40">
     <div class="container mx-auto px-6">
         <div class="max-w-4xl mx-auto">
-            <article class="bg-white/5 border border-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden">
+            <article class="bg-white/5 border border-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                 @if($blog->image)
                     <div class="w-full h-64 md:h-[400px] lg:h-[500px] relative border-b border-white/10">
                         <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" class="w-full h-full object-cover">
@@ -80,7 +80,7 @@
 @if($randomBlogs->count() > 0)
 <section class="py-20 relative bg-black/40 border-t border-white/5">
     <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16" data-aos="fade-up">
             <h3 class="text-3xl font-bold text-white mb-4">{{ app()->getLocale() == 'en' ? 'You May Also Like' : 'مقالات قد تعجبك' }}</h3>
             <div class="w-16 h-1 bg-secondary mx-auto"></div>
         </div>
@@ -90,7 +90,7 @@
                 @php
                     $rRoute = app()->getLocale() == 'en' ? 'blog.show_en' : 'blog.show';
                 @endphp
-                <article class="group bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-secondary/50 transition-all duration-500 flex flex-col h-full hover:shadow-[0_15px_30px_rgba(191,148,72,0.15)]">
+                <article class="group bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-secondary/50 transition-all duration-500 flex flex-col h-full hover:shadow-[0_15px_30px_rgba(191,148,72,0.15)]" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
                     <a href="{{ route($rRoute, $rBlog->slug) }}" class="block relative h-48 overflow-hidden">
                         @if($rBlog->image)
                             <img src="{{ asset('storage/' . $rBlog->image) }}" alt="{{ $rBlog->title }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">

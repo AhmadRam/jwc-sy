@@ -106,7 +106,7 @@
                             $sections = is_array($sections) ? $sections : [];
                         @endphp
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
                             <div class="package-card">
                                 <div>
                                     <h3>{{ $package['title'] ?? '' }}</h3>
@@ -163,7 +163,7 @@
                     @endforeach
 
                     @if ($corporateCustom)
-                        <div class="col-lg-12">
+                        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
                             <div class="package-card">
                                 <div>
                                     <h3>{{ $corporateCustom['title'] ?? '' }}</h3>
@@ -215,7 +215,7 @@
                             $rows = is_array($rows) ? $rows : [];
                         @endphp
 
-                        <div class="col-lg-4">
+                        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
                             <div class="package-card">
                                 <div>
                                     <h3>{{ $package['title'] ?? '' }}</h3>

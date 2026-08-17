@@ -8,18 +8,18 @@
     <section id="hero" class="relative min-h-[auto] lg:min-h-screen flex items-start lg:items-center pt-[88px] pb-8 md:pt-24 md:pb-12 overflow-hidden">
         <div class="container mx-auto px-6 relative z-10 text-center lg:text-start flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             <div class="flex-1 space-y-8 order-2 lg:order-1" data-aos="fade-up">
-                <div class="text-lg md:text-2xl font-bold text-secondary tracking-wide">
+                <div class="text-lg md:text-2xl font-bold text-secondary tracking-wide" data-aos="fade-up" data-aos-delay="100">
                     {!! __('app.hero_title') !!}
                 </div>
                 
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-normal">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-normal" data-aos="fade-up" data-aos-delay="200">
                     {{ __('app.hero_subtitle_1') }} <br>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-yellow-200 inline-block py-2">
                         {{ __('app.hero_subtitle_2') }}
                     </span>
                 </h1>
                 
-                <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+                <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4" data-aos="fade-up" data-aos-delay="300">
                     <a href="#about" class="px-8 py-3 rounded-full bg-secondary text-dark font-bold hover:bg-white hover:shadow-[0_0_20px_rgba(191,148,72,0.4)] transition-all duration-300">
                         {{ __('app.discover_more') }}
                     </a>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             
-            <div class="flex-1 relative order-1 lg:order-2 w-full flex justify-center">
+            <div class="flex-1 relative order-1 lg:order-2 w-full flex justify-center" data-aos="zoom-in" data-aos-delay="200">
                 <!-- Abstract visual element replacing standard image -->
                 <div class="relative w-full max-w-[260px] md:max-w-lg mx-auto aspect-square rounded-full border border-white/5 flex items-center justify-center before:absolute before:inset-6 md:before:inset-10 before:rounded-full before:border before:border-secondary/20 before:animate-[spin_20s_linear_infinite] after:absolute after:inset-12 md:after:inset-20 after:rounded-full after:border after:border-white/10 after:animate-[spin_15s_linear_infinite_reverse]">
                     <img src="{{ vasset('assets/img/logo.png') }}" class="w-28 h-28 md:w-48 md:h-48 object-contain drop-shadow-[0_0_30px_rgba(191,148,72,0.5)] z-10" alt="JWC">
@@ -40,7 +40,7 @@
 
     <!-- Chairman Message -->
     <section class="py-16 relative border-t border-white/5 bg-gradient-to-b from-transparent to-primary/5">
-        <div class="container mx-auto px-6 relative z-10">
+        <div class="container mx-auto px-6 relative z-10" data-aos="fade-up">
             <div class="glass-card p-8 md:p-12 relative overflow-hidden text-start">
                 <div class="absolute -top-10 -right-10 text-9xl text-white/5 font-serif">"</div>
                 <h3 class="text-2xl md:text-3xl font-bold text-secondary mb-6">{{ __('app.chairman_message_title') }}</h3>
@@ -53,7 +53,7 @@
     <!-- About Section -->
     <section id="about" class="py-24 relative">
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-start mb-16">
+            <div class="text-start mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">{{ __('app.about_us') }}</h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent mb-8 inline-block"></div>
                 <p class="text-gray-400 text-lg leading-relaxed">
@@ -62,23 +62,23 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                <div class="glass-card p-8 text-start group glass-card-hover border-t-4 border-t-secondary">
+                <div class="glass-card p-8 text-start group glass-card-hover border-t-4 border-t-secondary" data-aos="fade-right" data-aos-delay="100">
                     <h4 class="text-2xl font-bold text-white mb-4">{{ __('app.vision_title') }}</h4>
                     <p class="text-gray-400">{{ __('app.vision_desc') }}</p>
                 </div>
-                <div class="glass-card p-8 text-start group glass-card-hover border-t-4 border-t-secondary">
+                <div class="glass-card p-8 text-start group glass-card-hover border-t-4 border-t-secondary" data-aos="fade-left" data-aos-delay="200">
                     <h4 class="text-2xl font-bold text-white mb-4">{{ __('app.mission_title') }}</h4>
                     <p class="text-gray-400">{{ __('app.mission_desc') }}</p>
                 </div>
             </div>
 
             <!-- Our Compass (Values) -->
-            <div class="text-start mb-10">
+            <div class="text-start mb-10" data-aos="fade-up">
                 <h3 class="text-2xl font-bold text-white mb-6">{{ __('app.compass_title') }}</h3>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 @for($i=1; $i<=5; $i++)
-                <div class="glass-card p-6 text-start group glass-card-hover">
+                <div class="glass-card p-6 text-start group glass-card-hover" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
                     <h5 class="text-lg font-bold text-secondary mb-3">{{ __('app.compass_'.$i.'_title') }}</h5>
                     <p class="text-gray-400 text-sm">{{ __('app.compass_'.$i.'_desc') }}</p>
                 </div>
@@ -90,13 +90,13 @@
     <!-- Numbers Section -->
     <section id="stats" class="py-20 relative bg-black/40 border-y border-white/5">
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl font-bold text-white mb-4">{{ __('app.numbers_title') }}</h2>
                 <div class="w-24 h-1 bg-secondary mx-auto"></div>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
                 @for($i=1; $i<=5; $i++)
-                <div class="p-4">
+                <div class="p-4" data-aos="zoom-in" data-aos-delay="{{ $i * 100 }}">
                     <div class="text-4xl md:text-5xl font-bold text-secondary mb-2 counter" data-target="{{ intval(str_replace(['+','K','M'], '', __('app.num_'.$i.'_val'))) }}">
                         {{ __('app.num_'.$i.'_val') }}
                     </div>
@@ -110,14 +110,14 @@
     <!-- Services Section -->
     <section id="services" class="py-24 relative">
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">{{ __('app.core_services') }}</h2>
                 <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
                 <p class="text-gray-400 text-lg max-w-2xl mx-auto">{{ __('app.services_description') }}</p>
             </div>
 
             <!-- Tabs Navigation -->
-            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12 scroll-mt-24" id="services-tabs">
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12 scroll-mt-24" id="services-tabs" data-aos="fade-up" data-aos-delay="100">
                 <button class="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full bg-secondary text-dark font-bold transition-all" data-tab="pillar-1">{{ __('app.pillar_1_title') }}</button>
                 <button class="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full bg-white/5 text-white border border-white/10 hover:bg-white/10 font-bold transition-all" data-tab="pillar-2">{{ __('app.pillar_2_title') }}</button>
                 <button class="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full bg-white/5 text-white border border-white/10 hover:bg-white/10 font-bold transition-all" data-tab="pillar-3">{{ __('app.pillar_3_title') }}</button>
@@ -142,7 +142,7 @@
                         @php
                             $serviceUrl = route(app()->getLocale() == 'ar' ? 'service.details' : 'service.details_en', ['service' => 'administrative']) . '#' . $service['id'];
                         @endphp
-                        <div class="{{ ($loop->last && $loop->count % 2 !== 0) ? 'md:col-span-2 flex justify-center' : '' }}">
+                        <div class="{{ ($loop->last && $loop->count % 2 !== 0) ? 'md:col-span-2 flex justify-center' : '' }}" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
                             <a href="{{ $serviceUrl }}" class="glass-card p-5 md:p-6 glass-card-hover flex flex-col justify-between text-start border border-white/10 hover:border-secondary/50 transition-all duration-300 group w-full {{ ($loop->last && $loop->count % 2 !== 0) ? 'md:w-1/2' : '' }}">
                                 <div>
                                     <div class="flex items-center gap-3.5 mb-2.5">
@@ -174,7 +174,7 @@
                         @php
                             $serviceUrl = route(app()->getLocale() == 'ar' ? 'service.details' : 'service.details_en', ['service' => 'media']) . '#' . $service['id'];
                         @endphp
-                        <div class="{{ ($loop->last && $loop->count % 2 !== 0) ? 'md:col-span-2 flex justify-center' : '' }}">
+                        <div class="{{ ($loop->last && $loop->count % 2 !== 0) ? 'md:col-span-2 flex justify-center' : '' }}" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
                             <a href="{{ $serviceUrl }}" class="glass-card p-5 md:p-6 glass-card-hover flex flex-col justify-between text-start border border-white/10 hover:border-secondary/50 transition-all duration-300 group w-full {{ ($loop->last && $loop->count % 2 !== 0) ? 'md:w-1/2' : '' }}">
                                 <div>
                                     <div class="flex items-center gap-3.5 mb-2.5">
@@ -206,7 +206,7 @@
                         @php
                             $serviceUrl = route(app()->getLocale() == 'ar' ? 'service.details' : 'service.details_en', ['service' => 'financial']) . '#' . $service['id'];
                         @endphp
-                        <div class="{{ ($loop->last && $loop->count % 2 !== 0) ? 'md:col-span-2 flex justify-center' : '' }}">
+                        <div class="{{ ($loop->last && $loop->count % 2 !== 0) ? 'md:col-span-2 flex justify-center' : '' }}" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
                             <a href="{{ $serviceUrl }}" class="glass-card p-5 md:p-6 glass-card-hover flex flex-col justify-between text-start border border-white/10 hover:border-secondary/50 transition-all duration-300 group w-full {{ ($loop->last && $loop->count % 2 !== 0) ? 'md:w-1/2' : '' }}">
                                 <div>
                                     <div class="flex items-center gap-3.5 mb-2.5">
@@ -237,13 +237,13 @@
     <!-- Why JWC Section -->
     <section id="why_us" class="py-24 relative border-t border-white/5 bg-gradient-to-t from-primary/5 to-transparent">
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">{{ __('app.why_us_title') }}</h2>
                 <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
                 @for($i=1; $i<=5; $i++)
-                <div class="glass-card p-8 group glass-card-hover text-center w-full md:col-span-1 lg:col-span-2 {{ $i == 4 ? 'lg:col-start-2' : '' }} {{ $i == 5 ? 'md:col-span-2 lg:col-span-2 md:w-1/2 lg:w-full md:mx-auto lg:mx-0' : '' }}">
+                <div class="glass-card p-8 group glass-card-hover text-center w-full md:col-span-1 lg:col-span-2 {{ $i == 4 ? 'lg:col-start-2' : '' }} {{ $i == 5 ? 'md:col-span-2 lg:col-span-2 md:w-1/2 lg:w-full md:mx-auto lg:mx-0' : '' }}" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
                     <div class="w-16 h-16 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-2xl font-bold mx-auto mb-4 group-hover:bg-secondary group-hover:text-dark transition-all">{{ $i }}</div>
                     <h4 class="text-xl font-bold text-white mb-3">{{ __('app.why_'.$i.'_title') }}</h4>
                     <p class="text-gray-400 text-sm">{{ __('app.why_'.$i.'_desc') }}</p>
@@ -256,14 +256,14 @@
     <!-- Methodology Section -->
     <section id="methodology" class="py-24 relative border-t border-white/5 bg-gradient-to-b from-primary/5 to-transparent">
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">{{ __('app.methodology_title') }}</h2>
                 <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 @for($i=1; $i<=4; $i++)
-                <div class="glass-card p-8 relative overflow-hidden group glass-card-hover border-t-4 border-t-secondary/60 hover:border-t-secondary transition-all duration-300">
+                <div class="glass-card p-8 relative overflow-hidden group glass-card-hover border-t-4 border-t-secondary/60 hover:border-t-secondary transition-all duration-300" data-aos="fade-up" data-aos-delay="{{ $i * 150 }}">
                     <!-- Faded background number -->
                     <div class="absolute -right-4 -top-8 text-8xl font-black text-white/[0.02] select-none group-hover:text-white/[0.06] transition-all duration-300 pointer-events-none">0{{ $i }}</div>
                     
@@ -388,7 +388,7 @@
         </style>
 
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-20">
+            <div class="text-center mb-20" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">{{ __('app.journey_title') }}</h2>
                 <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
                 <p class="text-gray-400 text-sm md:text-base max-w-xl mx-auto">
@@ -425,7 +425,7 @@
                 </div>
 
                 @for($i=1; $i<=4; $i++)
-                <div class="relative flex flex-col items-center @if($i == 1) lg:absolute lg:start-[2%] lg:top-[5%] self-start ml-4 sm:ml-12 cloud-float-1 @elseif($i == 2) lg:absolute lg:start-[28%] lg:top-[50%] self-end mr-6 sm:mr-20 cloud-float-2 @elseif($i == 3) lg:absolute lg:start-[54%] lg:top-[8%] self-start ml-8 sm:ml-24 cloud-float-3 @elseif($i == 4) lg:absolute lg:start-[80%] lg:top-[52%] self-end mr-4 sm:mr-16 cloud-float-4 @endif">
+                <div class="relative flex flex-col items-center @if($i == 1) lg:absolute lg:start-[2%] lg:top-[5%] self-start ml-4 sm:ml-12 cloud-float-1 @elseif($i == 2) lg:absolute lg:start-[28%] lg:top-[50%] self-end mr-6 sm:mr-20 cloud-float-2 @elseif($i == 3) lg:absolute lg:start-[54%] lg:top-[8%] self-start ml-8 sm:ml-24 cloud-float-3 @elseif($i == 4) lg:absolute lg:start-[80%] lg:top-[52%] self-end mr-4 sm:mr-16 cloud-float-4 @endif" data-aos="zoom-in" data-aos-delay="{{ $i * 150 }}">
                     
                     <!-- Cloud Node -->
                     <div class="w-56 h-52 sm:w-64 sm:h-60 lg:w-72 lg:h-64 glass-card flex flex-col items-center justify-center text-center p-6 sm:p-8 relative group hover:border-secondary transition-all duration-500 shadow-2xl shadow-black/50 bg-gradient-to-br from-white/10 to-white/5 hover:scale-105 z-10 cursor-pointer cloud-shape-{{ $i }}">
@@ -503,14 +503,14 @@
     <!-- Target Sectors -->
     <section id="sectors" class="py-24 relative border-t border-white/5 bg-black/40">
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">{{ __('app.target_sectors_title') }}</h2>
                 <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
                 <p class="text-gray-400 text-lg">{{ __('app.target_sectors_desc') }}</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 @for($i=1; $i<=4; $i++)
-                <div class="glass-card p-6 text-center group glass-card-hover">
+                <div class="glass-card p-6 text-center group glass-card-hover" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
                     <h4 class="text-xl font-bold text-secondary mb-3">{{ __('app.sector_'.$i) }}</h4>
                     <p class="text-gray-400 text-sm">{{ __('app.sector_'.$i.'_desc') }}</p>
                 </div>
@@ -521,7 +521,7 @@
 
     <!-- Social Responsibility -->
     <section id="social" class="py-24 relative border-t border-white/5">
-        <div class="container mx-auto px-6 relative z-10 text-center max-w-4xl">
+        <div class="container mx-auto px-6 relative z-10 text-center max-w-4xl" data-aos="zoom-in">
             <div class="w-20 h-20 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mx-auto mb-8">
                 <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
             </div>
@@ -533,12 +533,12 @@
     <!-- International Presence Section -->
     <section id="international_presence" class="py-24 relative border-t border-white/5 bg-black/20">
         <div class="container mx-auto px-6 relative z-10">
-            <div class="mb-8 md:mb-12 text-center md:text-start">
+            <div class="mb-8 md:mb-12 text-center md:text-start" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">{{ __('app.international_presence') }}</h2>
                 <div class="w-24 h-1 bg-secondary mx-auto md:mx-0"></div>
             </div>
 
-            <div class="glass-card p-2 sm:p-4 md:p-10 mb-8 md:mb-12 relative overflow-hidden bg-gradient-to-b from-[#132035]/95 via-[#0e1828]/95 to-[#09101d]/95 border border-secondary/25 shadow-2xl" id="interactive-map-wrapper">
+            <div class="glass-card p-2 sm:p-4 md:p-10 mb-8 md:mb-12 relative overflow-hidden bg-gradient-to-b from-[#132035]/95 via-[#0e1828]/95 to-[#09101d]/95 border border-secondary/25 shadow-2xl" id="interactive-map-wrapper" data-aos="zoom-in" data-aos-delay="100">
                 <div id="interactive-map" class="w-full h-[300px] sm:h-[400px] md:h-[500px] mx-auto" style="direction: ltr;"></div>
                 
                 <!-- Custom Pointer with Label -->
@@ -548,7 +548,7 @@
                 </div>
             </div>
 
-            <div class="flex flex-col items-center gap-6 md:gap-10 international-flags-interactive">
+            <div class="flex flex-col items-center gap-6 md:gap-10 international-flags-interactive" data-aos="fade-up" data-aos-delay="150">
                 @php
                     $countries = [
                         ['code' => 'sa', 'name' => 'country_saudi'],
@@ -569,15 +569,47 @@
                         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect width="600" height="600" fill="%23000"/><rect width="600" height="400" fill="%23fff"/><rect width="600" height="200" fill="%23007a3d"/><g fill="%23ce1126"><path d="M 150,230 L 165,275 L 210,275 L 175,305 L 190,350 L 150,320 L 110,350 L 125,305 L 90,275 L 135,275 Z" /><path d="M 300,230 L 315,275 L 360,275 L 325,305 L 340,350 L 300,320 L 260,350 L 275,305 L 240,275 L 285,275 Z" /><path d="M 450,230 L 465,275 L 510,275 L 475,305 L 490,350 L 450,320 L 410,350 L 425,305 L 390,275 L 435,275 Z" /></g></svg>') !important;
                     }
                     
-                    /* Force perfect circles for flags */
-                    .flag-custom-size {
-                        width: 50px !important;
-                        height: 50px !important;
+                    /* Force 100% perfect geometric circles for flags */
+                    .flag-circle-wrapper {
+                        width: 52px !important;
+                        height: 52px !important;
+                        min-width: 52px !important;
+                        min-height: 52px !important;
+                        max-width: 52px !important;
+                        max-height: 52px !important;
+                        border-radius: 50% !important;
+                        overflow: hidden !important;
+                        aspect-ratio: 1 / 1 !important;
+                        box-sizing: border-box !important;
+                        display: flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+                        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+                        flex-shrink: 0 !important;
+                    }
+                    .flag-circle-wrapper .fi {
+                        width: 100% !important;
+                        height: 100% !important;
+                        border-radius: 50% !important;
+                        display: block !important;
+                        background-size: cover !important;
+                        background-position: center !important;
+                        margin: 0 !important;
+                        padding: 0 !important;
+                    }
+                    .flag-circle-wrapper .fi::before {
+                        display: none !important;
+                        content: "" !important;
                     }
                     @media (max-width: 768px) {
-                        .flag-custom-size {
-                            width: 40px !important;
-                            height: 40px !important;
+                        .flag-circle-wrapper {
+                            width: 42px !important;
+                            height: 42px !important;
+                            min-width: 42px !important;
+                            min-height: 42px !important;
+                            max-width: 42px !important;
+                            max-height: 42px !important;
                         }
                     }
                 </style>
@@ -588,8 +620,10 @@
                 </div>
                 <div class="flex flex-wrap justify-center gap-4 md:gap-8 lg:gap-10">
                     @foreach($countries as $index => $country)
-                    <div class="flag-item flex flex-col items-center justify-center gap-2 cursor-pointer transition-transform duration-300 w-[50px] sm:w-[60px] md:w-[60px] lg:w-[70px]" data-country="{{ $country['code'] }}">
-                        <span class="fi fi-{{ $country['code'] }} fis rounded-full shadow-lg shadow-black/50 border border-white/10 shrink-0 flag-custom-size" style="background-size: cover; background-position: center;"></span>
+                    <div class="flag-item flex flex-col items-center justify-center gap-2 cursor-pointer transition-transform duration-300 w-[52px] sm:w-[60px] md:w-[65px] lg:w-[75px]" data-country="{{ $country['code'] }}" data-aos="zoom-in" data-aos-delay="{{ 100 + $index * 50 }}">
+                        <div class="flag-circle-wrapper">
+                            <span class="fi fi-{{ $country['code'] }} fis"></span>
+                        </div>
                         <span class="text-[10px] md:text-xs font-medium text-gray-300 text-center whitespace-nowrap">{{ __('app.'.$country['name']) }}</span>
                     </div>
                     @endforeach
@@ -616,7 +650,7 @@
 
     <!-- Clients Section -->
     <section id="clients" class="py-24 relative border-t border-white/5 overflow-hidden">
-        <div class="container mx-auto px-6 relative z-10 mb-12 text-center md:text-start">
+        <div class="container mx-auto px-6 relative z-10 mb-12 text-center md:text-start" data-aos="fade-up">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">{{ __('app.clients') }}</h2>
             <div class="w-24 h-1 bg-secondary mx-auto md:mx-0 mb-6"></div>
             <p class="text-gray-400 text-lg">{{ __('app.clients_description') }}</p>
@@ -645,7 +679,7 @@
             }
         </style>
         
-        <div class="flex flex-col gap-16 direction-ltr" dir="ltr">
+        <div class="flex flex-col gap-16 direction-ltr" dir="ltr" data-aos="fade-up" data-aos-delay="100">
             <!-- Row 1 -->
             <div class="marquee-track">
                 <div class="flex gap-16 pr-16 items-center">
@@ -680,12 +714,12 @@
     <section id="contact" class="py-24 relative border-t border-white/5">
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div>
+                <div data-aos="fade-up">
                     <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">{{ __('app.contact') }}</h2>
                     <div class="w-24 h-1 bg-secondary mb-6"></div>
                     <p class="text-gray-400 text-lg mb-8">{{ __('app.contact_description') }}</p>
                     
-                    <div class="glass-card p-8 space-y-6">
+                    <div class="glass-card p-8 space-y-6" data-aos="fade-up" data-aos-delay="100">
                         <!-- Damascus Address -->
                         <a href="https://maps.app.goo.gl/7X6bsdDjMtLcyUTX8" target="_blank" class="flex items-center gap-4 group hover:opacity-85 transition-opacity">
                             <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0 group-hover:bg-secondary/20 transition-colors">
@@ -744,9 +778,11 @@
                     </div>
                 </div>
 
-                <div class="glass-card p-8">
-                    <form action="{{ route('contact.send') }}" method="POST" class="space-y-6">
+                <div class="glass-card p-8" data-aos="fade-up" data-aos-delay="200">
+                    <form id="main-contact-form" action="{{ route('contact.send') }}" method="POST" class="space-y-6">
                         @csrf
+                        <div id="contact-form-alert" class="hidden p-4 rounded-xl text-sm font-semibold transition-all"></div>
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <input type="text" name="name" class="w-full bg-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors" placeholder="{{ __('app.name') }}" required>
@@ -761,8 +797,12 @@
                         <div>
                             <textarea name="message" rows="5" class="w-full bg-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors" placeholder="{{ __('app.message') }}" required></textarea>
                         </div>
-                        <button type="submit" class="w-full py-4 rounded-xl bg-secondary text-dark font-bold hover:bg-white hover:shadow-[0_0_20px_rgba(191,148,72,0.4)] transition-all duration-300">
-                            {{ __('app.send_message') }}
+                        <button type="submit" id="contact-submit-btn" class="w-full py-4 rounded-xl bg-secondary text-dark font-bold hover:bg-white hover:shadow-[0_0_20px_rgba(191,148,72,0.4)] transition-all duration-300 flex items-center justify-center gap-2">
+                            <span id="contact-submit-text">{{ __('app.send_message') }}</span>
+                            <svg id="contact-submit-spinner" class="hidden animate-spin h-5 w-5 text-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                            </svg>
                         </button>
                     </form>
                 </div>
@@ -800,6 +840,13 @@
                 if (activeTab) {
                     activeTab.classList.remove('hidden');
                     activeTab.classList.add('tab-animate');
+                }
+
+                // Refresh AOS so animations trigger on new tab items
+                if (window.AOS) {
+                    setTimeout(() => {
+                        window.AOS.refresh();
+                    }, 50);
                 }
 
                 // Smooth scroll to tabs navigation on mobile (width < 768px)
@@ -1020,6 +1067,61 @@
                         }
                     }
                 }
+            });
+        }
+
+        // Contact Form AJAX Handler
+        const contactForm = document.getElementById('main-contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const form = this;
+                const submitBtn = document.getElementById('contact-submit-btn');
+                const submitText = document.getElementById('contact-submit-text');
+                const submitSpinner = document.getElementById('contact-submit-spinner');
+                const alertBox = document.getElementById('contact-form-alert');
+
+                // Set loading state
+                if (submitBtn) submitBtn.disabled = true;
+                if (submitSpinner) submitSpinner.classList.remove('hidden');
+                if (submitText) submitText.innerText = "{{ app()->getLocale() == 'en' ? 'Sending...' : 'جاري الإرسال...' }}";
+                if (alertBox) {
+                    alertBox.classList.add('hidden');
+                    alertBox.className = 'hidden p-4 rounded-xl text-sm font-semibold transition-all';
+                    alertBox.innerHTML = '';
+                }
+
+                const formData = new FormData(form);
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alertBox.className = 'p-4 rounded-xl text-sm font-semibold bg-green-500/20 border border-green-500/40 text-green-300 transition-all';
+                        alertBox.innerHTML = data.message || "{{ app()->getLocale() == 'en' ? 'Your message has been sent successfully. Thank you!' : 'تم إرسال رسالتك بنجاح. شكراً لك!' }}";
+                        alertBox.classList.remove('hidden');
+                        form.reset();
+                    } else {
+                        throw new Error(data.message || "{{ app()->getLocale() == 'en' ? 'Something went wrong. Please try again.' : 'عذراً، حدث خطأ ما. يرجى المحاولة مرة أخرى لاحقاً.' }}");
+                    }
+                })
+                .catch(error => {
+                    alertBox.className = 'p-4 rounded-xl text-sm font-semibold bg-red-500/20 border border-red-500/40 text-red-300 transition-all';
+                    alertBox.innerHTML = error.message || "{{ app()->getLocale() == 'en' ? 'Something went wrong. Please try again.' : 'عذراً، حدث خطأ ما. يرجى المحاولة مرة أخرى لاحقاً.' }}";
+                    alertBox.classList.remove('hidden');
+                })
+                .finally(() => {
+                    if (submitBtn) submitBtn.disabled = false;
+                    if (submitSpinner) submitSpinner.classList.add('hidden');
+                    if (submitText) submitText.innerText = "{{ __('app.send_message') }}";
+                });
             });
         }
     });

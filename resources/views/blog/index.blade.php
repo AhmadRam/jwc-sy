@@ -11,9 +11,9 @@
         <div class="absolute bottom-0 left-0 w-[50vw] h-[60vh] bg-gradient-to-t from-[#133c5c] to-transparent transform skew-y-12 -translate-x-32"></div>
     </div>
     
-    <div class="container mx-auto px-6 relative z-10 text-center">
-        <h1 class="text-4xl md:text-5xl lg:text-[4rem] font-bold text-white mb-6 drop-shadow-md">{{ app()->getLocale() == 'en' ? 'Blog' : 'المدونة' }}</h1>
-        <p class="text-base md:text-lg lg:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+    <div class="container mx-auto px-6 relative z-10 text-center" data-aos="fade-up">
+        <h1 class="text-4xl md:text-5xl lg:text-[4rem] font-bold text-white mb-6 drop-shadow-md" data-aos="fade-up" data-aos-delay="100">{{ app()->getLocale() == 'en' ? 'Blog' : 'المدونة' }}</h1>
+        <p class="text-base md:text-lg lg:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="150">
             {{ app()->getLocale() == 'en' ? 'A knowledge space where we share our expertise and ideas, to inspire you and keep you informed of the latest trends and methods.' : 'مساحة معرفية نشارك فيها خبراتنا وأفكارنا، لنلهمك ونبقيك على إطلاع بأحدث الاتجاهات والأساليب.' }}
         </p>
     </div>
@@ -27,7 +27,7 @@
                 @php
                     $route = app()->getLocale() == 'en' ? 'blog.show_en' : 'blog.show';
                 @endphp
-                <a href="{{ route($route, $blog->slug) }}" class="group block bg-[#0f2236] rounded-[1.5rem] overflow-hidden hover:-translate-y-2 transition-transform duration-300 border border-white/5 shadow-lg hover:shadow-2xl hover:border-white/10">
+                <a href="{{ route($route, $blog->slug) }}" class="group block bg-[#0f2236] rounded-[1.5rem] overflow-hidden hover:-translate-y-2 transition-transform duration-300 border border-white/5 shadow-lg hover:shadow-2xl hover:border-white/10" data-aos="fade-up" data-aos-delay="{{ min($loop->iteration * 100, 400) }}">
                     
                     <!-- Image wrapper with internal padding to match the reference -->
                     <div class="p-3">
@@ -54,7 +54,7 @@
                     
                 </a>
             @empty
-                <div class="col-span-1 md:col-span-2 lg:col-span-3 text-center py-20">
+                <div class="col-span-1 md:col-span-2 lg:col-span-3 text-center py-20" data-aos="zoom-in">
                     <div class="bg-[#0f2236] border border-white/5 rounded-3xl p-12 max-w-2xl mx-auto shadow-2xl">
                         <div class="w-24 h-24 bg-white/5 text-white/50 rounded-full flex items-center justify-center mx-auto mb-6">
                             <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H14"></path></svg>
