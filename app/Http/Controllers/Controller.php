@@ -87,11 +87,86 @@ class Controller extends BaseController
      * @param string $service
      * @return \Illuminate\View\View
      */
-    public function serviceDetails($service)
+    public function serviceDetails($service = 'administrative')
     {
-        $locale = app()->getLocale();
+        $service = strtolower(trim($service));
+        $targetItem = null;
 
-        return view('service-details', compact('service'));
+        // Map sub-service IDs directly
+        if (str_starts_with($service, 'admin-')) {
+            $pillar = 'administrative';
+            $targetItem = $service;
+        } elseif (str_starts_with($service, 'media-')) {
+            $pillar = 'media';
+            $targetItem = $service;
+        } elseif (str_starts_with($service, 'finance-')) {
+            $pillar = 'financial';
+            $targetItem = $service;
+        } else {
+            switch ($service) {
+                case 'media':
+                case 'media-consulting':
+                case 'media-pr':
+                case 'pillar-2':
+                case '2':
+                case 'strategic_communication':
+                case 'communication_strategies':
+                case 'public_relations':
+                case 'reputation_management':
+                case 'personal_reputation':
+                case 'strategic_design':
+                case 'cultural_localization':
+                case 'advocacy':
+                case 'image_building':
+                    $pillar = 'media';
+                    break;
+
+                case 'financial':
+                case 'financial-consulting':
+                case 'finance':
+                case 'pillar-3':
+                case '3':
+                    $pillar = 'financial';
+                    break;
+
+                case 'administrative':
+                case 'administrative-consulting':
+                case 'admin':
+                case 'pillar-1':
+                case '1':
+                default:
+                    $pillar = 'administrative';
+                    break;
+            }
+        }
+
+        $pillarsConfig = [
+            'administrative' => [
+                'title' => __('app.pillar_1_title'),
+                'desc' => __('app.pillar_1_desc'),
+                'services' => __('app.pillar_1_services'),
+                'slug' => 'administrative',
+                'number' => '01'
+            ],
+            'media' => [
+                'title' => __('app.pillar_2_title'),
+                'desc' => __('app.pillar_2_desc'),
+                'services' => __('app.pillar_2_services'),
+                'slug' => 'media',
+                'number' => '02'
+            ],
+            'financial' => [
+                'title' => __('app.pillar_3_title'),
+                'desc' => __('app.pillar_3_desc'),
+                'services' => __('app.pillar_3_services'),
+                'slug' => 'financial',
+                'number' => '03'
+            ],
+        ];
+
+        $currentPillar = $pillarsConfig[$pillar] ?? $pillarsConfig['administrative'];
+
+        return view('service-details', compact('service', 'pillar', 'targetItem', 'currentPillar', 'pillarsConfig'));
     }
 
 }

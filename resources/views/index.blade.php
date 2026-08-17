@@ -131,145 +131,106 @@
                 .tab-animate {
                     animation: tabFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
                 }
-                @keyframes fadeInModal {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
-                }
-                @keyframes scaleUpModal {
-                    from { opacity: 0; transform: scale(0.95); }
-                    to { opacity: 1; transform: scale(1); }
-                }
-                .animate-fade-in-modal {
-                    animation: fadeInModal 0.25s ease-out forwards;
-                }
-                .animate-scale-up-modal {
-                    animation: scaleUpModal 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-                }
             </style>
 
             <!-- Tabs Content -->
             <div id="services-content-wrapper" class="scroll-mt-28">
+                <!-- Pillar 1: Administrative -->
                 <div class="tab-content" id="pillar-1">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    @foreach(__('app.pillar_1_services') as $service)
-                    @if($loop->last && $loop->count % 2 !== 0)
-                    <div class="md:col-span-2 flex justify-center">
-                        <div class="glass-card p-6 glass-card-hover flex gap-4 text-start w-full md:w-1/2 cursor-pointer" onclick="openServiceModal(this)">
-                            <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-bold mb-2">{{ $service['title'] }}</h4>
-                                <p class="text-gray-400 text-sm mb-0">{{ $service['desc'] }}</p>
-                                <div class="hidden service-full-details">{!! $service['details'] !!}</div>
-                            </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        @foreach(__('app.pillar_1_services') as $service)
+                        @php
+                            $serviceUrl = route(app()->getLocale() == 'ar' ? 'service.details' : 'service.details_en', ['service' => 'administrative']) . '#' . $service['id'];
+                        @endphp
+                        <div class="{{ ($loop->last && $loop->count % 2 !== 0) ? 'md:col-span-2 flex justify-center' : '' }}">
+                            <a href="{{ $serviceUrl }}" class="glass-card p-5 md:p-6 glass-card-hover flex flex-col justify-between text-start border border-white/10 hover:border-secondary/50 transition-all duration-300 group w-full {{ ($loop->last && $loop->count % 2 !== 0) ? 'md:w-1/2' : '' }}">
+                                <div>
+                                    <div class="flex items-center gap-3.5 mb-2.5">
+                                        <div class="service-icon-box w-11 h-11 md:w-12 md:h-12 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary shrink-0 group-hover:bg-secondary group-hover:text-dark transition-all duration-300 shadow-sm">
+                                            @include('partials.service-icon', ['id' => $service['id']])
+                                        </div>
+                                        <h4 class="text-white font-bold text-base md:text-lg group-hover:text-secondary transition-colors leading-snug mb-0">
+                                            {{ $service['title'] }}
+                                        </h4>
+                                    </div>
+                                    <p class="text-gray-400 text-xs md:text-sm mb-3 leading-relaxed">{{ $service['desc'] }}</p>
+                                </div>
+                                <div class="flex items-center gap-2 text-secondary text-xs font-bold pt-3 border-t border-white/5 mt-auto">
+                                    <span>{{ __('services.view_details') }}</span>
+                                    <svg class="w-4 h-4 rtl:rotate-180 transform group-hover:translate-x-1.5 rtl:group-hover:-translate-x-1.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </div>
+                            </a>
                         </div>
+                        @endforeach
                     </div>
-                    @else
-                    <div class="glass-card p-6 glass-card-hover flex gap-4 text-start cursor-pointer" onclick="openServiceModal(this)">
-                        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-bold mb-2">{{ $service['title'] }}</h4>
-                            <p class="text-gray-400 text-sm mb-0">{{ $service['desc'] }}</p>
-                            <div class="hidden service-full-details">{!! $service['details'] !!}</div>
-                        </div>
-                    </div>
-                    @endif
-                    @endforeach
                 </div>
-            </div>
 
-            <div class="tab-content hidden" id="pillar-2">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    @foreach(__('app.pillar_2_services') as $service)
-                    @if($loop->last && $loop->count % 2 !== 0)
-                    <div class="md:col-span-2 flex justify-center">
-                        <div class="glass-card p-6 glass-card-hover flex gap-4 text-start w-full md:w-1/2 cursor-pointer" onclick="openServiceModal(this)">
-                            <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-bold mb-2">{{ $service['title'] }}</h4>
-                                <p class="text-gray-400 text-sm mb-0">{{ $service['desc'] }}</p>
-                                <div class="hidden service-full-details">{!! $service['details'] !!}</div>
-                            </div>
+                <!-- Pillar 2: Media -->
+                <div class="tab-content hidden" id="pillar-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        @foreach(__('app.pillar_2_services') as $service)
+                        @php
+                            $serviceUrl = route(app()->getLocale() == 'ar' ? 'service.details' : 'service.details_en', ['service' => 'media']) . '#' . $service['id'];
+                        @endphp
+                        <div class="{{ ($loop->last && $loop->count % 2 !== 0) ? 'md:col-span-2 flex justify-center' : '' }}">
+                            <a href="{{ $serviceUrl }}" class="glass-card p-5 md:p-6 glass-card-hover flex flex-col justify-between text-start border border-white/10 hover:border-secondary/50 transition-all duration-300 group w-full {{ ($loop->last && $loop->count % 2 !== 0) ? 'md:w-1/2' : '' }}">
+                                <div>
+                                    <div class="flex items-center gap-3.5 mb-2.5">
+                                        <div class="service-icon-box w-11 h-11 md:w-12 md:h-12 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary shrink-0 group-hover:bg-secondary group-hover:text-dark transition-all duration-300 shadow-sm">
+                                            @include('partials.service-icon', ['id' => $service['id']])
+                                        </div>
+                                        <h4 class="text-white font-bold text-base md:text-lg group-hover:text-secondary transition-colors leading-snug mb-0">
+                                            {{ $service['title'] }}
+                                        </h4>
+                                    </div>
+                                    <p class="text-gray-400 text-xs md:text-sm mb-3 leading-relaxed">{{ $service['desc'] }}</p>
+                                </div>
+                                <div class="flex items-center gap-2 text-secondary text-xs font-bold pt-3 border-t border-white/5 mt-auto">
+                                    <span>{{ __('services.view_details') }}</span>
+                                    <svg class="w-4 h-4 rtl:rotate-180 transform group-hover:translate-x-1.5 rtl:group-hover:-translate-x-1.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </div>
+                            </a>
                         </div>
+                        @endforeach
                     </div>
-                    @else
-                    <div class="glass-card p-6 glass-card-hover flex gap-4 text-start cursor-pointer" onclick="openServiceModal(this)">
-                        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-bold mb-2">{{ $service['title'] }}</h4>
-                            <p class="text-gray-400 text-sm mb-0">{{ $service['desc'] }}</p>
-                            <div class="hidden service-full-details">{!! $service['details'] !!}</div>
-                        </div>
-                    </div>
-                    @endif
-                    @endforeach
                 </div>
-            </div>
 
-            <div class="tab-content hidden" id="pillar-3">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    @foreach(__('app.pillar_3_services') as $service)
-                    @if($loop->last && $loop->count % 2 !== 0)
-                    <div class="md:col-span-2 flex justify-center">
-                        <div class="glass-card p-6 glass-card-hover flex gap-4 text-start w-full md:w-1/2 cursor-pointer" onclick="openServiceModal(this)">
-                            <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-bold mb-2">{{ $service['title'] }}</h4>
-                                <p class="text-gray-400 text-sm mb-0">{{ $service['desc'] }}</p>
-                                <div class="hidden service-full-details">{!! $service['details'] !!}</div>
-                            </div>
+                <!-- Pillar 3: Financial -->
+                <div class="tab-content hidden" id="pillar-3">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        @foreach(__('app.pillar_3_services') as $service)
+                        @php
+                            $serviceUrl = route(app()->getLocale() == 'ar' ? 'service.details' : 'service.details_en', ['service' => 'financial']) . '#' . $service['id'];
+                        @endphp
+                        <div class="{{ ($loop->last && $loop->count % 2 !== 0) ? 'md:col-span-2 flex justify-center' : '' }}">
+                            <a href="{{ $serviceUrl }}" class="glass-card p-5 md:p-6 glass-card-hover flex flex-col justify-between text-start border border-white/10 hover:border-secondary/50 transition-all duration-300 group w-full {{ ($loop->last && $loop->count % 2 !== 0) ? 'md:w-1/2' : '' }}">
+                                <div>
+                                    <div class="flex items-center gap-3.5 mb-2.5">
+                                        <div class="service-icon-box w-11 h-11 md:w-12 md:h-12 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary shrink-0 group-hover:bg-secondary group-hover:text-dark transition-all duration-300 shadow-sm">
+                                            @include('partials.service-icon', ['id' => $service['id']])
+                                        </div>
+                                        <h4 class="text-white font-bold text-base md:text-lg group-hover:text-secondary transition-colors leading-snug mb-0">
+                                            {{ $service['title'] }}
+                                        </h4>
+                                    </div>
+                                    <p class="text-gray-400 text-xs md:text-sm mb-3 leading-relaxed">{{ $service['desc'] }}</p>
+                                </div>
+                                <div class="flex items-center gap-2 text-secondary text-xs font-bold pt-3 border-t border-white/5 mt-auto">
+                                    <span>{{ __('services.view_details') }}</span>
+                                    <svg class="w-4 h-4 rtl:rotate-180 transform group-hover:translate-x-1.5 rtl:group-hover:-translate-x-1.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </div>
+                            </a>
                         </div>
-                    </div>
-                    @else
-                    <div class="glass-card p-6 glass-card-hover flex gap-4 text-start cursor-pointer" onclick="openServiceModal(this)">
-                        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-bold mb-2">{{ $service['title'] }}</h4>
-                            <p class="text-gray-400 text-sm mb-0">{{ $service['desc'] }}</p>
-                            <div class="hidden service-full-details">{!! $service['details'] !!}</div>
-                        </div>
-                    </div>
-                    @endif
-                    @endforeach
-                </div>
-            </div>
-            </div>
-
-            @push('modals')
-            <!-- Service Details Modal -->
-            <div id="service-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in-modal" onclick="handleBackdropClick(event)">
-                <div class="relative w-full max-w-2xl glass-card p-6 md:p-10 border border-white/10 shadow-2xl rounded-2xl flex flex-col max-h-[85vh] md:max-h-[80vh] animate-scale-up-modal">
-                    <!-- Close Button -->
-                    <button onclick="closeServiceModal()" class="absolute top-3 end-3 md:top-4 md:end-4 text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                    
-                    <!-- Modal Header -->
-                    <div class="mb-4 md:mb-6 text-start pe-10 md:pe-12">
-                        <h4 id="modal-title" class="text-xl md:text-3xl font-bold text-secondary mb-0"></h4>
-                        <div class="w-16 h-1 bg-secondary mt-2 md:mt-3"></div>
-                    </div>
-                    
-                    <!-- Modal Body (Scrollable) -->
-                    <div id="modal-body" class="flex-1 min-h-0 overflow-y-auto pe-2 text-gray-300 text-sm md:text-lg leading-relaxed text-start space-y-4">
-                        <!-- Content will be injected here -->
+                        @endforeach
                     </div>
                 </div>
             </div>
-            @endpush
         </div>
     </section>
 
@@ -292,40 +253,249 @@
         </div>
     </section>
 
-    <!-- Methodology & Journey -->
-    <section id="methodology" class="py-24 relative border-t border-white/5">
+    <!-- Methodology Section -->
+    <section id="methodology" class="py-24 relative border-t border-white/5 bg-gradient-to-b from-primary/5 to-transparent">
         <div class="container mx-auto px-6 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <!-- Methodology -->
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-4">{{ __('app.methodology_title') }}</h2>
-                    <div class="w-16 h-1 bg-secondary mb-10"></div>
-                    <div class="space-y-6">
-                        @for($i=1; $i<=4; $i++)
-                        <div class="flex gap-4 items-start">
-                            <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-secondary shrink-0 font-bold">{{ $i }}</div>
-                            <div>
-                                <h4 class="text-white font-bold mb-1">{{ __('app.method_'.$i.'_title') }}</h4>
-                                <p class="text-gray-400 text-sm">{{ __('app.method_'.$i.'_desc') }}</p>
-                            </div>
-                        </div>
-                        @endfor
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">{{ __('app.methodology_title') }}</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                @for($i=1; $i<=4; $i++)
+                <div class="glass-card p-8 relative overflow-hidden group glass-card-hover border-t-4 border-t-secondary/60 hover:border-t-secondary transition-all duration-300">
+                    <!-- Faded background number -->
+                    <div class="absolute -right-4 -top-8 text-8xl font-black text-white/[0.02] select-none group-hover:text-white/[0.06] transition-all duration-300 pointer-events-none">0{{ $i }}</div>
+                    
+                    <!-- Top Badge with Icon -->
+                    <div class="w-12 h-12 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center mb-6 group-hover:bg-secondary transition-all duration-300">
+                        @if($i == 1)
+                        <svg class="w-6 h-6 text-secondary group-hover:text-dark transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        @elseif($i == 2)
+                        <svg class="w-6 h-6 text-secondary group-hover:text-dark transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                        @elseif($i == 3)
+                        <svg class="w-6 h-6 text-secondary group-hover:text-dark transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        @elseif($i == 4)
+                        <svg class="w-6 h-6 text-secondary group-hover:text-dark transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                        @endif
                     </div>
+                    
+                    <!-- Title -->
+                    <h4 class="text-xl font-bold text-white mb-3 group-hover:text-secondary transition-colors">{{ __('app.method_'.$i.'_title') }}</h4>
+                    
+                    <!-- Description -->
+                    <p class="text-gray-400 text-sm leading-relaxed">{{ __('app.method_'.$i.'_desc') }}</p>
+                </div>
+                @endfor
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section id="journey" class="py-24 relative border-t border-white/5 bg-gradient-to-t from-primary/5 to-transparent overflow-hidden">
+        <style>
+            .cloud-shape-1 {
+                border-radius: 65% 35% 65% 35% / 40% 60% 40% 60%;
+            }
+            .cloud-shape-2 {
+                border-radius: 40% 60% 50% 70% / 60% 40% 70% 50%;
+            }
+            .cloud-shape-3 {
+                border-radius: 55% 45% 70% 45% / 45% 65% 45% 55%;
+            }
+            .cloud-shape-4 {
+                border-radius: 70% 30% 60% 40% / 50% 65% 35% 50%;
+            }
+            
+            /* Gentle floating animation for clouds */
+            @keyframes float-cloud {
+                0%, 100% { transform: translateY(0px) rotate(0deg); }
+                50% { transform: translateY(-8px) rotate(1deg); }
+            }
+            .cloud-float-1 { animation: float-cloud 5s ease-in-out infinite; }
+            .cloud-float-2 { animation: float-cloud 6s ease-in-out infinite 1s; }
+            .cloud-float-3 { animation: float-cloud 5.5s ease-in-out infinite 0.5s; }
+            .cloud-float-4 { animation: float-cloud 6.5s ease-in-out infinite 1.5s; }
+
+            /* Sequential Path Drawing & Arrowhead Fade animations */
+            @keyframes draw-1 {
+                0% { stroke-dashoffset: 400; opacity: 0; }
+                2% { opacity: 1; }
+                28% { stroke-dashoffset: 0; opacity: 1; }
+                90% { stroke-dashoffset: 0; opacity: 1; }
+                98%, 100% { stroke-dashoffset: 0; opacity: 0; }
+            }
+            @keyframes draw-2 {
+                0%, 28% { stroke-dashoffset: 400; opacity: 0; }
+                30% { opacity: 1; }
+                58% { stroke-dashoffset: 0; opacity: 1; }
+                90% { stroke-dashoffset: 0; opacity: 1; }
+                98%, 100% { stroke-dashoffset: 0; opacity: 0; }
+            }
+            @keyframes draw-3 {
+                0%, 58% { stroke-dashoffset: 400; opacity: 0; }
+                60% { opacity: 1; }
+                88% { stroke-dashoffset: 0; opacity: 1; }
+                90% { stroke-dashoffset: 0; opacity: 1; }
+                98%, 100% { stroke-dashoffset: 0; opacity: 0; }
+            }
+
+            @keyframes arrow-1 {
+                0%, 27% { opacity: 0; }
+                28%, 90% { opacity: 1; }
+                98%, 100% { opacity: 0; }
+            }
+            @keyframes arrow-2 {
+                0%, 57% { opacity: 0; }
+                58%, 90% { opacity: 1; }
+                98%, 100% { opacity: 0; }
+            }
+            @keyframes arrow-3 {
+                0%, 87% { opacity: 0; }
+                88%, 90% { opacity: 1; }
+                98%, 100% { opacity: 0; }
+            }
+
+            .path-anim-1 {
+                stroke-dasharray: 400;
+                animation: draw-1 6s linear infinite;
+            }
+            .path-anim-2 {
+                stroke-dasharray: 400;
+                animation: draw-2 6s linear infinite;
+            }
+            .path-anim-3 {
+                stroke-dasharray: 400;
+                animation: draw-3 6s linear infinite;
+            }
+            .arrow-anim-1 {
+                animation: arrow-1 6s linear infinite;
+            }
+            .arrow-anim-2 {
+                animation: arrow-2 6s linear infinite;
+            }
+            .arrow-anim-3 {
+                animation: arrow-3 6s linear infinite;
+            }
+        </style>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">{{ __('app.journey_title') }}</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-gray-400 text-sm md:text-base max-w-xl mx-auto">
+                    {{ app()->getLocale() == 'ar' ? 'رحلتنا مع شركائنا تبدأ بخطوات واضحة ومدروسة لضمان تحقيق أفضل النتائج وتلبية تطلعاتكم' : 'Our journey with our partners starts with clear and deliberate steps to ensure the best results.' }}
+                </p>
+            </div>
+            
+            <div class="flex flex-col gap-32 lg:block lg:h-[700px] relative w-full max-w-[1300px] mx-auto pt-10 pb-20">
+                <!-- Desktop Winding Connectors Layer -->
+                <div class="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0 rtl:-scale-x-100">
+                    <svg class="w-full h-full text-secondary" viewBox="0 0 1000 600" fill="none" preserveAspectRatio="none">
+                        <!-- Custom Arrowhead Markers with orient auto and sequential fade -->
+                        <defs>
+                            <marker id="flow-arrow-1" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+                                <path d="M 1 2 L 10 6 L 1 10 L 4 6 Z" fill="#bf9448" class="arrow-anim-1" />
+                            </marker>
+                            <marker id="flow-arrow-2" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+                                <path d="M 1 2 L 10 6 L 1 10 L 4 6 Z" fill="#bf9448" class="arrow-anim-2" />
+                            </marker>
+                            <marker id="flow-arrow-3" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+                                <path d="M 1 2 L 10 6 L 1 10 L 4 6 Z" fill="#bf9448" class="arrow-anim-3" />
+                            </marker>
+                        </defs>
+
+                        <!-- Path 1 (Node 1 -> Node 2) -->
+                        <path d="M 170,160 C 220,180 250,310 340,365" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-1" marker-end="url(#flow-arrow-1)" />
+                        
+                        <!-- Path 2 (Node 2 -> Node 3 - Loop-the-loop winding path!) -->
+                        <path d="M 430,335 C 500,320 530,190 480,200 C 440,210 470,320 565,195" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-2" marker-end="url(#flow-arrow-2)" />
+                        
+                        <!-- Path 3 (Node 3 -> Node 4) -->
+                        <path d="M 690,180 C 740,200 770,320 860,380" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-3" marker-end="url(#flow-arrow-3)" />
+                    </svg>
                 </div>
 
-                <!-- Journey -->
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-4">{{ __('app.journey_title') }}</h2>
-                    <div class="w-16 h-1 bg-secondary mb-10"></div>
-                    <div class="relative border-s border-white/10 ms-4 space-y-8">
-                        @for($i=1; $i<=4; $i++)
-                        <div class="relative ps-8">
-                            <div class="absolute w-4 h-4 rounded-full bg-secondary -start-2 top-1 border-4 border-dark"></div>
-                            <h4 class="text-white font-bold mb-1">{{ __('app.journey_'.$i) }}</h4>
+                @for($i=1; $i<=4; $i++)
+                <div class="relative flex flex-col items-center @if($i == 1) lg:absolute lg:start-[2%] lg:top-[5%] self-start ml-4 sm:ml-12 cloud-float-1 @elseif($i == 2) lg:absolute lg:start-[28%] lg:top-[50%] self-end mr-6 sm:mr-20 cloud-float-2 @elseif($i == 3) lg:absolute lg:start-[54%] lg:top-[8%] self-start ml-8 sm:ml-24 cloud-float-3 @elseif($i == 4) lg:absolute lg:start-[80%] lg:top-[52%] self-end mr-4 sm:mr-16 cloud-float-4 @endif">
+                    
+                    <!-- Cloud Node -->
+                    <div class="w-56 h-52 sm:w-64 sm:h-60 lg:w-72 lg:h-64 glass-card flex flex-col items-center justify-center text-center p-6 sm:p-8 relative group hover:border-secondary transition-all duration-500 shadow-2xl shadow-black/50 bg-gradient-to-br from-white/10 to-white/5 hover:scale-105 z-10 cursor-pointer cloud-shape-{{ $i }}">
+                        <!-- Step Badge -->
+                        <div class="absolute -top-3 bg-secondary text-dark text-xs sm:text-sm font-bold px-3.5 py-1 rounded-full shadow-lg uppercase tracking-wider">
+                            {{ app()->getLocale() == 'ar' ? 'الخطوة' : 'Step' }} 0{{ $i }}
                         </div>
-                        @endfor
+
+                        <!-- Icon Container -->
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary mb-4 group-hover:bg-secondary group-hover:text-dark group-hover:scale-110 transition-all duration-300">
+                            @if($i == 1)
+                            <!-- Chat/Meeting Icon -->
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            @elseif($i == 2)
+                            <!-- Proposal/Document Icon -->
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            @elseif($i == 3)
+                            <!-- Handshake/Agreement Icon -->
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            @elseif($i == 4)
+                            <!-- Report/Followup Icon -->
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            @endif
+                        </div>
+
+                        <!-- Title -->
+                        <h4 class="text-sm sm:text-base lg:text-lg font-bold text-white mb-0 group-hover:text-secondary transition-colors px-3 leading-relaxed max-w-[170px] sm:max-w-[200px] lg:max-w-[220px]">
+                            {{ __('app.journey_'.$i) }}
+                        </h4>
                     </div>
+
+                    <!-- Mobile Connector -->
+                    @if($i < 4)
+                        @if($i % 2 == 1)
+                        <!-- Down-Right / Down-Left -->
+                        <div class="lg:hidden absolute top-[80%] start-[30%] w-[110%] h-[150px] pointer-events-none z-0 rtl:-scale-x-100">
+                            <svg class="w-full h-full text-secondary" viewBox="0 0 100 150" fill="none" preserveAspectRatio="none">
+                                <defs>
+                                    <marker id="flow-arrow-m-{{ $i }}" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+                                        <path d="M 1 2 L 10 6 L 1 10 L 4 6 Z" fill="#bf9448" class="arrow-anim-{{ $i }}" />
+                                    </marker>
+                                </defs>
+                                <path d="M 10,10 C 40,-15 15,130 90,140" stroke="#bf9448" stroke-width="4" stroke-linecap="round" class="path-anim-{{ $i }}" marker-end="url(#flow-arrow-m-{{ $i }})" />
+                            </svg>
+                        </div>
+                        @else
+                        <!-- Down-Left / Down-Right -->
+                        <div class="lg:hidden absolute top-[80%] end-[30%] w-[110%] h-[150px] pointer-events-none z-0 rtl:-scale-x-100">
+                            <svg class="w-full h-full text-secondary" viewBox="0 0 100 150" fill="none" preserveAspectRatio="none">
+                                <defs>
+                                    <marker id="flow-arrow-m-{{ $i }}" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+                                        <path d="M 1 2 L 10 6 L 1 10 L 4 6 Z" fill="#bf9448" class="arrow-anim-{{ $i }}" />
+                                    </marker>
+                                </defs>
+                                <path d="M 90,10 C 60,-15 85,130 10,140" stroke="#bf9448" stroke-width="4" stroke-linecap="round" class="path-anim-{{ $i }}" marker-end="url(#flow-arrow-m-{{ $i }})" />
+                            </svg>
+                        </div>
+                        @endif
+                    @endif
+
                 </div>
+                @endfor
             </div>
         </div>
     </section>
@@ -356,7 +526,7 @@
                 <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
             </div>
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">{{ __('app.social_responsibility_title') }}</h2>
-            <p class="text-gray-300 text-lg leading-relaxed">{{ __('app.social_responsibility_desc') }}</p>
+            <p class="text-gray-200 text-lg sm:text-xl md:text-2xl leading-relaxed font-light">{{ __('app.social_responsibility_desc') }}</p>
         </div>
     </section>
 
@@ -368,7 +538,7 @@
                 <div class="w-24 h-1 bg-secondary mx-auto md:mx-0"></div>
             </div>
 
-            <div class="glass-card p-2 sm:p-4 md:p-10 mb-8 md:mb-12 relative overflow-hidden" id="interactive-map-wrapper">
+            <div class="glass-card p-2 sm:p-4 md:p-10 mb-8 md:mb-12 relative overflow-hidden bg-gradient-to-b from-[#132035]/95 via-[#0e1828]/95 to-[#09101d]/95 border border-secondary/25 shadow-2xl" id="interactive-map-wrapper">
                 <div id="interactive-map" class="w-full h-[300px] sm:h-[400px] md:h-[500px] mx-auto" style="direction: ltr;"></div>
                 
                 <!-- Custom Pointer with Label -->
@@ -603,41 +773,6 @@
 
 @push('scripts')
 <script>
-    // Services Modal Functions
-    window.openServiceModal = function(card) {
-        const title = card.querySelector('h4').innerText;
-        const details = card.querySelector('.service-full-details').innerHTML;
-        
-        document.getElementById('modal-title').innerText = title;
-        document.getElementById('modal-body').innerHTML = details;
-        
-        const modal = document.getElementById('service-modal');
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        document.body.classList.add('overflow-hidden');
-    };
-
-    window.closeServiceModal = function() {
-        const modal = document.getElementById('service-modal');
-        if (modal) {
-            modal.classList.remove('flex');
-            modal.classList.add('hidden');
-        }
-        document.body.classList.remove('overflow-hidden');
-    };
-
-    window.handleBackdropClick = function(event) {
-        if (event.target.id === 'service-modal') {
-            window.closeServiceModal();
-        }
-    };
-
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            window.closeServiceModal();
-        }
-    });
-
     document.addEventListener("DOMContentLoaded", function() {
         // Services Tabs
         const tabBtns = document.querySelectorAll('#services-tabs button');
@@ -677,6 +812,35 @@
             });
         });
 
+        // Sync active tab with URL hash if present
+        function syncTabFromHash() {
+            const h = window.location.hash;
+            if (!h) return;
+            let targetTab = null;
+            if (h === '#pillar-1' || h === '#administrative') targetTab = 'pillar-1';
+            else if (h === '#pillar-2' || h === '#media') targetTab = 'pillar-2';
+            else if (h === '#pillar-3' || h === '#financial') targetTab = 'pillar-3';
+            
+            if (targetTab) {
+                const btn = document.querySelector(`[data-tab="${targetTab}"]`);
+                if (btn) btn.click();
+            }
+
+            if (h === '#services' || targetTab) {
+                const servicesSec = document.getElementById('services') || document.getElementById('services-tabs');
+                if (servicesSec) {
+                    setTimeout(() => {
+                        const nav = document.querySelector('header') || document.querySelector('nav');
+                        const navH = nav ? nav.offsetHeight : 80;
+                        const topPos = servicesSec.getBoundingClientRect().top + window.pageYOffset - navH - 20;
+                        window.scrollTo({ top: topPos, behavior: 'smooth' });
+                    }, 150);
+                }
+            }
+        }
+        syncTabFromHash();
+        window.addEventListener('hashchange', syncTabFromHash);
+
         // Map setup
         if (typeof jsVectorMap !== 'undefined') {
             const markers = [
@@ -697,12 +861,20 @@
                 focusOn: { coords: [20, 0], scale: 1, animate: false },
                 zoomOnScroll: false, zoomButtons: false,
                 regionStyle: {
-                    initial: { fill: '#15243b', stroke: '#0a101d', strokeWidth: 0.5, fillOpacity: 1 },
-                    hover: { fill: '#2a3b5c', fillOpacity: 1 }
+                    initial: { 
+                        fill: '#243b61', 
+                        fillOpacity: 1,
+                        stroke: '#3b5885', 
+                        strokeWidth: 0.6 
+                    },
+                    hover: { 
+                        fill: '#bf9448', 
+                        fillOpacity: 1 
+                    }
                 },
                 markers: markers,
                 markerStyle: {
-                    initial: { fill: '#bf9448', r: 6, stroke: '#fff', strokeWidth: 2, strokeOpacity: 0.8 },
+                    initial: { fill: '#bf9448', r: 6, stroke: '#ffffff', strokeWidth: 2, strokeOpacity: 0.95 },
                     hover: { fill: '#ffffff', stroke: '#bf9448', strokeWidth: 3, r: 8 }
                 }
             });

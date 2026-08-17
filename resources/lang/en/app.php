@@ -105,51 +105,70 @@ return [
     'services_description' => 'Our services are divided into 3 main pillars, offered integrally or separately based on the client\'s needs.',
     
         'pillar_1_title' => 'Administrative Consulting',
+    'pillar_1_desc' => 'We offer integrated management solutions designed to enhance institutional efficiency, develop structures and policies, and enable foreign investment and sustainable change.',
     'pillar_1_services' => [
         [
             'id' => 'admin-1',
+            'pillar' => 'administrative',
             'title' => 'Foreign Investment Enablement in Syria',
             'desc' => 'Feasibility studies, licensing, financial support, and government relations.',
-            'details' => '• Feasibility Study & Market Analysis: Assessing sector opportunities (energy, infrastructure, real estate, manufacturing, services) to identify the most attractive areas for foreign investment, competitor analysis, and estimating opportunity scale within reconstruction plans.<br>• Setup & Licensing: Guiding foreign companies in selecting the optimal legal form, handling registration and sectoral licensing, and coordinating with competent government entities.<br>• Banking & Financial Support: Assisting in bank account creation, navigating the banking system post-reintegration into global finance, and clarifying repatriation of profits and capital.<br>• Partner Identification & Local Opportunities: Providing a database of trusted local partners, suppliers, and contractors to accelerate entry and reduce operational risks.<br>• Government & Institutional Relations: Building channels with relevant government and regulatory entities, and monitoring policy changes in real-time.<br>• Operational & Security Risk Management: Periodic assessment of security and logistical risks, and establishing contingency plans.<br>• HR & Localization: Supporting local recruitment, compliance with Syrian labor laws, and structure of the local team.<br>• Ongoing Support: Periodic advisory post-entry to adapt to regulatory changes, evaluate investment performance, and adjust plans.'
+            'details' => 'We accompany international companies and investors through all stages of entering the Syrian market, establishing and expanding investments in compliance with regulatory and operational standards.',
+            'points' => [
+                'Feasibility Study & Market Analysis' => 'Assessing sector opportunities (energy, infrastructure, real estate, manufacturing, services) to identify high-attractiveness sectors, competitor analysis, and estimating opportunity size within reconstruction plans.',
+                'Setup & Licensing' => 'Guiding foreign companies in selecting the optimal legal form, handling registration and sectoral licensing, and coordinating with competent government entities.',
+                'Banking & Financial Support' => 'Assisting in bank account creation, navigating the banking system post-reintegration into global finance, and clarifying repatriation of profits and capital.',
+                'Partner Identification & Local Opportunities' => 'Providing a database of trusted local partners, suppliers, and contractors to accelerate market entry and reduce operational risks.',
+                'Government & Institutional Relations' => 'Building channels with relevant government and regulatory entities, and monitoring policy and regulatory changes in real-time.',
+                'Operational & Security Risk Management' => 'Periodic assessment of security and logistical risks based on project location, and establishing contingency plans.',
+                'HR & Localization' => 'Supporting local recruitment, compliance with Syrian labor laws, and structuring the local team.',
+                'Ongoing Support' => 'Periodic advisory post-entry to adapt to regulatory changes, evaluate investment performance, and adjust plans.'
+            ]
         ],
         [
             'id' => 'admin-2',
+            'pillar' => 'administrative',
             'title' => 'Strategic Planning',
             'desc' => 'Establishing vision and translating it into execution plans and KPIs.',
             'details' => 'We work with leadership to establish a strategic vision and objectives following an in-depth internal and competitive analysis. We then translate this into execution plans with initiatives and measurable KPIs, designing periodic review tools to keep the strategy effective and adaptable.'
         ],
         [
             'id' => 'admin-3',
+            'pillar' => 'administrative',
             'title' => 'Digital Transformation Planning',
             'desc' => 'Analyzing procedures and setting digital priorities to raise efficiency.',
             'details' => 'We guide entities in digital transformation, analyzing current workflows and prioritizing digital initiatives by their impact on productivity, efficiency, and user satisfaction, establishing a strategic plan with KPIs tied to overall goals.'
         ],
         [
             'id' => 'admin-4',
+            'pillar' => 'administrative',
             'title' => 'Restructuring & Organization',
             'desc' => 'Designing structures, removing task duplication, and clarifying authorities.',
             'details' => 'We diagnose the current organizational structure, identifying overlapping roles, duplicated tasks, and wasted efforts. We design a structure fitting the organization\'s strategy and scale, defining clear roles and authorities, followed by a transition plan to ensure smooth implementation.'
         ],
         [
             'id' => 'admin-5',
+            'pillar' => 'administrative',
             'title' => 'Policies & Procedures Development',
             'desc' => 'Preparing and updating operating manuals and workflow governance.',
             'details' => 'We prepare clear operational policy and procedure manuals for different departments and review existing ones to align with system updates, reinforcing governance and workflow continuity.'
         ],
         [
             'id' => 'admin-6',
+            'pillar' => 'administrative',
             'title' => 'Project Management',
             'desc' => 'Planning schedules, budgets, and risk management.',
             'details' => 'We provide complete lifecycle project advisory: from scoping and task planning, to schedule and budget formulation, risk planning, and progress monitoring, in line with international best practices.'
         ],
         [
             'id' => 'admin-7',
+            'pillar' => 'administrative',
             'title' => 'Competency Development',
             'desc' => 'Training programs to address skill gaps.',
             'details' => 'We design training and knowledge transfer programs based on gap analysis. Covering leadership, management, and communication, we employ practical work simulations and measure direct training impact on job performance.'
         ],
         [
             'id' => 'admin-8',
+            'pillar' => 'administrative',
             'title' => 'Change Management',
             'desc' => 'Accompanying organizations during transformation via internal comms.',
             'details' => 'We guide organizations through transformation and restructuring via targeted internal communication plans, staff readiness programs, and mechanisms to address resistance and convert it into active participation.'
@@ -157,87 +176,163 @@ return [
     ],
 
     'pillar_2_title' => 'Media Consulting',
+    'pillar_2_desc' => 'We provide an integrated communication and media ecosystem spanning international and domestic reputation management, strategic comms, marketing campaigns, crisis handling, and digital production.',
     'pillar_2_services' => [
         [
             'id' => 'media-1',
-            'title' => 'International Reputation Management',
-            'desc' => 'Improving international reputation, monitoring, and global media relations.',
-            'details' => '• Public Diplomacy & International Reputation: We manage reputation and enhance international standing according to indices, deploying national programs with internal and external entities to target key pressure points.<br>• Reputation Monitoring & Analysis: Tracking global and local media, analyzing public sentiment, identifying gaps between current and target image, and monitoring competitors.<br>• Strategy & Corporate Messaging: Formulating the corporate narrative for international audiences, ensuring messages remain consistent across languages and markets, and prioritizing key audiences.<br>• Global Media Relations: Cultivating relationships with correspondents and editors in major global outlets, coordinating exclusive coverage, and managing op-ed placements.<br>• Stakeholder & Institutional Relations: Building channels with governments and international organizations, coordinating with influential think tanks, and supporting participation in global forums.<br>• International Crisis Management: Designing proactive crisis response plans, responding quickly to cross-border media crises, and protecting reputation during sensitive controversies.<br>• Content & Thought Leadership: Producing multilingual content including reports, articles, and press releases, positioning key executives as global thought leaders.<br>• Measurement & Evaluation: Periodically tracking reputation metrics to evaluate campaign impact and providing comparison reports.'
+            'pillar' => 'media',
+            'title' => 'Public Diplomacy & International Reputation Management',
+            'desc' => 'Improving international standing, monitoring, global media relations, decision-makers engagement, and international crises.',
+            'details' => 'We manage reputation and enhance international standing for countries and organizations according to global indices, deploying national programs with domestic and international entities to target key pressure points.',
+            'points' => [
+                'Public Diplomacy & International Reputation' => 'Managing reputation and enhancing international ranking across indices, and designing direct/third-party national initiatives to elevate global standing through our influential international media network.',
+                'Reputation Monitoring & Analysis' => 'Tracking global and local media across target markets, analyzing public sentiment, identifying gaps between current and target perception, and monitoring competitor discourse.',
+                'Strategy & Corporate Messaging' => 'Formulating unified corporate narratives for global audiences, ensuring consistency across languages and markets, and prioritizing target stakeholder segments.',
+                'Global Media Relations' => 'Cultivating relationships with correspondents and editors in top-tier global outlets, coordinating exclusive features, and placing thought leadership op-eds.',
+                'Relations with Decision Makers & Institutions' => 'Building communication channels with foreign governments, multilateral bodies, think tanks, and supporting active participation in global forums.',
+                'International Crisis Management' => 'Formulating proactive contingency response plans, responding rapidly to cross-border media crises, and shielding reputation in times of controversy.',
+                'Content & Thought Leadership' => 'Producing high-impact multilingual reports, articles, and press releases, positioning C-level leadership as recognized thought leaders globally.',
+                'Measurement & Evaluation' => 'Periodically monitoring international reputation metrics to assess campaign ROI and providing comparative pre- and post-intervention reports.'
+            ]
         ],
         [
             'id' => 'media-2',
+            'pillar' => 'media',
             'title' => 'Strategic Communication',
-            'desc' => 'Stakeholder mapping, corporate messaging, and digital execution.',
-            'details' => 'We enhance relationships between the organization and stakeholders (government, partners, clients) by designing public-private partnership initiatives, mapping stakeholders, and crafting unified corporate messaging across all platforms. Services include: situational analysis, stakeholder mapping, messaging formulation, image positioning, multi-channel execution, and periodic impact reviews.'
+            'desc' => 'Stakeholder mapping, corporate messaging, and multi-channel execution.',
+            'details' => 'We enhance relationships between the organization and stakeholders (government, partners, clients) by designing public-private partnership initiatives, mapping stakeholders, and crafting unified corporate messaging across all platforms.',
+            'points' => [
+                'Analyzing current organizational standing and competitive landscape',
+                'Comprehensive stakeholder mapping and influence prioritization',
+                'Crafting unified corporate core messages and positioning',
+                'Defining target mental image and perception goals',
+                'Effective execution across media and digital channels',
+                'Periodic communication impact measurement and optimization'
+            ]
         ],
         [
             'id' => 'media-3',
+            'pillar' => 'media',
             'title' => 'Communication & Marketing Strategies',
-            'desc' => 'Building marketing plans and internal/external comms campaigns.',
-            'details' => 'Internal, external, and media strategies are built on organization goals and precise audience understanding. We develop integrated brand marketing plans including market/competitor analysis, targeting, messaging, budgets, and KPIs. We have built over 100 communication plans covering internal comms, public relations, brand reputation, digital campaigns, and crisis strategies.'
+            'desc' => 'Building integrated marketing plans and internal/external comms campaigns.',
+            'details' => 'Internal, external, and media strategies are built on organization goals and precise audience understanding. We develop integrated brand marketing plans with clear budgets and measurable KPIs (participated in building over 100 strategic communication plans).',
+            'points' => [
+                'Internal communication and corporate culture enhancement',
+                'Targeted public relations and influential media visibility',
+                'Corporate and executive brand reputation management',
+                'Integrated communication campaigns and high-ROI digital marketing',
+                'Media crisis mitigation strategies and risk management',
+                'Specialized communication strategies for media centers and events'
+            ]
         ],
         [
             'id' => 'media-4',
+            'pillar' => 'media',
             'title' => 'Public Relations & Media',
-            'desc' => 'Press relations, media center management, and media training.',
-            'details' => 'We manage the full media role for organizations: media relations, writing press releases, arranging leader interviews, organizing press conferences, and managing digital presence. This includes local/international PR, corporate communication, event media center management, crisis handling, social media management, brand identity development, media training, and reporting.'
+            'desc' => 'Press relations, media center management, and spokesperson media training.',
+            'details' => 'We manage the full media role for organizations: media relations, writing press releases, arranging leader interviews, organizing press conferences, and managing digital presence.',
+            'points' => [
+                'Domestic and international public relations management',
+                'Integrated corporate communications for institutions',
+                'Media center operations for major summits and conferences',
+                'Executive and organizational reputation and visibility',
+                'Media campaigns and digital marketing execution',
+                'Strategic social media management and community engagement',
+                'Media documentation and creative design production',
+                'Corporate brand identity creation and development',
+                'Spokesperson and leadership media training',
+                'Multilingual content production and publishing',
+                'Proactive and reactive crisis management',
+                'Continuous media monitoring and analytical reporting'
+            ]
         ],
         [
             'id' => 'media-5',
+            'pillar' => 'media',
             'title' => 'Reputation & Presence Management',
-            'desc' => 'Monitoring digital reputation and managing media crises.',
-            'details' => 'We monitor the organization\'s public image in traditional and digital media, analyzing strengths and weaknesses, and building plans to bolster positive presence and address negative coverage, backed by periodic analysis reports. This spans international reputation, corporate presence, executive branding, and crisis mitigation.'
+            'desc' => 'Monitoring digital reputation, managing media crises, and tracking perception.',
+            'details' => 'We monitor the organization\'s public image in traditional and digital media, analyzing strengths and weaknesses, and building plans to bolster positive presence and address negative coverage, backed by periodic analysis reports.',
+            'points' => [
+                'Developing and managing international reputation for entities',
+                'Corporate reputation and media presence management',
+                'Personal reputation management for leadership and public figures',
+                'Media crisis management and reputation safeguarding',
+                'Digital reputation monitoring and protection'
+            ]
         ],
         [
             'id' => 'media-6',
+            'pillar' => 'media',
             'title' => 'Personal Branding',
-            'desc' => 'Building the personal brand for leaders and executives.',
-            'details' => 'We help entrepreneurs, executives, and public figures build their personal brand, align their presence with their expertise and values, and guide them through sensitive situations affecting public trust. This includes media monitoring, reputation evaluation, customized strategies, execution, and personal crisis advisory.'
+            'desc' => 'Building personal brands for leaders, executives, and entrepreneurs.',
+            'details' => 'We help entrepreneurs, executives, and public figures build their personal brand, align their presence with their expertise and values, and guide them through sensitive situations affecting public trust.',
+            'points' => [
+                'Media and social platform monitoring and analysis',
+                'Coverage analysis and current reputation evaluation',
+                'Formulating tailored personal branding strategies',
+                'Media presence management and full plan execution',
+                'Periodic monitoring reports and rapid personal crisis handling'
+            ]
         ],
         [
             'id' => 'media-7',
-            'title' => 'Content & Digital Production',
-            'desc' => 'Social media management, photography, and promotional films.',
+            'pillar' => 'media',
+            'title' => 'Media Crisis Management',
+            'desc' => 'Proactive response plans, spokesperson training, and real-time communication management.',
+            'details' => 'We formulate crisis response plans and scenarios before crises occur, train official spokespersons, and upon occurrence, manage communication step-by-step: crafting responses, timing, and channels to safeguard reputation and maintain public confidence.'
+        ],
+        [
+            'id' => 'media-8',
+            'pillar' => 'media',
+            'title' => 'Digital Content & Media Production',
+            'desc' => 'Social media management, professional photography, promotional films, and motion graphics.',
             'details' => 'We manage social media accounts with goal-oriented content plans, design and track digital campaigns, and produce high-quality media assets including event/project photography, corporate profiles, visual designs, and motion graphics.'
         ]
     ],
 
     'pillar_3_title' => 'Financial Consulting',
+    'pillar_3_desc' => 'We assist organizations in establishing sound financial management that protects resources, guides investments, and provides clarity for informed decisions.',
     'pillar_3_services' => [
         [
             'id' => 'finance-1',
+            'pillar' => 'financial',
             'title' => 'Financial Planning & Budgeting',
-            'desc' => 'Operating budgets, cash flows, and variance analysis.',
+            'desc' => 'Operating budgets, cash flow projections, and variance analysis.',
             'details' => 'We prepare operating budgets based on historical performance and future forecasts, build cash flow projections, allocate budgets to cost centers, and design monitoring tools to analyze variances and optimize resources.'
         ],
         [
             'id' => 'finance-2',
-            'title' => 'Feasibility Studies',
-            'desc' => 'Market study, costs, and financial projections.',
+            'pillar' => 'financial',
+            'title' => 'Economic Feasibility Studies',
+            'desc' => 'Market research, cost estimations, and financial forecasting (preliminary and detailed).',
             'details' => 'We prepare feasibility studies for new ventures and expansions: market/demand analysis, capital/operational cost estimation, financial forecasting, and sensitivity testing. Studies are built at two levels: preliminary assessments for go/no-go decisions, and detailed reports suitable for presentation to investors and partners.'
         ],
         [
             'id' => 'finance-3',
+            'pillar' => 'financial',
             'title' => 'Financial Restructuring',
-            'desc' => 'Financial rebalancing, cost rationalization, and liability rescheduling.',
+            'desc' => 'Restoring financial balance, expense rationalization, and debt rescheduling.',
             'details' => 'We analyze current financials (cash flows, cost structures, debt, asset efficiency) and set restructuring plans to restore balance by rationalizing expenses, improving efficiency, rescheduling obligations, and guiding implementation.'
         ],
         [
             'id' => 'finance-4',
-            'title' => 'Financial Performance Evaluation',
-            'desc' => 'Designing KPI dashboards and periodic reports.',
+            'pillar' => 'financial',
+            'title' => 'Financial Performance Evaluation & Reporting',
+            'desc' => 'Designing KPI dashboards and analytical financial reports.',
             'details' => 'We design custom financial reporting systems and KPI dashboards, analyzing periodic results to provide leadership and boards with clear insights supporting strategic objectives.'
         ],
         [
             'id' => 'finance-5',
-            'title' => 'Investment & Financing',
-            'desc' => 'Comparing financing options and preparing investor pitches.',
+            'pillar' => 'financial',
+            'title' => 'Investment & Financing Decisions Support',
+            'desc' => 'Evaluating financing options, assessing opportunities, and preparing investor pitches.',
             'details' => 'We help organizations evaluate financing options by cost and impact, analyze investment risks/returns, assist in preparing financial dossiers and pitches for investors, and lead negotiations to secure long-term favorable terms.'
         ],
         [
             'id' => 'finance-6',
-            'title' => 'Compliance & Governance',
-            'desc' => 'Adherence to accounting requirements and internal control systems.',
+            'pillar' => 'financial',
+            'title' => 'Financial Compliance & Governance',
+            'desc' => 'Adherence to accounting standards, internal controls, and delegated authorities.',
             'details' => 'We assist organizations in complying with regulatory and accounting standards, develop internal controls, delegate authorities, segregate duties, and establish financial governance that builds stakeholder trust.'
         ]
     ],
@@ -269,6 +364,9 @@ return [
     'language' => 'العربية',
     'footer_description' => 'A comprehensive consulting umbrella offering administrative, media, and financial solutions to meet your aspirations and build a sustainable impact.',
     'contact_us' => 'Contact Us',
+    'back_to_home' => 'Back to Home Page',
+    'download_profile' => 'Download Company Profile (PDF)',
+    'download_now' => 'Download Profile (PDF)',
     'all_rights_reserved' => 'All Rights Reserved',
 
     // Contact
