@@ -403,25 +403,25 @@
                     <svg class="w-full h-full text-secondary" viewBox="0 0 1000 500" fill="none" preserveAspectRatio="none">
                         <!-- Custom Arrowhead Markers with orient auto and sequential fade -->
                         <defs>
-                            <marker id="flow-arrow-1" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
-                                <path d="M 1 2 L 10 6 L 1 10 L 4 6 Z" fill="#bf9448" class="arrow-anim-1" />
+                            <marker id="flow-arrow-1" viewBox="0 0 12 12" refX="2" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+                                <path d="M 0 1.5 L 10 6 L 0 10.5 L 2.5 6 Z" fill="#bf9448" class="arrow-anim-1" />
                             </marker>
-                            <marker id="flow-arrow-2" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
-                                <path d="M 1 2 L 10 6 L 1 10 L 4 6 Z" fill="#bf9448" class="arrow-anim-2" />
+                            <marker id="flow-arrow-2" viewBox="0 0 12 12" refX="2" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+                                <path d="M 0 1.5 L 10 6 L 0 10.5 L 2.5 6 Z" fill="#bf9448" class="arrow-anim-2" />
                             </marker>
-                            <marker id="flow-arrow-3" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
-                                <path d="M 1 2 L 10 6 L 1 10 L 4 6 Z" fill="#bf9448" class="arrow-anim-3" />
+                            <marker id="flow-arrow-3" viewBox="0 0 12 12" refX="2" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+                                <path d="M 0 1.5 L 10 6 L 0 10.5 L 2.5 6 Z" fill="#bf9448" class="arrow-anim-3" />
                             </marker>
                         </defs>
 
                         <!-- Path 1 (Step 1 -> Step 2) -->
-                        <path d="M 195,165 C 225,195 245,235 270,270" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-1" marker-end="url(#flow-arrow-1)" />
+                        <path d="M 195,165 C 220,195 240,225 260,255" stroke="#bf9448" stroke-width="4.5" stroke-linecap="butt" class="path-anim-1" marker-end="url(#flow-arrow-1)" />
                         
                         <!-- Path 2 (Step 2 -> Step 3: Smooth wave curve WITHOUT loop) -->
-                        <path d="M 445,275 C 475,235 500,195 525,175" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-2" marker-end="url(#flow-arrow-2)" />
+                        <path d="M 445,275 C 470,235 495,200 515,185" stroke="#bf9448" stroke-width="4.5" stroke-linecap="butt" class="path-anim-2" marker-end="url(#flow-arrow-2)" />
                         
                         <!-- Path 3 (Step 3 -> Step 4) -->
-                        <path d="M 705,165 C 735,195 755,235 780,270" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-3" marker-end="url(#flow-arrow-3)" />
+                        <path d="M 705,165 C 730,195 750,225 770,255" stroke="#bf9448" stroke-width="4.5" stroke-linecap="butt" class="path-anim-3" marker-end="url(#flow-arrow-3)" />
                     </svg>
                 </div>
 
