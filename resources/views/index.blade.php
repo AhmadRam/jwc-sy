@@ -399,36 +399,36 @@
             <!-- Desktop Layout (>= 1024px: Winding Curve Roadmap) -->
             <div class="hidden lg:block lg:h-[540px] xl:h-[620px] relative w-full max-w-[1240px] mx-auto pt-6 pb-12">
                 <!-- Desktop Winding Connectors Layer -->
-                <div class="absolute inset-0 w-full h-full pointer-events-none z-0 rtl:-scale-x-100 origin-center">
+                <div class="absolute inset-0 w-full h-full pointer-events-none z-10 rtl:-scale-x-100 origin-center">
                     <svg class="w-full h-full text-secondary" viewBox="0 0 1000 520" fill="none" preserveAspectRatio="none">
                         <!-- Custom Arrowhead Markers with orient auto and sequential fade -->
                         <defs>
-                            <marker id="flow-arrow-1" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+                            <marker id="flow-arrow-1" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="9" markerHeight="9" orient="auto">
                                 <path d="M 1 2 L 10 6 L 1 10 L 4 6 Z" fill="#bf9448" class="arrow-anim-1" />
                             </marker>
-                            <marker id="flow-arrow-2" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+                            <marker id="flow-arrow-2" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="9" markerHeight="9" orient="auto">
                                 <path d="M 1 2 L 10 6 L 1 10 L 4 6 Z" fill="#bf9448" class="arrow-anim-2" />
                             </marker>
-                            <marker id="flow-arrow-3" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+                            <marker id="flow-arrow-3" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="9" markerHeight="9" orient="auto">
                                 <path d="M 1 2 L 10 6 L 1 10 L 4 6 Z" fill="#bf9448" class="arrow-anim-3" />
                             </marker>
                         </defs>
 
-                        <!-- Path 1 (Node 1 -> Node 2) -->
-                        <path d="M 175,150 C 235,175 255,305 320,355" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-1" marker-end="url(#flow-arrow-1)" />
+                        <!-- Path 1 (Node 1 border -> Node 2 border) -->
+                        <path d="M 200,185 C 230,215 245,255 270,290" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-1" marker-end="url(#flow-arrow-1)" />
                         
-                        <!-- Path 2 (Node 2 -> Node 3 - Loop-the-loop winding path!) -->
-                        <path d="M 430,335 C 500,320 530,175 480,185 C 440,195 470,305 565,180" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-2" marker-end="url(#flow-arrow-2)" />
+                        <!-- Path 2 (Node 2 border -> Loop -> Node 3 border) -->
+                        <path d="M 430,280 C 475,245 520,165 485,190 C 455,220 465,325 510,285 C 530,260 540,225 545,190" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-2" marker-end="url(#flow-arrow-2)" />
                         
-                        <!-- Path 3 (Node 3 -> Node 4) -->
-                        <path d="M 675,160 C 735,185 755,310 825,365" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-3" marker-end="url(#flow-arrow-3)" />
+                        <!-- Path 3 (Node 3 border -> Node 4 border) -->
+                        <path d="M 700,185 C 730,215 760,255 790,295" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-3" marker-end="url(#flow-arrow-3)" />
                     </svg>
                 </div>
 
                 @for($i=1; $i<=4; $i++)
-                <div class="absolute @if($i == 1) start-0 top-[4%] cloud-float-1 @elseif($i == 2) start-[25%] top-[48%] cloud-float-2 @elseif($i == 3) start-[51%] top-[6%] cloud-float-3 @elseif($i == 4) end-0 top-[50%] cloud-float-4 @endif" data-aos="zoom-in" data-aos-delay="{{ $i * 150 }}">
+                <div class="absolute z-20 @if($i == 1) start-0 top-[4%] cloud-float-1 @elseif($i == 2) start-[25%] top-[48%] cloud-float-2 @elseif($i == 3) start-[51%] top-[6%] cloud-float-3 @elseif($i == 4) end-0 top-[50%] cloud-float-4 @endif" data-aos="zoom-in" data-aos-delay="{{ $i * 150 }}">
                     <!-- Desktop Cloud Node -->
-                    <div class="w-[220px] h-[205px] lg:w-[230px] lg:h-[215px] xl:w-[275px] xl:h-[250px] 2xl:w-[288px] 2xl:h-[256px] glass-card flex flex-col items-center justify-center text-center p-4 lg:p-5 xl:p-7 relative group hover:border-secondary transition-all duration-500 shadow-2xl shadow-black/50 bg-gradient-to-br from-white/10 to-white/5 hover:scale-105 z-10 cursor-pointer cloud-shape-{{ $i }}">
+                    <div class="w-[220px] h-[205px] lg:w-[230px] lg:h-[215px] xl:w-[275px] xl:h-[250px] 2xl:w-[288px] 2xl:h-[256px] glass-card flex flex-col items-center justify-center text-center p-4 lg:p-5 xl:p-7 relative group hover:border-secondary transition-all duration-500 shadow-2xl shadow-black/80 bg-[#101b2d]/95 backdrop-blur-xl border border-white/15 hover:scale-105 cursor-pointer cloud-shape-{{ $i }}">
                         <!-- Step Badge -->
                         <div class="absolute -top-3 bg-secondary text-dark text-xs font-bold px-3.5 py-1 rounded-full shadow-lg uppercase tracking-wider">
                             {{ app()->getLocale() == 'ar' ? 'الخطوة' : 'Step' }} 0{{ $i }}
@@ -473,7 +473,7 @@
                 @for($i=1; $i<=4; $i++)
                 <div class="w-full flex flex-col items-center" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
                     <!-- Mobile Card -->
-                    <div class="w-full max-w-[290px] sm:max-w-xs h-auto min-h-[190px] glass-card flex flex-col items-center justify-center text-center p-6 relative group hover:border-secondary transition-all duration-300 shadow-xl bg-gradient-to-br from-white/10 to-white/5 cloud-shape-{{ $i }}">
+                    <div class="w-full max-w-[290px] sm:max-w-xs h-auto min-h-[190px] glass-card flex flex-col items-center justify-center text-center p-6 relative group hover:border-secondary transition-all duration-300 shadow-2xl shadow-black/80 bg-[#101b2d]/95 backdrop-blur-xl border border-white/15 cloud-shape-{{ $i }}">
                         <!-- Step Badge -->
                         <div class="absolute -top-3 bg-secondary text-dark text-xs sm:text-sm font-bold px-3.5 py-1 rounded-full shadow-lg uppercase tracking-wider">
                             {{ app()->getLocale() == 'ar' ? 'الخطوة' : 'Step' }} 0{{ $i }}
