@@ -325,65 +325,72 @@
             .cloud-float-3 { animation: float-cloud 5.5s ease-in-out infinite 0.5s; }
             .cloud-float-4 { animation: float-cloud 6.5s ease-in-out infinite 1.5s; }
 
-            /* Sequential Path Drawing & Arrowhead Fade animations */
-            @keyframes draw-1 {
-                0% { stroke-dashoffset: 400; opacity: 0; }
+            /* Fluid, Organic Path Drawing Animations (Exact 180px length for zero-delay start) */
+            @keyframes draw-path-1 {
+                0% { stroke-dashoffset: 180; opacity: 0; }
                 2% { opacity: 1; }
-                28% { stroke-dashoffset: 0; opacity: 1; }
-                90% { stroke-dashoffset: 0; opacity: 1; }
-                98%, 100% { stroke-dashoffset: 0; opacity: 0; }
+                24% { stroke-dashoffset: 0; opacity: 1; }
+                86% { stroke-dashoffset: 0; opacity: 1; }
+                95%, 100% { stroke-dashoffset: 0; opacity: 0; }
             }
-            @keyframes draw-2 {
-                0%, 28% { stroke-dashoffset: 400; opacity: 0; }
-                30% { opacity: 1; }
-                58% { stroke-dashoffset: 0; opacity: 1; }
-                90% { stroke-dashoffset: 0; opacity: 1; }
-                98%, 100% { stroke-dashoffset: 0; opacity: 0; }
+            @keyframes draw-path-2 {
+                0%, 24% { stroke-dashoffset: 180; opacity: 0; }
+                26% { opacity: 1; }
+                48% { stroke-dashoffset: 0; opacity: 1; }
+                86% { stroke-dashoffset: 0; opacity: 1; }
+                95%, 100% { stroke-dashoffset: 0; opacity: 0; }
             }
-            @keyframes draw-3 {
-                0%, 58% { stroke-dashoffset: 400; opacity: 0; }
-                60% { opacity: 1; }
-                88% { stroke-dashoffset: 0; opacity: 1; }
-                90% { stroke-dashoffset: 0; opacity: 1; }
-                98%, 100% { stroke-dashoffset: 0; opacity: 0; }
+            @keyframes draw-path-3 {
+                0%, 48% { stroke-dashoffset: 180; opacity: 0; }
+                50% { opacity: 1; }
+                72% { stroke-dashoffset: 0; opacity: 1; }
+                86% { stroke-dashoffset: 0; opacity: 1; }
+                95%, 100% { stroke-dashoffset: 0; opacity: 0; }
             }
 
-            @keyframes arrow-1 {
-                0%, 27% { opacity: 0; }
-                28%, 90% { opacity: 1; }
-                98%, 100% { opacity: 0; }
+            /* Smooth Blooming Arrowhead Animations (Fluid cubic fade-in with golden bloom glow) */
+            @keyframes arrow-bloom-1 {
+                0%, 19% { opacity: 0; filter: drop-shadow(0 0 0px transparent); transform: scale(0.4); }
+                24% { opacity: 1; filter: drop-shadow(0 0 8px rgba(191, 148, 72, 0.9)); transform: scale(1.15); }
+                28%, 86% { opacity: 1; filter: drop-shadow(0 0 3px rgba(191, 148, 72, 0.5)); transform: scale(1); }
+                95%, 100% { opacity: 0; filter: drop-shadow(0 0 0px transparent); }
             }
-            @keyframes arrow-2 {
-                0%, 57% { opacity: 0; }
-                58%, 90% { opacity: 1; }
-                98%, 100% { opacity: 0; }
+            @keyframes arrow-bloom-2 {
+                0%, 43% { opacity: 0; filter: drop-shadow(0 0 0px transparent); transform: scale(0.4); }
+                48% { opacity: 1; filter: drop-shadow(0 0 8px rgba(191, 148, 72, 0.9)); transform: scale(1.15); }
+                52%, 86% { opacity: 1; filter: drop-shadow(0 0 3px rgba(191, 148, 72, 0.5)); transform: scale(1); }
+                95%, 100% { opacity: 0; filter: drop-shadow(0 0 0px transparent); }
             }
-            @keyframes arrow-3 {
-                0%, 87% { opacity: 0; }
-                88%, 90% { opacity: 1; }
-                98%, 100% { opacity: 0; }
+            @keyframes arrow-bloom-3 {
+                0%, 67% { opacity: 0; filter: drop-shadow(0 0 0px transparent); transform: scale(0.4); }
+                72% { opacity: 1; filter: drop-shadow(0 0 8px rgba(191, 148, 72, 0.9)); transform: scale(1.15); }
+                76%, 86% { opacity: 1; filter: drop-shadow(0 0 3px rgba(191, 148, 72, 0.5)); transform: scale(1); }
+                95%, 100% { opacity: 0; filter: drop-shadow(0 0 0px transparent); }
             }
 
             .path-anim-1 {
-                stroke-dasharray: 400;
-                animation: draw-1 6s linear infinite;
+                stroke-dasharray: 180;
+                animation: draw-path-1 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
             }
             .path-anim-2 {
-                stroke-dasharray: 400;
-                animation: draw-2 6s linear infinite;
+                stroke-dasharray: 180;
+                animation: draw-path-2 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
             }
             .path-anim-3 {
-                stroke-dasharray: 400;
-                animation: draw-3 6s linear infinite;
+                stroke-dasharray: 180;
+                animation: draw-path-3 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
             }
             .arrow-anim-1 {
-                animation: arrow-1 6s linear infinite;
+                transform-origin: 2px 6px;
+                animation: arrow-bloom-1 6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
             }
             .arrow-anim-2 {
-                animation: arrow-2 6s linear infinite;
+                transform-origin: 2px 6px;
+                animation: arrow-bloom-2 6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
             }
             .arrow-anim-3 {
-                animation: arrow-3 6s linear infinite;
+                transform-origin: 2px 6px;
+                animation: arrow-bloom-3 6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
             }
         </style>
 
@@ -511,8 +518,8 @@
                     <div class="flex flex-col items-center my-3.5 h-12 w-8 relative z-0">
                         <svg class="w-full h-full text-secondary" viewBox="0 0 24 48" fill="none">
                             <defs>
-                                <marker id="flow-arrow-m-{{ $i }}" viewBox="0 0 12 12" refX="6" refY="9" markerWidth="6" markerHeight="6" orient="auto">
-                                    <path d="M 1 2 L 6 10 L 11 2 L 6 5 Z" fill="#bf9448" class="arrow-anim-{{ $i }}" />
+                                <marker id="flow-arrow-m-{{ $i }}" viewBox="0 0 12 12" refX="6" refY="2" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 1.5 0 L 6 10 L 10.5 0 L 6 2.5 Z" fill="#bf9448" class="arrow-anim-{{ $i }}" />
                                 </marker>
                             </defs>
                             <path d="M 12,0 L 12,38" stroke="#bf9448" stroke-width="3.5" stroke-dasharray="5 4" class="path-anim-{{ $i }}" marker-end="url(#flow-arrow-m-{{ $i }})" />
