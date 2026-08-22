@@ -399,29 +399,29 @@
             <!-- Desktop Layout (>= 1024px: Winding Curve Roadmap) -->
             <div class="hidden lg:block lg:h-[520px] xl:h-[580px] relative w-full max-w-[1240px] mx-auto pt-4 pb-8">
                 <!-- Desktop Winding Connectors Layer -->
-                <div class="absolute inset-0 w-full h-full pointer-events-none z-10 rtl:-scale-x-100 origin-center">
+                <div class="absolute inset-0 w-full h-full pointer-events-none z-30 rtl:-scale-x-100 origin-center">
                     <svg class="w-full h-full text-secondary" viewBox="0 0 1000 500" fill="none" preserveAspectRatio="none">
                         <!-- Custom Arrowhead Markers with orient auto and sequential fade -->
                         <defs>
-                            <marker id="flow-arrow-1" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+                            <marker id="flow-arrow-1" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
                                 <path d="M 1 2 L 10 6 L 1 10 L 4 6 Z" fill="#bf9448" class="arrow-anim-1" />
                             </marker>
-                            <marker id="flow-arrow-2" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+                            <marker id="flow-arrow-2" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
                                 <path d="M 1 2 L 10 6 L 1 10 L 4 6 Z" fill="#bf9448" class="arrow-anim-2" />
                             </marker>
-                            <marker id="flow-arrow-3" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+                            <marker id="flow-arrow-3" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
                                 <path d="M 1 2 L 10 6 L 1 10 L 4 6 Z" fill="#bf9448" class="arrow-anim-3" />
                             </marker>
                         </defs>
 
                         <!-- Path 1 (Step 1 -> Step 2) -->
-                        <path d="M 180,155 C 215,190 250,240 285,290" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-1" marker-end="url(#flow-arrow-1)" />
+                        <path d="M 195,165 C 225,195 245,235 270,270" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-1" marker-end="url(#flow-arrow-1)" />
                         
                         <!-- Path 2 (Step 2 -> Step 3: Smooth wave curve WITHOUT loop) -->
-                        <path d="M 430,290 C 465,240 505,190 545,155" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-2" marker-end="url(#flow-arrow-2)" />
+                        <path d="M 445,275 C 475,235 500,195 525,175" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-2" marker-end="url(#flow-arrow-2)" />
                         
                         <!-- Path 3 (Step 3 -> Step 4) -->
-                        <path d="M 690,155 C 725,190 760,240 795,290" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-3" marker-end="url(#flow-arrow-3)" />
+                        <path d="M 705,165 C 735,195 755,235 780,270" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-3" marker-end="url(#flow-arrow-3)" />
                     </svg>
                 </div>
 
