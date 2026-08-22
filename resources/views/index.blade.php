@@ -415,52 +415,52 @@
                         </defs>
 
                         <!-- Path 1 (Node 1 border -> Node 2 border) -->
-                        <path d="M 200,185 C 230,215 245,255 270,290" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-1" marker-end="url(#flow-arrow-1)" />
+                        <path d="M 165,150 C 205,185 235,245 275,295" stroke="#bf9448" stroke-width="4" stroke-linecap="round" class="path-anim-1" marker-end="url(#flow-arrow-1)" />
                         
-                        <!-- Path 2 (Node 2 border -> Loop -> Node 3 border) -->
-                        <path d="M 430,280 C 475,245 520,165 485,190 C 455,220 465,325 510,285 C 530,260 540,225 545,190" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-2" marker-end="url(#flow-arrow-2)" />
+                        <!-- Path 2 (Node 2 border -> Node 3 border - Smooth natural wave curve without loop) -->
+                        <path d="M 420,295 C 455,240 495,190 545,155" stroke="#bf9448" stroke-width="4" stroke-linecap="round" class="path-anim-2" marker-end="url(#flow-arrow-2)" />
                         
                         <!-- Path 3 (Node 3 border -> Node 4 border) -->
-                        <path d="M 700,185 C 730,215 760,255 790,295" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-3" marker-end="url(#flow-arrow-3)" />
+                        <path d="M 685,150 C 725,185 775,245 825,295" stroke="#bf9448" stroke-width="4" stroke-linecap="round" class="path-anim-3" marker-end="url(#flow-arrow-3)" />
                     </svg>
                 </div>
 
                 @for($i=1; $i<=4; $i++)
-                <div class="absolute z-20 @if($i == 1) start-0 top-[4%] cloud-float-1 @elseif($i == 2) start-[25%] top-[48%] cloud-float-2 @elseif($i == 3) start-[51%] top-[6%] cloud-float-3 @elseif($i == 4) end-0 top-[50%] cloud-float-4 @endif" data-aos="zoom-in" data-aos-delay="{{ $i * 150 }}">
+                <div class="absolute z-20 @if($i == 1) start-0 top-[5%] cloud-float-1 @elseif($i == 2) start-[27%] top-[52%] cloud-float-2 @elseif($i == 3) start-[53%] top-[5%] cloud-float-3 @elseif($i == 4) end-0 top-[52%] cloud-float-4 @endif" data-aos="zoom-in" data-aos-delay="{{ $i * 150 }}">
                     <!-- Desktop Cloud Node -->
-                    <div class="w-[220px] h-[205px] lg:w-[230px] lg:h-[215px] xl:w-[275px] xl:h-[250px] 2xl:w-[288px] 2xl:h-[256px] glass-card flex flex-col items-center justify-center text-center p-4 lg:p-5 xl:p-7 relative group hover:border-secondary transition-all duration-500 shadow-2xl shadow-black/80 bg-[#101b2d]/95 backdrop-blur-xl border border-white/15 hover:scale-105 cursor-pointer cloud-shape-{{ $i }}">
+                    <div class="w-[195px] h-[185px] lg:w-[210px] lg:h-[195px] xl:w-[235px] xl:h-[215px] 2xl:w-[250px] 2xl:h-[225px] glass-card flex flex-col items-center justify-center text-center p-3.5 lg:p-4 xl:p-5 relative group hover:border-secondary transition-all duration-500 shadow-2xl shadow-black/80 bg-[#101b2d]/95 backdrop-blur-xl border border-white/15 hover:scale-105 cursor-pointer cloud-shape-{{ $i }}">
                         <!-- Step Badge -->
                         <div class="absolute -top-3 bg-secondary text-dark text-xs font-bold px-3.5 py-1 rounded-full shadow-lg uppercase tracking-wider">
                             {{ app()->getLocale() == 'ar' ? 'الخطوة' : 'Step' }} 0{{ $i }}
                         </div>
 
                         <!-- Icon Container -->
-                        <div class="w-12 h-12 lg:w-13 lg:h-13 xl:w-16 xl:h-16 rounded-full bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary mb-3 xl:mb-4 group-hover:bg-secondary group-hover:text-dark group-hover:scale-110 transition-all duration-300">
+                        <div class="w-11 h-11 lg:w-12 lg:h-12 xl:w-14 xl:h-14 rounded-full bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary mb-2.5 xl:mb-3 group-hover:bg-secondary group-hover:text-dark group-hover:scale-110 transition-all duration-300">
                             @if($i == 1)
                             <!-- Chat/Meeting Icon -->
-                            <svg class="w-6 h-6 xl:w-8 xl:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-5 h-5 xl:w-7 xl:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                             </svg>
                             @elseif($i == 2)
                             <!-- Proposal/Document Icon -->
-                            <svg class="w-6 h-6 xl:w-8 xl:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-5 h-5 xl:w-7 xl:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                             </svg>
                             @elseif($i == 3)
                             <!-- Handshake/Agreement Icon -->
-                            <svg class="w-6 h-6 xl:w-8 xl:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-5 h-5 xl:w-7 xl:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                             </svg>
                             @elseif($i == 4)
                             <!-- Report/Followup Icon -->
-                            <svg class="w-6 h-6 xl:w-8 xl:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-5 h-5 xl:w-7 xl:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                             </svg>
                             @endif
                         </div>
 
                         <!-- Title -->
-                        <h4 class="text-xs sm:text-sm xl:text-base font-bold text-white mb-0 group-hover:text-secondary transition-colors px-2 leading-relaxed max-w-[180px] xl:max-w-[220px]">
+                        <h4 class="text-xs sm:text-sm xl:text-base font-bold text-white mb-0 group-hover:text-secondary transition-colors px-1.5 leading-relaxed max-w-[170px] xl:max-w-[200px]">
                             {{ __('app.journey_'.$i) }}
                         </h4>
                     </div>
