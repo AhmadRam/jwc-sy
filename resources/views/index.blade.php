@@ -397,10 +397,10 @@
             </div>
             
             <!-- Desktop Layout (>= 1024px: Winding Curve Roadmap) -->
-            <div class="hidden lg:block lg:h-[540px] xl:h-[620px] relative w-full max-w-[1240px] mx-auto pt-6 pb-12">
+            <div class="hidden lg:block lg:h-[520px] xl:h-[580px] relative w-full max-w-[1240px] mx-auto pt-4 pb-8">
                 <!-- Desktop Winding Connectors Layer -->
                 <div class="absolute inset-0 w-full h-full pointer-events-none z-10 rtl:-scale-x-100 origin-center">
-                    <svg class="w-full h-full text-secondary" viewBox="0 0 1000 520" fill="none" preserveAspectRatio="none">
+                    <svg class="w-full h-full text-secondary" viewBox="0 0 1000 500" fill="none" preserveAspectRatio="none">
                         <!-- Custom Arrowhead Markers with orient auto and sequential fade -->
                         <defs>
                             <marker id="flow-arrow-1" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="9" markerHeight="9" orient="auto">
@@ -414,28 +414,28 @@
                             </marker>
                         </defs>
 
-                        <!-- Path 1 (Node 1 border -> Node 2 border) -->
-                        <path d="M 165,150 C 205,185 235,245 275,295" stroke="#bf9448" stroke-width="4" stroke-linecap="round" class="path-anim-1" marker-end="url(#flow-arrow-1)" />
+                        <!-- Path 1 (Step 1 -> Step 2) -->
+                        <path d="M 180,155 C 215,190 250,240 285,290" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-1" marker-end="url(#flow-arrow-1)" />
                         
-                        <!-- Path 2 (Node 2 border -> Node 3 border - Smooth natural wave curve without loop) -->
-                        <path d="M 420,295 C 455,240 495,190 545,155" stroke="#bf9448" stroke-width="4" stroke-linecap="round" class="path-anim-2" marker-end="url(#flow-arrow-2)" />
+                        <!-- Path 2 (Step 2 -> Step 3: Smooth wave curve WITHOUT loop) -->
+                        <path d="M 430,290 C 465,240 505,190 545,155" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-2" marker-end="url(#flow-arrow-2)" />
                         
-                        <!-- Path 3 (Node 3 border -> Node 4 border) -->
-                        <path d="M 685,150 C 725,185 775,245 825,295" stroke="#bf9448" stroke-width="4" stroke-linecap="round" class="path-anim-3" marker-end="url(#flow-arrow-3)" />
+                        <!-- Path 3 (Step 3 -> Step 4) -->
+                        <path d="M 690,155 C 725,190 760,240 795,290" stroke="#bf9448" stroke-width="4.5" stroke-linecap="round" class="path-anim-3" marker-end="url(#flow-arrow-3)" />
                     </svg>
                 </div>
 
                 @for($i=1; $i<=4; $i++)
-                <div class="absolute z-20 @if($i == 1) start-0 top-[5%] cloud-float-1 @elseif($i == 2) start-[27%] top-[52%] cloud-float-2 @elseif($i == 3) start-[53%] top-[5%] cloud-float-3 @elseif($i == 4) end-0 top-[52%] cloud-float-4 @endif" data-aos="zoom-in" data-aos-delay="{{ $i * 150 }}">
+                <div class="absolute z-20 cloud-float-{{ $i }}" style="@if($i == 1) inset-inline-start: 1%; top: 6%; @elseif($i == 2) inset-inline-start: 26%; top: 50%; @elseif($i == 3) inset-inline-start: 52%; top: 6%; @elseif($i == 4) inset-inline-start: 77%; top: 50%; @endif" data-aos="zoom-in" data-aos-delay="{{ $i * 150 }}">
                     <!-- Desktop Cloud Node -->
-                    <div class="w-[195px] h-[185px] lg:w-[210px] lg:h-[195px] xl:w-[235px] xl:h-[215px] 2xl:w-[250px] 2xl:h-[225px] glass-card flex flex-col items-center justify-center text-center p-3.5 lg:p-4 xl:p-5 relative group hover:border-secondary transition-all duration-500 shadow-2xl shadow-black/80 bg-[#101b2d]/95 backdrop-blur-xl border border-white/15 hover:scale-105 cursor-pointer cloud-shape-{{ $i }}">
+                    <div class="w-[200px] h-[190px] xl:w-[230px] xl:h-[210px] glass-card flex flex-col items-center justify-center text-center p-3.5 xl:p-5 relative group hover:border-secondary transition-all duration-500 shadow-2xl shadow-black/80 bg-[#101b2d]/95 backdrop-blur-xl border border-white/15 hover:scale-105 cursor-pointer cloud-shape-{{ $i }}">
                         <!-- Step Badge -->
                         <div class="absolute -top-3 bg-secondary text-dark text-xs font-bold px-3.5 py-1 rounded-full shadow-lg uppercase tracking-wider">
                             {{ app()->getLocale() == 'ar' ? 'الخطوة' : 'Step' }} 0{{ $i }}
                         </div>
 
                         <!-- Icon Container -->
-                        <div class="w-11 h-11 lg:w-12 lg:h-12 xl:w-14 xl:h-14 rounded-full bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary mb-2.5 xl:mb-3 group-hover:bg-secondary group-hover:text-dark group-hover:scale-110 transition-all duration-300">
+                        <div class="w-11 h-11 xl:w-13 xl:h-13 rounded-full bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary mb-2.5 xl:mb-3 group-hover:bg-secondary group-hover:text-dark group-hover:scale-110 transition-all duration-300">
                             @if($i == 1)
                             <!-- Chat/Meeting Icon -->
                             <svg class="w-5 h-5 xl:w-7 xl:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -460,7 +460,7 @@
                         </div>
 
                         <!-- Title -->
-                        <h4 class="text-xs sm:text-sm xl:text-base font-bold text-white mb-0 group-hover:text-secondary transition-colors px-1.5 leading-relaxed max-w-[170px] xl:max-w-[200px]">
+                        <h4 class="text-xs sm:text-sm xl:text-base font-bold text-white mb-0 group-hover:text-secondary transition-colors px-1 leading-relaxed max-w-[170px] xl:max-w-[200px]">
                             {{ __('app.journey_'.$i) }}
                         </h4>
                     </div>
