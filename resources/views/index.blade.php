@@ -325,72 +325,72 @@
             .cloud-float-3 { animation: float-cloud 5.5s ease-in-out infinite 0.5s; }
             .cloud-float-4 { animation: float-cloud 6.5s ease-in-out infinite 1.5s; }
 
-            /* Fluid, Organic Path Drawing Animations (Exact 180px length for zero-delay start) */
+            /* Fluid, Organic Path Drawing Animations (4.5s total cycle) */
             @keyframes draw-path-1 {
                 0% { stroke-dashoffset: 180; opacity: 0; }
                 2% { opacity: 1; }
-                24% { stroke-dashoffset: 0; opacity: 1; }
-                86% { stroke-dashoffset: 0; opacity: 1; }
-                95%, 100% { stroke-dashoffset: 0; opacity: 0; }
+                22% { stroke-dashoffset: 0; opacity: 1; }
+                88% { stroke-dashoffset: 0; opacity: 1; }
+                96%, 100% { stroke-dashoffset: 0; opacity: 0; }
             }
             @keyframes draw-path-2 {
-                0%, 24% { stroke-dashoffset: 180; opacity: 0; }
-                26% { opacity: 1; }
-                48% { stroke-dashoffset: 0; opacity: 1; }
-                86% { stroke-dashoffset: 0; opacity: 1; }
-                95%, 100% { stroke-dashoffset: 0; opacity: 0; }
+                0%, 22% { stroke-dashoffset: 180; opacity: 0; }
+                24% { opacity: 1; }
+                46% { stroke-dashoffset: 0; opacity: 1; }
+                88% { stroke-dashoffset: 0; opacity: 1; }
+                96%, 100% { stroke-dashoffset: 0; opacity: 0; }
             }
             @keyframes draw-path-3 {
-                0%, 48% { stroke-dashoffset: 180; opacity: 0; }
-                50% { opacity: 1; }
-                72% { stroke-dashoffset: 0; opacity: 1; }
-                86% { stroke-dashoffset: 0; opacity: 1; }
-                95%, 100% { stroke-dashoffset: 0; opacity: 0; }
+                0%, 46% { stroke-dashoffset: 180; opacity: 0; }
+                48% { opacity: 1; }
+                70% { stroke-dashoffset: 0; opacity: 1; }
+                88% { stroke-dashoffset: 0; opacity: 1; }
+                96%, 100% { stroke-dashoffset: 0; opacity: 0; }
             }
 
-            /* Smooth Blooming Arrowhead Animations (Fluid cubic fade-in with golden bloom glow) */
+            /* Immediate & Rapid Arrowhead Entrance (Appears early as line approaches) */
             @keyframes arrow-bloom-1 {
-                0%, 19% { opacity: 0; filter: drop-shadow(0 0 0px transparent); transform: scale(0.4); }
-                24% { opacity: 1; filter: drop-shadow(0 0 8px rgba(191, 148, 72, 0.9)); transform: scale(1.15); }
-                28%, 86% { opacity: 1; filter: drop-shadow(0 0 3px rgba(191, 148, 72, 0.5)); transform: scale(1); }
-                95%, 100% { opacity: 0; filter: drop-shadow(0 0 0px transparent); }
+                0%, 8% { opacity: 0; filter: drop-shadow(0 0 0px transparent); transform: scale(0.3); }
+                16% { opacity: 1; filter: drop-shadow(0 0 8px rgba(191, 148, 72, 0.9)); transform: scale(1.15); }
+                22%, 88% { opacity: 1; filter: drop-shadow(0 0 3px rgba(191, 148, 72, 0.5)); transform: scale(1); }
+                96%, 100% { opacity: 0; filter: drop-shadow(0 0 0px transparent); }
             }
             @keyframes arrow-bloom-2 {
-                0%, 43% { opacity: 0; filter: drop-shadow(0 0 0px transparent); transform: scale(0.4); }
-                48% { opacity: 1; filter: drop-shadow(0 0 8px rgba(191, 148, 72, 0.9)); transform: scale(1.15); }
-                52%, 86% { opacity: 1; filter: drop-shadow(0 0 3px rgba(191, 148, 72, 0.5)); transform: scale(1); }
-                95%, 100% { opacity: 0; filter: drop-shadow(0 0 0px transparent); }
+                0%, 30% { opacity: 0; filter: drop-shadow(0 0 0px transparent); transform: scale(0.3); }
+                38% { opacity: 1; filter: drop-shadow(0 0 8px rgba(191, 148, 72, 0.9)); transform: scale(1.15); }
+                46%, 88% { opacity: 1; filter: drop-shadow(0 0 3px rgba(191, 148, 72, 0.5)); transform: scale(1); }
+                96%, 100% { opacity: 0; filter: drop-shadow(0 0 0px transparent); }
             }
             @keyframes arrow-bloom-3 {
-                0%, 67% { opacity: 0; filter: drop-shadow(0 0 0px transparent); transform: scale(0.4); }
-                72% { opacity: 1; filter: drop-shadow(0 0 8px rgba(191, 148, 72, 0.9)); transform: scale(1.15); }
-                76%, 86% { opacity: 1; filter: drop-shadow(0 0 3px rgba(191, 148, 72, 0.5)); transform: scale(1); }
-                95%, 100% { opacity: 0; filter: drop-shadow(0 0 0px transparent); }
+                0%, 54% { opacity: 0; filter: drop-shadow(0 0 0px transparent); transform: scale(0.3); }
+                62% { opacity: 1; filter: drop-shadow(0 0 8px rgba(191, 148, 72, 0.9)); transform: scale(1.15); }
+                70%, 88% { opacity: 1; filter: drop-shadow(0 0 3px rgba(191, 148, 72, 0.5)); transform: scale(1); }
+                96%, 100% { opacity: 0; filter: drop-shadow(0 0 0px transparent); }
             }
 
             .path-anim-1 {
                 stroke-dasharray: 180;
-                animation: draw-path-1 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+                animation: draw-path-1 4.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
             }
             .path-anim-2 {
                 stroke-dasharray: 180;
-                animation: draw-path-2 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+                animation: draw-path-2 4.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
             }
             .path-anim-3 {
                 stroke-dasharray: 180;
-                animation: draw-path-3 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+                animation: draw-path-3 4.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
             }
             .arrow-anim-1 {
                 transform-origin: 2px 6px;
-                animation: arrow-bloom-1 6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+                animation: arrow-bloom-1 4.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
             }
             .arrow-anim-2 {
                 transform-origin: 2px 6px;
-                animation: arrow-bloom-2 6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+                animation: arrow-bloom-2 4.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
             }
             .arrow-anim-3 {
                 transform-origin: 2px 6px;
-                animation: arrow-bloom-3 6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+                animation: arrow-bloom-3 4.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
             }
         </style>
 
