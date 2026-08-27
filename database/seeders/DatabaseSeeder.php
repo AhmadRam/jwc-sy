@@ -12,13 +12,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Check if admin exists
-        if (!\App\Models\User::where('email', 'admin@jwc.sa')->exists()) {
-            \App\Models\User::create([
+        \App\Models\User::updateOrCreate(
+            ['email' => 'admin@jwc-sy.com'],
+            [
                 'name' => 'Admin',
-                'email' => 'admin@jwc.sa',
-                'password' => bcrypt('jwc_admin159'),
-            ]);
-        }
+                'password' => \Illuminate\Support\Facades\Hash::make('jwc_admin159'),
+            ]
+        );
+
+        \App\Models\User::updateOrCreate(
+            ['email' => 'admin@jwc.sa'],
+            [
+                'name' => 'Admin',
+                'password' => \Illuminate\Support\Facades\Hash::make('jwc_admin159'),
+            ]
+        );
     }
 }
