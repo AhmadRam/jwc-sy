@@ -119,11 +119,8 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             @foreach($randomBlogs as $rBlog)
-                @php
-                    $rRoute = app()->getLocale() == 'en' ? 'blog.show_en' : 'blog.show';
-                @endphp
                 <article class="group bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-secondary/50 transition-all duration-500 flex flex-col h-full hover:shadow-[0_15px_30px_rgba(191,148,72,0.15)]" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
-                    <a href="{{ route($rRoute, $rBlog->slug) }}" class="block relative h-48 overflow-hidden">
+                    <a href="{{ route('blog.short', $rBlog->id) }}" class="block relative h-48 overflow-hidden">
                         @if($rBlog->image)
                             <img src="{{ asset('storage/' . $rBlog->image) }}" alt="{{ $rBlog->title }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         @else
@@ -139,7 +136,7 @@
                             <time datetime="{{ $rBlog->created_at->format('Y-m-d') }}">{{ $rBlog->created_at->format('Y-m-d') }}</time>
                         </div>
                         <h4 class="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-secondary transition-colors duration-300">
-                            <a href="{{ route($rRoute, $rBlog->slug) }}">{{ $rBlog->title }}</a>
+                            <a href="{{ route('blog.short', $rBlog->id) }}">{{ $rBlog->title }}</a>
                         </h4>
                         <p class="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2 flex-grow">
                             {{ \Str::limit(strip_tags($rBlog->content), 80) }}
