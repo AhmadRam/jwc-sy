@@ -20,6 +20,9 @@ Route::get('/', function () {
     return redirect('/ar');
 });
 
+// Blog Short URL Route
+Route::get('/b/{id}', [\App\Http\Controllers\BlogController::class, 'shortLink'])->name('blog.short');
+
 // Language Routes with Localization
 Route::group(['prefix' => 'ar', 'middleware' => ['web']], function () {
     // Set locale for Arabic routes

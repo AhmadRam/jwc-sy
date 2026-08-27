@@ -138,10 +138,56 @@
                         <input class="form-check-input ms-0 me-3" type="checkbox" role="switch" id="is_published" name="is_published" {{ $blog->is_published ? 'checked' : '' }} style="float: right;">
                         <label class="form-check-label pt-1" for="is_published" style="margin-right: 3rem;">تفعيل النشر</label>
                     </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold text-muted">رابط المقال (Slug)</label>
+                        <input type="text" name="slug" class="form-control @error('slug') is-invalid @enderror" value="{{ old('slug', $blog->slug) }}" placeholder="أدخل الرابط المخصص..." dir="ltr">
+                        <div class="form-text small">يمكنك تعديل الرابط أو كتابة رابط مخصص هنا.</div>
+                        @error('slug') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                    </div>
                     
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary btn-lg shadow-sm"><i class="bi bi-cloud-arrow-up me-1"></i> تحديث المقال</button>
                         <a href="{{ route('admin.blogs.index') }}" class="btn btn-light text-muted">إلغاء والعودة</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Links & Share Card -->
+            <div class="card mb-4">
+                <div class="card-header bg-white pt-4 pb-0 border-bottom-0">
+                    <h6 class="fw-bold text-dark"><i class="bi bi-share-fill text-primary me-2"></i> روابط المشاركة</h6>
+                </div>
+                <div class="card-body p-4">
+                    @php
+                        $shortUrl = route('blog.short', $blog->id);
+                        $fullUrl = route('blog.show', $blog->slug);
+                    @endphp
+                    
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold text-muted d-block">الرابط المختصر (للمشاركة السريعة):</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-sm bg-light" value="{{ $shortUrl }}" id="shortUrlInput" readonly dir="ltr">
+                            <button type="button" class="btn btn-sm btn-outline-primary copy-input-btn" data-target="shortUrlInput" title="نسخ">
+                                <i class="bi bi-clipboard"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label small fw-bold text-muted d-block">الرابط الكامل:</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-sm bg-light" value="{{ $fullUrl }}" id="fullUrlInput" readonly dir="ltr">
+                            <button type="button" class="btn btn-sm btn-outline-primary copy-input-btn" data-target="fullUrlInput" title="نسخ">
+                                <i class="bi bi-clipboard"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 text-center">
+                        <a href="{{ $fullUrl }}" target="_blank" class="btn btn-sm btn-light border text-primary w-100">
+                            <i class="bi bi-box-arrow-up-right me-1"></i> معاينة المقال في الموقع
+                        </a>
                     </div>
                 </div>
             </div>
@@ -169,4 +215,29 @@
         </div>
     </div>
 </form>
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.copy-input-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const input = document.getElementById(targetId);
+                if (input) {
+                    input.select();
+                    navigator.clipboard.writeText(input.value).then(() => {
+                        const icon = this.querySelector('i');
+                        icon.classList.remove('bi-clipboard');
+                        icon.classList.add('bi-check-lg', 'text-success');
+                        setTimeout(() => {
+                            icon.classList.remove('bi-check-lg', 'text-success');
+                            icon.classList.add('bi-clipboard');
+                        }, 2000);
+                    });
+                }
+            });
+        });
+    });
+</script>
+@endpush
 @endsection

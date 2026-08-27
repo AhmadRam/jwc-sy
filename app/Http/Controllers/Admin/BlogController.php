@@ -26,13 +26,14 @@ class BlogController extends Controller
         $request->validate([
             'title_ar' => 'required|string|max:255',
             'title_en' => 'nullable|string|max:255',
+            'slug' => 'nullable|string|max:255',
             'content_ar' => 'required',
             'content_en' => 'nullable',
             'image' => 'nullable|image|max:2048',
         ]);
 
         $data = $request->except('image');
-        $data['slug'] = Str::slug($request->title_en ?? $request->title_ar) . '-' . uniqid();
+        $data['slug'] = $this->generateUniqueSlug($request);
         $data['is_published'] = $request->has('is_published');
 
         if ($request->hasFile('image')) {
@@ -54,12 +55,16 @@ class BlogController extends Controller
         $request->validate([
             'title_ar' => 'required|string|max:255',
             'title_en' => 'nullable|string|max:255',
+            'slug' => 'nullable|string|max:255',
             'content_ar' => 'required',
             'content_en' => 'nullable',
             'image' => 'nullable|image|max:2048',
         ]);
 
         $data = $request->except('image');
+        if ($request->filled('slug') || empty($blog->slug)) {
+            $data['slug'] = $this->generateUniqueSlug($request, $blog->id);
+        }
         $data['is_published'] = $request->has('is_published');
 
         if ($request->hasFile('image')) {
@@ -72,6 +77,35 @@ class BlogController extends Controller
         $blog->update($data);
 
         return redirect()->route('admin.blogs.index')->with('success', 'تم تعديل المقال بنجاح');
+    }
+
+    /**
+     * Generate a unique, clean slug for blog
+     */
+    protected function generateUniqueSlug(Request $request, $excludeId = null)
+    {
+        if ($request->filled('slug')) {
+            $baseSlug = Str::slug($request->slug, '-', null);
+        } elseif ($request->filled('title_en')) {
+            $baseSlug = Str::slug($request->title_en);
+        } else {
+            $baseSlug = Str::slug($request->title_ar, '-', null);
+        }
+
+        if (empty(trim($baseSlug))) {
+            $baseSlug = 'post-' . time();
+        }
+
+        $slug = $baseSlug;
+        $count = 2;
+        while (Blog::where('slug', $slug)->when($excludeId, function($q) use ($excludeId) {
+            return $q->where('id', '!=', $excludeId);
+        })->exists()) {
+            $slug = $baseSlug . '-' . $count;
+            $count++;
+        }
+
+        return $slug;
     }
 
     public function destroy(Blog $blog)

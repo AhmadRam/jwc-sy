@@ -12,9 +12,17 @@
     <!-- Open Graph -->
     <meta property="og:title" content="@yield('page_title')">
     <meta property="og:description" content="@yield('meta_description', __('app.meta_description'))">
-    <meta property="og:image" content="{{ vasset('assets/img/og-image.jpg') }}">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:type" content="website">
+    <meta property="og:image" content="@yield('og_image', vasset('assets/img/og-image.jpg'))">
+    <meta property="og:url" content="@yield('og_url', url()->current())">
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:locale" content="{{ app()->getLocale() == 'ar' ? 'ar_SY' : 'en_US' }}">
+    @yield('extra_og_tags')
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('page_title')">
+    <meta name="twitter:description" content="@yield('meta_description', __('app.meta_description'))">
+    <meta name="twitter:image" content="@yield('og_image', vasset('assets/img/og-image.jpg'))">
 
     <!-- Favicons -->
     <link href="{{ vasset('assets/img/favicon.png') }}" rel="icon">

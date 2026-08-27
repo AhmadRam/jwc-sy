@@ -171,7 +171,7 @@
                     <div class="d-flex align-items-center">
                         <div class="d-flex align-items-center bg-light rounded-pill px-3 py-2 me-3 border">
                             <i class="bi bi-person-circle fs-5 me-2 text-primary"></i>
-                            <span class="fw-bold">{{ auth()->user()->name }}</span>
+                            <span class="fw-bold">{{ auth()->user()?->name ?? 'مدير النظام' }}</span>
                         </div>
                         <form action="{{ route('admin.logout') }}" method="POST">
                             @csrf

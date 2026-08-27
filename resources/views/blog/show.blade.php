@@ -1,6 +1,14 @@
 @extends('layout')
 
-@section('page_title', $page_title . ' - ' . (app()->getLocale() == 'en' ? 'JWC Blog' : 'مدونة JWC'))
+@section('page_title', $blog->title . ' - ' . (app()->getLocale() == 'en' ? 'JWC Blog' : 'مدونة JWC'))
+@section('meta_description', $meta_description)
+@section('og_image', $og_image)
+@section('og_type', 'article')
+
+@section('extra_og_tags')
+<meta property="article:published_time" content="{{ $blog->created_at->toIso8601String() }}">
+<meta property="article:section" content="{{ app()->getLocale() == 'en' ? 'Blog' : 'المدونة' }}">
+@endsection
 
 @section('content')
 <!-- Article Header -->
@@ -13,18 +21,32 @@
         <div class="max-w-4xl mx-auto text-center">
             @php
                 $route = app()->getLocale() == 'en' ? 'blog.index_en' : 'blog.index';
+                $shareUrl = $short_url ?? url()->current();
+                $encodedShareUrl = urlencode($shareUrl);
+                $encodedTitle = urlencode($blog->title);
             @endphp
-            <a href="{{ route($route) }}" class="inline-flex items-center gap-2 text-secondary hover:text-white transition-colors mb-8 font-bold text-sm bg-secondary/10 px-4 py-2 rounded-full border border-secondary/20 hover:bg-secondary/20 group">
-                <svg class="w-4 h-4 {{ app()->getLocale() == 'ar' ? 'rotate-180' : '' }} transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                {{ app()->getLocale() == 'en' ? 'Back to Blog' : 'العودة للمدونة' }}
-            </a>
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-8">
+                <a href="{{ route($route) }}" class="inline-flex items-center gap-2 text-secondary hover:text-white transition-colors font-bold text-sm bg-secondary/10 px-4 py-2 rounded-full border border-secondary/20 hover:bg-secondary/20 group">
+                    <svg class="w-4 h-4 {{ app()->getLocale() == 'ar' ? 'rotate-180' : '' }} transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    {{ app()->getLocale() == 'en' ? 'Back to Blog' : 'العودة للمدونة' }}
+                </a>
+
+                <button type="button" class="copy-link-btn inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors font-medium text-sm bg-white/5 px-4 py-2 rounded-full border border-white/10 hover:bg-white/10" data-url="{{ $shareUrl }}" title="{{ app()->getLocale() == 'en' ? 'Copy short link' : 'نسخ الرابط المختصر' }}">
+                    <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                    <span class="btn-copy-text">{{ app()->getLocale() == 'en' ? 'Copy Link' : 'نسخ الرابط' }}</span>
+                </button>
+            </div>
             
             <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg leading-tight">{{ $blog->title }}</h1>
             
-            <div class="flex items-center justify-center gap-4 text-gray-400 text-sm md:text-base font-medium">
+            <div class="flex flex-wrap items-center justify-center gap-3 md:gap-4 text-gray-400 text-sm md:text-base font-medium">
                 <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10 backdrop-blur-sm">
                     <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                     <time datetime="{{ $blog->created_at->format('Y-m-d') }}" dir="ltr">{{ $blog->created_at->format('Y / m / d') }}</time>
+                </div>
+                <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10 backdrop-blur-sm">
+                    <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>{{ $reading_time ?? 3 }} {{ app()->getLocale() == 'en' ? 'min read' : 'دقائق قراءة تقريباً' }}</span>
                 </div>
             </div>
         </div>
@@ -54,19 +76,29 @@
                     
                     <!-- Share & Actions -->
                     <div class="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
-                        <div class="flex items-center gap-4 bg-white/5 px-6 py-3 rounded-full border border-white/10">
+                        <div class="flex items-center gap-4 bg-white/5 px-6 py-3 rounded-full border border-white/10 flex-wrap">
                             <span class="text-sm font-bold text-gray-400 uppercase tracking-wider">{{ app()->getLocale() == 'en' ? 'Share' : 'مشاركة' }}</span>
                             <div class="w-px h-4 bg-white/20 mx-2"></div>
-                            <div class="flex gap-3">
-                                <a href="https://twitter.com/intent/tweet?url={{ url()->current() }}&text={{ urlencode($blog->title) }}" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-black hover:text-white transition-colors hover:shadow-lg" title="X (Twitter)">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                                </a>
-                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#1877F2] hover:text-white transition-colors hover:shadow-lg" title="Facebook">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-                                </a>
-                                <a href="https://wa.me/?text={{ urlencode($blog->title . ' ' . url()->current()) }}" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#25D366] hover:text-white transition-colors hover:shadow-lg flex-shrink-0" title="WhatsApp">
+                            <div class="flex items-center gap-3">
+                                <!-- WhatsApp -->
+                                <a href="https://wa.me/?text={{ $encodedTitle }}%20{{ $encodedShareUrl }}" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#25D366] hover:text-white transition-colors hover:shadow-lg flex-shrink-0" title="WhatsApp">
                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 001.333 4.993L2 22l5.233-1.237a9.994 9.994 0 004.779 1.216h.004c5.505 0 9.988-4.478 9.989-9.984 0-2.669-1.037-5.176-2.922-7.062A9.935 9.935 0 0012.012 2zM12.012 20.256h-.004a8.318 8.318 0 01-4.24-1.155l-.303-.18-3.147.744.825-3.072-.198-.314a8.272 8.272 0 01-1.278-4.471c0-4.582 3.73-8.314 8.318-8.314 2.221 0 4.307.865 5.877 2.435a8.261 8.261 0 012.434 5.882c-.001 4.583-3.73 8.315-8.318 8.315zm4.564-6.236c-.25-.125-1.482-.731-1.712-.814-.23-.083-.398-.125-.566.125-.167.25-.648.814-.794.981-.146.167-.292.188-.542.063-.25-.125-1.058-.39-2.016-1.246-.745-.666-1.25-1.488-1.396-1.738-.146-.25-.015-.385.11-.51.112-.112.25-.292.375-.438.125-.146.167-.25.25-.417.083-.167.042-.313-.021-.438-.063-.125-.566-1.365-.776-1.868-.204-.492-.41-.425-.566-.433-.146-.007-.313-.007-.48-.007s-.438.063-.667.313c-.23.25-.875.855-.875 2.085s.896 2.418 1.021 2.585c.125.167 1.76 2.688 4.261 3.768.596.257 1.06.411 1.423.526.598.19 1.141.163 1.57.099.479-.072 1.482-.605 1.692-1.19.21-.585.21-1.085.146-1.19-.062-.105-.229-.167-.479-.292z"/></svg>
                                 </a>
+
+                                <!-- X (Twitter) -->
+                                <a href="https://twitter.com/intent/tweet?url={{ $encodedShareUrl }}&text={{ $encodedTitle }}" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-black hover:text-white transition-colors hover:shadow-lg" title="X (Twitter)">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                </a>
+
+                                <!-- Facebook -->
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ $encodedShareUrl }}" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#1877F2] hover:text-white transition-colors hover:shadow-lg" title="Facebook">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                                </a>
+
+                                <!-- Copy Short Link -->
+                                <button type="button" class="copy-link-btn w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-secondary hover:text-white transition-colors hover:shadow-lg" data-url="{{ $shareUrl }}" title="{{ app()->getLocale() == 'en' ? 'Copy short link' : 'نسخ الرابط المختصر' }}">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -103,6 +135,9 @@
                     </a>
                     
                     <div class="p-6 flex flex-col flex-grow relative z-10">
+                        <div class="text-gray-400 text-xs mb-2">
+                            <time datetime="{{ $rBlog->created_at->format('Y-m-d') }}">{{ $rBlog->created_at->format('Y-m-d') }}</time>
+                        </div>
                         <h4 class="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-secondary transition-colors duration-300">
                             <a href="{{ route($rRoute, $rBlog->slug) }}">{{ $rBlog->title }}</a>
                         </h4>
@@ -248,4 +283,56 @@
         background: transparent !important;
     }
 </style>
+
+<!-- Copy Toast Notification -->
+<div id="copyToastSy" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-secondary text-white px-5 py-2.5 rounded-full shadow-2xl transition-all duration-300 opacity-0 pointer-events-none translate-y-4 flex items-center gap-2 text-sm font-bold border border-white/20">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+    <span>{{ app()->getLocale() == 'en' ? 'Short link copied!' : 'تم نسخ الرابط المختصر بنجاح!' }}</span>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const copyBtns = document.querySelectorAll('.copy-link-btn');
+        const toast = document.getElementById('copyToastSy');
+
+        copyBtns.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const url = this.getAttribute('data-url') || window.location.href;
+                
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard.writeText(url).then(showToast).catch(fallbackCopy);
+                } else {
+                    fallbackCopy(url);
+                }
+
+                function fallbackCopy(text) {
+                    const temp = document.createElement('input');
+                    temp.value = text;
+                    document.body.appendChild(temp);
+                    temp.select();
+                    try { document.execCommand('copy'); showToast(); } catch(err) {}
+                    document.body.removeChild(temp);
+                }
+
+                function showToast() {
+                    if (toast) {
+                        toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                        toast.classList.add('opacity-100', 'translate-y-0');
+                        setTimeout(function() {
+                            toast.classList.remove('opacity-100', 'translate-y-0');
+                            toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                        }, 2500);
+                    }
+                    const textSpan = btn.querySelector('.btn-copy-text');
+                    if (textSpan) {
+                        const original = textSpan.textContent;
+                        textSpan.textContent = '{{ app()->getLocale() == "en" ? "Copied!" : "تم النسخ!" }}';
+                        setTimeout(() => { textSpan.textContent = original; }, 2000);
+                    }
+                }
+            });
+        });
+    });
+</script>
 @endsection

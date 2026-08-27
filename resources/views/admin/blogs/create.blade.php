@@ -150,6 +150,13 @@
                         <input class="form-check-input ms-0 me-3" type="checkbox" role="switch" id="is_published" name="is_published" checked style="float: right;">
                         <label class="form-check-label pt-1" for="is_published" style="margin-right: 3rem;">نشر المقال فوراً</label>
                     </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold text-muted">رابط المقال (Slug) <small class="text-muted">(اختياري)</small></label>
+                        <input type="text" name="slug" class="form-control @error('slug') is-invalid @enderror" value="{{ old('slug') }}" placeholder="اتركه فارغاً للتوليد التلقائي..." dir="ltr">
+                        <div class="form-text small">إذا تركته فارغاً سيتم إنشاء رابط نظيف تلقائياً بناءً على العنوان.</div>
+                        @error('slug') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                    </div>
                     
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary btn-lg shadow-sm"><i class="bi bi-cloud-arrow-up me-1"></i> حفظ المقال</button>

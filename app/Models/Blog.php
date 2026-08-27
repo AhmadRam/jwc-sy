@@ -36,4 +36,10 @@ class Blog extends Model
         }
         return $this->content_ar;
     }
+
+    // Helper to get short link
+    public function getShortUrlAttribute()
+    {
+        return route('blog.short', $this->id);
+    }
 }
