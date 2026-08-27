@@ -13,16 +13,6 @@ class BlogController extends Controller
         return view('blog.index', compact('blogs'));
     }
 
-    public function showShort($id)
-    {
-        return $this->renderBlog($id);
-    }
-
-    public function shortLink($id)
-    {
-        return $this->showShort($id);
-    }
-
     public function show($slug)
     {
         $blog = Blog::where('slug', $slug)
@@ -32,27 +22,7 @@ class BlogController extends Controller
         if (!$blog->is_published && !auth()->check()) {
             abort(404);
         }
-
-        $params = request()->query();
-        return redirect()->route('blog.short', array_merge(['id' => $blog->id], $params), 301);
-    }
-
-    protected function renderBlog($idOrSlug)
-    {
-        $blog = Blog::where('id', $idOrSlug)
-            ->orWhere('slug', $idOrSlug)
-            ->firstOrFail();
-
-        if (!$blog->is_published && !auth()->check()) {
-            abort(404);
-        }
-
-        if (request()->has('lang')) {
-            app()->setLocale(request()->get('lang') === 'en' ? 'en' : 'ar');
-        } elseif (session()->has('locale')) {
-            app()->setLocale(session('locale'));
-        }
-
+        
         // SEO Meta
         $page_title = $blog->title;
         $meta_description = \Str::limit(strip_tags($blog->content), 160);
@@ -71,5 +41,21 @@ class BlogController extends Controller
             ->get();
         
         return view('blog.show', compact('blog', 'page_title', 'meta_description', 'og_image', 'short_url', 'reading_time', 'randomBlogs'));
+    }
+
+    public function shortLink($id)
+    {
+        $blog = Blog::where('id', $id)
+            ->orWhere('slug', $id)
+            ->firstOrFail();
+
+        if (!$blog->is_published && !auth()->check()) {
+            abort(404);
+        }
+
+        $locale = request()->get('lang', session('locale', 'ar'));
+        $routeName = $locale === 'en' ? 'blog.show_en' : 'blog.show';
+
+        return redirect()->route($routeName, $blog->slug, 301);
     }
 }

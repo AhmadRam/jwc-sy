@@ -27,7 +27,7 @@
                 @php
                     $route = app()->getLocale() == 'en' ? 'blog.show_en' : 'blog.show';
                 @endphp
-                <a href="{{ route('blog.short', $blog->id) }}" class="group block bg-[#0f2236] rounded-[1.5rem] overflow-hidden hover:-translate-y-2 transition-transform duration-300 border border-white/5 shadow-lg hover:shadow-2xl hover:border-white/10" data-aos="fade-up" data-aos-delay="{{ min($loop->iteration * 100, 400) }}">
+                <a href="{{ route($route, $blog->slug) }}" class="group block bg-[#0f2236] rounded-[1.5rem] overflow-hidden hover:-translate-y-2 transition-transform duration-300 border border-white/5 shadow-lg hover:shadow-2xl hover:border-white/10" data-aos="fade-up" data-aos-delay="{{ min($loop->iteration * 100, 400) }}">
                     
                     <!-- Image wrapper with internal padding to match the reference -->
                     <div class="p-3">
