@@ -53,8 +53,8 @@ class BlogController extends Controller
             abort(404);
         }
 
-        $locale = app()->getLocale() == 'en' ? 'en' : 'ar';
-        $routeName = $locale == 'en' ? 'blog.show_en' : 'blog.show';
+        $locale = request()->get('lang', session('locale', 'ar'));
+        $routeName = $locale === 'en' ? 'blog.show_en' : 'blog.show';
 
         return redirect()->route($routeName, $blog->slug, 301);
     }
