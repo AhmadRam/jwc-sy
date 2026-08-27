@@ -13,8 +13,12 @@
     <meta property="og:title" content="@yield('page_title')">
     <meta property="og:description" content="@yield('meta_description', __('app.meta_description'))">
     <meta property="og:image" content="@yield('og_image', vasset('assets/img/og-image.jpg'))">
+    <meta property="og:image:secure_url" content="@yield('og_image', vasset('assets/img/og-image.jpg'))">
+    <meta property="og:image:width" content="@yield('og_image_width', '1200')">
+    <meta property="og:image:height" content="@yield('og_image_height', '630')">
     <meta property="og:url" content="@yield('og_url', url()->current())">
     <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:site_name" content="JWC Syria">
     <meta property="og:locale" content="{{ app()->getLocale() == 'ar' ? 'ar_SY' : 'en_US' }}">
     @yield('extra_og_tags')
 
