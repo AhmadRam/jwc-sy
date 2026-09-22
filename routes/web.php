@@ -99,5 +99,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('users', \App\Http\Controllers\Admin\UserController::class)->except(['show', 'edit', 'update']);
         Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class)->except(['show']);
         Route::post('/blogs/upload-image', [\App\Http\Controllers\Admin\BlogController::class, 'uploadImage'])->name('blogs.uploadImage');
+        Route::post('/blogs/upload-file', [\App\Http\Controllers\Admin\BlogController::class, 'uploadFile'])->name('blogs.uploadFile');
     });
 });

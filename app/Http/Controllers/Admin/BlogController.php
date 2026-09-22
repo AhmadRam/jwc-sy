@@ -126,4 +126,41 @@ class BlogController extends Controller
         }
         return response()->json(['error' => 'No file uploaded'], 400);
     }
+
+    // Handle TinyMCE PDF and document upload
+    public function uploadFile(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,zip|max:51200',
+        ]);
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $originalName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = strtolower($file->getClientOriginalExtension());
+            $safeSlug = Str::slug($originalName);
+            if (empty(trim($safeSlug))) {
+                $safeSlug = 'document';
+            }
+            $filename = $safeSlug . '-' . time() . '.' . $extension;
+            $path = $file->storeAs('blogs/files', $filename, 'public');
+
+            $bytes = $file->getSize();
+            $units = ['B', 'KB', 'MB', 'GB'];
+            $i = 0;
+            while ($bytes >= 1024 && $i < count($units) - 1) {
+                $bytes /= 1024;
+                $i++;
+            }
+            $formattedSize = round($bytes, 1) . ' ' . $units[$i];
+
+            return response()->json([
+                'location' => asset('storage/' . $path),
+                'filename' => $file->getClientOriginalName(),
+                'size' => $formattedSize,
+                'extension' => $extension,
+            ]);
+        }
+        return response()->json(['error' => 'No file uploaded'], 400);
+    }
 }

@@ -272,15 +272,114 @@
         color: white;
     }
     
-    /* Override inline styles from editors that ruin dark mode */
-    .rich-text-content [style*="color:"] {
+    /* Override inline styles from editors that ruin dark mode (excluding PDF components) */
+    .rich-text-content :not(.blog-pdf-card):not(.blog-pdf-card *):not(.blog-pdf-embed-wrapper):not(.blog-pdf-embed-wrapper *)[style*="color:"] {
         color: inherit !important;
     }
-    .rich-text-content [style*="background-color:"] {
+    .rich-text-content :not(.blog-pdf-card):not(.blog-pdf-card *):not(.blog-pdf-embed-wrapper):not(.blog-pdf-embed-wrapper *)[style*="background-color:"] {
         background-color: transparent !important;
     }
-    .rich-text-content [style*="background:"] {
+    .rich-text-content :not(.blog-pdf-card):not(.blog-pdf-card *):not(.blog-pdf-embed-wrapper):not(.blog-pdf-embed-wrapper *)[style*="background:"] {
         background: transparent !important;
+    }
+
+    /* Blog PDF Attachment Card */
+    .rich-text-content .blog-pdf-card {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 16px !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-inline-start: 4px solid #ef4444 !important;
+        border-radius: 16px !important;
+        padding: 16px 20px !important;
+        margin: 24px 0 !important;
+        transition: all 0.3s ease !important;
+        backdrop-filter: blur(8px) !important;
+    }
+    .rich-text-content .blog-pdf-card:hover {
+        background: rgba(255, 255, 255, 0.08) !important;
+        border-color: rgba(239, 68, 68, 0.4) !important;
+        box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.2) !important;
+    }
+    .rich-text-content .blog-pdf-card .pdf-info-wrap {
+        display: flex !important;
+        align-items: center !important;
+        gap: 14px !important;
+        min-width: 0 !important;
+    }
+    .rich-text-content .blog-pdf-card .pdf-badge {
+        width: 46px !important;
+        height: 46px !important;
+        border-radius: 12px !important;
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+        color: #ffffff !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-weight: 800 !important;
+        font-size: 13px !important;
+        flex-shrink: 0 !important;
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35) !important;
+    }
+    .rich-text-content .blog-pdf-card .pdf-title {
+        font-weight: 700 !important;
+        font-size: 1.05rem !important;
+        color: #ffffff !important;
+        margin-bottom: 3px !important;
+    }
+    .rich-text-content .blog-pdf-card .pdf-meta {
+        font-size: 0.85rem !important;
+        color: #9ca3af !important;
+    }
+    .rich-text-content .blog-pdf-card .pdf-download-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+        color: #ffffff !important;
+        padding: 10px 20px !important;
+        border-radius: 10px !important;
+        font-size: 0.9rem !important;
+        font-weight: 700 !important;
+        text-decoration: none !important;
+        border: none !important;
+        transition: all 0.2s ease !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+    }
+    .rich-text-content .blog-pdf-card .pdf-download-btn:hover {
+        background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4) !important;
+        color: #ffffff !important;
+    }
+    @media (max-width: 640px) {
+        .rich-text-content .blog-pdf-card {
+            flex-direction: column !important;
+            align-items: stretch !important;
+        }
+        .rich-text-content .blog-pdf-card .pdf-download-btn {
+            justify-content: center !important;
+            width: 100% !important;
+        }
+    }
+    .rich-text-content .blog-pdf-embed-wrapper {
+        position: relative !important;
+        width: 100% !important;
+        height: 600px !important;
+        margin: 25px 0 !important;
+        border-radius: 16px !important;
+        overflow: hidden !important;
+        border: 1px solid rgba(255,255,255,0.15) !important;
+        background: rgba(0,0,0,0.3) !important;
+    }
+    .rich-text-content .blog-pdf-embed-wrapper iframe {
+        width: 100% !important;
+        height: 100% !important;
+        border: none !important;
+        margin: 0 !important;
     }
 </style>
 
