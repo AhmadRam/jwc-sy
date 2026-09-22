@@ -54,18 +54,18 @@
 </section>
 
 <!-- Main Content -->
-<section class="py-12 lg:py-20 relative z-10 -mt-28 lg:-mt-40">
-    <div class="container mx-auto px-6">
+<section class="py-8 md:py-12 lg:py-20 relative z-10 -mt-20 sm:-mt-24 md:-mt-28 lg:-mt-40">
+    <div class="container mx-auto px-4 sm:px-6">
         <div class="max-w-4xl mx-auto">
-            <article class="bg-white/5 border border-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+            <article class="bg-transparent md:bg-white/5 border-0 md:border md:border-white/10 backdrop-blur-none md:backdrop-blur-2xl rounded-none md:rounded-3xl shadow-none md:shadow-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                 @if($blog->image)
-                    <div class="w-full h-64 md:h-[400px] lg:h-[500px] relative border-b border-white/10">
-                        <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent"></div>
+                    <div class="w-full relative border-b-0 md:border-b md:border-white/10 overflow-hidden rounded-2xl md:rounded-none bg-black/20 md:bg-transparent">
+                        <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" class="w-full h-auto max-h-[85vh] md:h-[400px] lg:h-[500px] object-contain md:object-cover mx-auto">
+                        <div class="hidden md:block absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent"></div>
                     </div>
                 @endif
                 
-                <div class="p-8 md:p-12 lg:p-16">
+                <div class="px-0 py-6 sm:px-2 md:p-12 lg:p-16">
                     <div class="rich-text-content prose prose-invert prose-lg max-w-none">
                         @if(empty(trim(strip_tags($blog->content))))
                             <p class="text-gray-500 italic text-center">{{ app()->getLocale() == 'en' ? 'No content available.' : 'لا يوجد محتوى حالياً.' }}</p>
