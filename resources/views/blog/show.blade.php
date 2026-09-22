@@ -158,10 +158,22 @@
         color: #d1d5db;
         line-height: 2;
         font-size: 1.125rem;
+        text-align: justify;
+        text-justify: inter-word;
     }
     
     .rich-text-content p {
         margin-bottom: 1.75rem;
+        text-align: justify;
+        text-justify: inter-word;
+        text-align-last: start;
+    }
+
+    .rich-text-content li {
+        margin-bottom: 0.75rem;
+        text-align: justify;
+        text-justify: inter-word;
+        text-align-last: start;
     }
     
     .rich-text-content h1, 
@@ -170,6 +182,7 @@
     .rich-text-content h4, 
     .rich-text-content h5, 
     .rich-text-content h6 {
+        text-align: start;
         color: #ffffff;
         font-weight: 700;
         margin-top: 3rem;

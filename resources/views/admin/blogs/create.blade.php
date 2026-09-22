@@ -19,7 +19,9 @@
         file_picker_types: 'file image media',
         images_upload_credentials: true,
         content_style: `
-            body { font-family:Tajawal,Helvetica,Arial,sans-serif; font-size:16px; line-height: 1.8; color: #1e293b; }
+            body { font-family:Tajawal,Helvetica,Arial,sans-serif; font-size:16px; line-height: 1.8; color: #1e293b; text-align: justify; text-justify: inter-word; }
+            p, li { text-align: justify; text-justify: inter-word; text-align-last: start; }
+            h1, h2, h3, h4, h5, h6 { text-align: start; }
             .blog-pdf-card { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-inline-start: 4px solid #ef4444; border-radius: 14px; padding: 14px 18px; margin: 20px 0; font-family: Tajawal, sans-serif; }
             .blog-pdf-card .pdf-info-wrap { display: flex; align-items: center; gap: 14px; min-width: 0; }
             .blog-pdf-card .pdf-badge { width: 44px; height: 44px; border-radius: 10px; background: #ef4444; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0; }
