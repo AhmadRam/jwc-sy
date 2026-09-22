@@ -244,20 +244,18 @@
                                             <span>تحميل / قراءة</span>
                                         </a>
                                     </div>
-                                    <p><br></p>
                                 `;
                             } else if (displayMode === 'embed') {
                                 htmlToInsert = `
                                     <div class="blog-pdf-embed-wrapper">
                                         <iframe src="${fileUrl}#toolbar=1" width="100%" height="600px" style="border:none;"></iframe>
                                     </div>
-                                    <div style="text-align: center; margin: 12px 0 24px 0;">
+                                    <div style="text-align: center; margin: 12px 0 16px 0;">
                                         <a href="${fileUrl}" target="_blank" rel="noopener noreferrer" class="pdf-download-btn" style="display:inline-flex;align-items:center;gap:6px;background:#ef4444;color:#fff;padding:8px 18px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:700;">
                                             <svg style="width:16px;height:16px;fill:currentColor;" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
                                             <span>فتح أو تحميل ملف (${safeTitle})</span>
                                         </a>
                                     </div>
-                                    <p><br></p>
                                 `;
                             } else {
                                 htmlToInsert = `
