@@ -11,6 +11,7 @@
         selector: '.richtext',
         plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
         toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link insertpdf image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        toolbar_mode: 'sliding',
         language: 'ar',
         directionality: 'rtl',
         images_upload_url: '{{ route("admin.blogs.uploadImage") }}',
@@ -94,6 +95,14 @@
     });
 
     function openPdfModal() {
+        // Dismiss any open TinyMCE popovers/floating toolbars
+        document.querySelectorAll('.tox-pop').forEach(el => {
+            el.style.display = 'none';
+        });
+        if (activeTinyEditor) {
+            try { activeTinyEditor.fire('blur'); } catch (e) {}
+        }
+
         const modalEl = document.getElementById('pdfInsertModal');
         const modalInstance = bootstrap.Modal.getOrCreateInstance(modalEl);
         document.getElementById('pdfModalForm').reset();
@@ -317,6 +326,14 @@
         border-color: var(--primary);
     }
     .nav-tabs { border-bottom: 1px solid #e2e8f0; }
+
+    /* Ensure PDF modal and backdrop are always above TinyMCE toolbars & popovers */
+    #pdfInsertModal {
+        z-index: 99999 !important;
+    }
+    .modal-backdrop {
+        z-index: 99990 !important;
+    }
 </style>
 @endpush
 
