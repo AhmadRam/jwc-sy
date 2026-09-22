@@ -54,18 +54,18 @@
 </section>
 
 <!-- Main Content -->
-<section class="py-8 md:py-12 lg:py-20 relative z-10 -mt-20 md:-mt-28 lg:-mt-40">
+<section class="py-12 lg:py-20 relative z-10 -mt-24 md:-mt-28 lg:-mt-40">
     <div class="container mx-auto px-4 md:px-6">
         <div class="max-w-4xl mx-auto">
-            <article class="max-md:bg-transparent max-md:border-0 max-md:backdrop-blur-none max-md:rounded-none max-md:shadow-none bg-white/5 border border-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+            <article class="blog-main-article bg-white/5 border border-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                 @if($blog->image)
-                    <div class="w-full relative border-white/10 overflow-hidden max-md:rounded-2xl md:border-b md:h-[400px] lg:h-[500px]">
-                        <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" class="w-full max-md:h-auto max-md:max-h-[85vh] max-md:object-contain md:w-full md:h-full md:object-cover">
+                    <div class="blog-main-image-wrap w-full relative border-b border-white/10 overflow-hidden md:h-[400px] lg:h-[500px]">
+                        <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" class="w-full h-full object-cover">
                         <div class="hidden md:block absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent"></div>
                     </div>
                 @endif
                 
-                <div class="max-md:px-0 max-md:py-6 p-8 md:p-12 lg:p-16">
+                <div class="blog-main-content-wrap p-8 md:p-12 lg:p-16">
                     <div class="rich-text-content prose prose-invert prose-lg max-w-none">
                         @if(empty(trim(strip_tags($blog->content))))
                             <p class="text-gray-500 italic text-center">{{ app()->getLocale() == 'en' ? 'No content available.' : 'لا يوجد محتوى حالياً.' }}</p>
@@ -75,7 +75,7 @@
                     </div>
                     
                     <!-- Share & Actions -->
-                    <div class="mt-4 md:mt-16 pt-4 md:pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-6">
+                    <div class="blog-share-wrap mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
                         <div class="flex items-center gap-4 bg-white/5 px-6 py-3 rounded-full border border-white/10 flex-wrap">
                             <span class="text-sm font-bold text-gray-400 uppercase tracking-wider">{{ app()->getLocale() == 'en' ? 'Share' : 'مشاركة' }}</span>
                             <div class="w-px h-4 bg-white/20 mx-2"></div>
@@ -366,6 +366,39 @@
         }
     }
     @media (max-width: 767.98px) {
+        /* Mobile ONLY: Remove frame and borders */
+        article.blog-main-article {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border-radius: 0 !important;
+        }
+        .blog-main-image-wrap {
+            border-bottom: none !important;
+            border-radius: 1rem !important;
+            height: auto !important;
+        }
+        .blog-main-image-wrap img {
+            height: auto !important;
+            max-height: 85vh !important;
+            object-fit: contain !important;
+        }
+        .blog-main-image-wrap > div.absolute {
+            display: none !important;
+        }
+        .blog-main-content-wrap {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            padding-top: 1.5rem !important;
+            padding-bottom: 1.5rem !important;
+        }
+        .blog-share-wrap {
+            margin-top: 1.5rem !important;
+            padding-top: 1rem !important;
+        }
+
         /* Mobile ONLY: reduce gap above share buttons */
         .rich-text-content > *:last-child {
             margin-bottom: 0 !important;
