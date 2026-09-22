@@ -75,7 +75,7 @@
                     </div>
                     
                     <!-- Share & Actions -->
-                    <div class="blog-share-wrap mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div class="blog-share-wrap mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-6">
                         <div class="flex items-center gap-4 bg-white/5 px-6 py-3 rounded-full border border-white/10 flex-wrap">
                             <span class="text-sm font-bold text-gray-400 uppercase tracking-wider">{{ app()->getLocale() == 'en' ? 'Share' : 'مشاركة' }}</span>
                             <div class="w-px h-4 bg-white/20 mx-2"></div>
@@ -283,6 +283,18 @@
         background: transparent !important;
     }
 
+    /* Share section and content bottom spacing (desktop & general) */
+    .blog-share-wrap {
+        margin-top: 2rem !important;
+        padding-top: 1.5rem !important;
+    }
+    .rich-text-content > *:last-child {
+        margin-bottom: 0 !important;
+    }
+    .rich-text-content p:last-child {
+        margin-bottom: 0 !important;
+    }
+
     /* Blog PDF Attachment Card */
     .rich-text-content .blog-pdf-card {
         display: flex !important;
@@ -294,9 +306,12 @@
         border-inline-start: 4px solid #ef4444 !important;
         border-radius: 16px !important;
         padding: 16px 20px !important;
-        margin: 24px 0 !important;
+        margin: 20px 0 !important;
         transition: all 0.3s ease !important;
         backdrop-filter: blur(8px) !important;
+    }
+    .rich-text-content .blog-pdf-card:last-child {
+        margin-bottom: 0 !important;
     }
     .rich-text-content .blog-pdf-card:hover {
         background: rgba(255, 255, 255, 0.08) !important;
@@ -445,6 +460,20 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Clean up any trailing empty elements left by rich text editor at the end of article
+        const richContent = document.querySelector('.rich-text-content');
+        if (richContent) {
+            while (richContent.lastElementChild) {
+                const last = richContent.lastElementChild;
+                const text = (last.textContent || '').replace(/\u00a0/g, ' ').trim();
+                if ((last.tagName === 'P' || last.tagName === 'DIV') && text === '' && !last.querySelector('img, iframe, svg, video, audio, .blog-pdf-card, a')) {
+                    last.remove();
+                } else {
+                    break;
+                }
+            }
+        }
+
         const copyBtns = document.querySelectorAll('.copy-link-btn');
         const toast = document.getElementById('copyToastSy');
 
