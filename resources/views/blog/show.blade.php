@@ -160,8 +160,24 @@
         font-size: 1.125rem;
     }
     
+    .rich-text-content p:not([style*="text-align"]),
+    .rich-text-content li:not([style*="text-align"]),
+    .rich-text-content [style*="text-align: justify"],
+    .rich-text-content [style*="text-align:justify"] {
+        text-align: justify;
+        text-justify: inter-word;
+        text-align-last: start;
+        text-wrap: pretty;
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+    
     .rich-text-content p {
         margin-bottom: 1.75rem;
+    }
+
+    .rich-text-content li {
+        margin-bottom: 0.75rem;
     }
     
     .rich-text-content h1, 
@@ -170,6 +186,8 @@
     .rich-text-content h4, 
     .rich-text-content h5, 
     .rich-text-content h6 {
+        text-align: start;
+        text-wrap: balance;
         color: #ffffff;
         font-weight: 700;
         margin-top: 3rem;
