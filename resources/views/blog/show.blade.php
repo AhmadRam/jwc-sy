@@ -54,18 +54,18 @@
 </section>
 
 <!-- Main Content -->
-<section class="py-8 md:py-12 lg:py-20 relative z-10 -mt-20 sm:-mt-24 md:-mt-28 lg:-mt-40">
-    <div class="container mx-auto px-4 sm:px-6">
+<section class="py-8 md:py-12 lg:py-20 relative z-10 -mt-20 md:-mt-28 lg:-mt-40">
+    <div class="container mx-auto px-4 md:px-6">
         <div class="max-w-4xl mx-auto">
-            <article class="bg-transparent md:bg-white/5 border-0 md:border md:border-white/10 backdrop-blur-none md:backdrop-blur-2xl rounded-none md:rounded-3xl shadow-none md:shadow-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+            <article class="max-md:bg-transparent max-md:border-0 max-md:backdrop-blur-none max-md:rounded-none max-md:shadow-none bg-white/5 border border-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                 @if($blog->image)
-                    <div class="w-full relative border-b-0 md:border-b md:border-white/10 overflow-hidden rounded-2xl md:rounded-none bg-black/20 md:bg-transparent">
-                        <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" class="w-full h-auto max-h-[85vh] md:h-[400px] lg:h-[500px] object-contain md:object-cover mx-auto">
+                    <div class="w-full relative border-white/10 overflow-hidden max-md:rounded-2xl md:border-b md:h-[400px] lg:h-[500px]">
+                        <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" class="w-full max-md:h-auto max-md:max-h-[85vh] max-md:object-contain md:w-full md:h-full md:object-cover">
                         <div class="hidden md:block absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent"></div>
                     </div>
                 @endif
                 
-                <div class="px-0 py-6 sm:px-2 md:p-12 lg:p-16">
+                <div class="max-md:px-0 max-md:py-6 p-8 md:p-12 lg:p-16">
                     <div class="rich-text-content prose prose-invert prose-lg max-w-none">
                         @if(empty(trim(strip_tags($blog->content))))
                             <p class="text-gray-500 italic text-center">{{ app()->getLocale() == 'en' ? 'No content available.' : 'لا يوجد محتوى حالياً.' }}</p>
@@ -75,7 +75,7 @@
                     </div>
                     
                     <!-- Share & Actions -->
-                    <div class="mt-4 md:mt-8 pt-4 md:pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-6">
+                    <div class="mt-4 md:mt-16 pt-4 md:pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-6">
                         <div class="flex items-center gap-4 bg-white/5 px-6 py-3 rounded-full border border-white/10 flex-wrap">
                             <span class="text-sm font-bold text-gray-400 uppercase tracking-wider">{{ app()->getLocale() == 'en' ? 'Share' : 'مشاركة' }}</span>
                             <div class="w-px h-4 bg-white/20 mx-2"></div>
@@ -283,20 +283,6 @@
         background: transparent !important;
     }
 
-    /* Remove bottom gap from last elements before share section */
-    .rich-text-content > *:last-child {
-        margin-bottom: 0 !important;
-    }
-    .rich-text-content p:last-child {
-        margin-bottom: 0 !important;
-    }
-    .rich-text-content p:empty,
-    .rich-text-content p:has(> br:only-child):last-child {
-        display: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
     /* Blog PDF Attachment Card */
     .rich-text-content .blog-pdf-card {
         display: flex !important;
@@ -308,12 +294,9 @@
         border-inline-start: 4px solid #ef4444 !important;
         border-radius: 16px !important;
         padding: 16px 20px !important;
-        margin: 16px 0 !important;
+        margin: 24px 0 !important;
         transition: all 0.3s ease !important;
         backdrop-filter: blur(8px) !important;
-    }
-    .rich-text-content .blog-pdf-card:last-child {
-        margin-bottom: 0 !important;
     }
     .rich-text-content .blog-pdf-card:hover {
         background: rgba(255, 255, 255, 0.08) !important;
@@ -380,6 +363,27 @@
         .rich-text-content .blog-pdf-card .pdf-download-btn {
             justify-content: center !important;
             width: 100% !important;
+        }
+    }
+    @media (max-width: 767.98px) {
+        /* Mobile ONLY: reduce gap above share buttons */
+        .rich-text-content > *:last-child {
+            margin-bottom: 0 !important;
+        }
+        .rich-text-content p:last-child {
+            margin-bottom: 0 !important;
+        }
+        .rich-text-content p:empty,
+        .rich-text-content p:has(> br:only-child):last-child {
+            display: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .rich-text-content .blog-pdf-card {
+            margin: 14px 0 !important;
+        }
+        .rich-text-content .blog-pdf-card:last-child {
+            margin-bottom: 0 !important;
         }
     }
     .rich-text-content .blog-pdf-embed-wrapper {
