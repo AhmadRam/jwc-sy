@@ -172,6 +172,29 @@ return [
             'title' => 'Change Management',
             'desc' => 'Accompanying organizations during transformation via internal comms.',
             'details' => 'We guide organizations through transformation and restructuring via targeted internal communication plans, staff readiness programs, and mechanisms to address resistance and convert it into active participation.'
+        ],
+        [
+            'id' => 'admin-9',
+            'pillar' => 'administrative',
+            'title' => 'Cultural Localization',
+            'desc' => 'Communication Readiness Program for foreign companies to enter or expand in the Syrian market',
+            'details' => 'At JWC, we help foreign companies build an institutional presence that fits the Syrian market by understanding the local context and stakeholders, developing messages that express the company value and role, and aligning content, campaigns, and leadership appearances with the audience nature and expectations.
+
+The program combines JWC expertise in strategic communication and working with diverse governmental and private entities and leadership, and its local presence through its Syria branch to provide consulting that bridges company goals with the specificities of the Syrian market.
+
+The program localizes the way the company presents itself and communicates with its audience and stakeholders, including its messaging, content, and media interactions, while preserving the institutional identity and adapting its expression methods to strengthen its connection with the local context.',
+            'points' => [
+                'Communication & Cultural Readiness Assessment' => 'We evaluate the current communication system readiness for the Syrian market by reviewing institutional messages, introductory materials, content, channels, and communication tools, linking them to the company objectives and its market entry phase.',
+                'Communication Environment & Stakeholder Analysis' => 'We identify the key audience segments, stakeholders, and media outlets relevant to the company sector in Syria, drawing on our knowledge of the local Syrian market and context. This helps determine who to communicate with, what messages suit each segment, and the best channels to reach them.',
+                'Cultural & Strategic Alignment' => 'We help the company identify the most appropriate way to present itself in Syria, preserving its institutional identity while making its presence more relevant and connected to the local market.',
+                'Messaging Framework for the Syrian Market' => 'We develop a dedicated communication framework for the Syrian market that serves as a reference for teams, leadership, and official spokespersons, ensuring consistency across management, institutional communication, marketing, and media relations.',
+                'Cultural & Communication Review of Materials' => 'We review company materials before launch in the Syrian market to ensure cultural appropriateness, covering websites, apps, advertising campaigns, social media accounts, press releases, and images.',
+                'Cultural Localization of Messages & Content' => 'We translate strategy into practical application by reformulating and developing content targeted at the Syrian market, adapting it to the target audience while preserving brand identity. This includes institutional messages, campaigns, digital content, press releases, leadership content, and introductory materials.',
+                'Communication Risk & Opportunity Assessment' => 'We identify messages or elements that may cause misunderstanding or gaps in language, imagery, or campaigns, and identify opportunities to build trust and market connection, turning local knowledge into a communications advantage.',
+                'Media Training for Leadership & Spokespersons' => 'We prepare leadership and official spokespersons for communication with Syrian media and stakeholders, covering company presentation and handling questions, adapting the training whether for a media interview, conference, or stakeholder meeting.',
+                'Launch Support & Market Entry' => 'We develop a communication plan organizing the company presence before, during, and after market entry announcement, defining messages, audiences, channels, and timing, encompassing institutional announcements, media relations, executive visibility, digital content, and internal communication.',
+                'Ongoing Review & Local Advisory' => 'Localization needs continue after market entry, so we provide periodic review of content, campaigns, and materials before publication, alongside continuous support and advisory from a dedicated specialist team.'
+            ]
         ]
     ],
 
